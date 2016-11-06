@@ -1,5 +1,4 @@
 .metadata
-bin/
 tmp/
 *.tmp
 *.bak
@@ -51,3 +50,4 @@ local.properties
 
 # Mac
 .DS_Store
+/target/

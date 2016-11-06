@@ -1,9 +1,22 @@
 package ccsu.cs417.fall16.group4.main;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+/**
+ * 
+ * @author Edmir Alagic, Nilay Bhatt, Lukasz Brodowski, Deepankar Malhan,
+ *         Sabahudin Mujcinovic
+ */
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		Camera camera = new Camera();
+
+		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		Date date = new Date();
+		camera.takePicture(dateFormat.format(date) +".jpg");
 
 	}
 
