@@ -1,4 +1,4 @@
-package ccsu.cs417.fall16.group4.main;
+package edu.ccsu.cs417.fall16.group4.main;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
