@@ -9,14 +9,13 @@ import java.io.InputStreamReader;
 
 /**
  * This abstract class helps adapt code from different languages to java.
- * 
- * @author Nilay Bhatt
  *
  */
 public abstract class IAdapter {
 
 	/**
 	 * Executes a command line/terminal string that was passed in
+	 * 
 	 * @param str
 	 */
 	protected void execute(String str) {
@@ -25,12 +24,9 @@ public abstract class IAdapter {
 			Process pr = rt.exec(str);
 			BufferedReader input = new BufferedReader(new InputStreamReader(pr.getInputStream()));
 			String line;
-			try {
-				while ((line = input.readLine()) != null)
-					System.out.println(line);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+			
+			while ((line = input.readLine()) != null)
+				System.out.println(line);
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

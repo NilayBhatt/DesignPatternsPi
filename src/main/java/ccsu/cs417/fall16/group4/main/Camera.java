@@ -4,8 +4,6 @@ package ccsu.cs417.fall16.group4.main;
 /**
  * Adapter class that calls a python program on raspberrypi to take a picture
  * using the camera attached to it.
- * 
- * @author Nilay Bhatt
  *
  */
 public class Camera extends IAdapter {
