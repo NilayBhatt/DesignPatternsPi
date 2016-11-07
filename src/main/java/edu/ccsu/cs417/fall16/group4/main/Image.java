@@ -59,18 +59,17 @@ public class Image {
 		
 		if(!(image instanceof Image)) {
 			
-		return false;
+			return false;
 		}
 		
 		Image otherImage = (Image) image;
 		
-		if(this.getName().equalsIgnoreCase(otherImage.getName())) {
-			return true;
-		}
-		
-		return false;
-		}
+		if(! this.getName().equals(otherImage.getName())) {
 			
+			return false;
+		}
 		
+		return true;
 	}
+			
 }

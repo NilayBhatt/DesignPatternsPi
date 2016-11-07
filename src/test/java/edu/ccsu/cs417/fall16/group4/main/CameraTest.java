@@ -15,12 +15,12 @@ public class CameraTest {
 		boolean returnValue = false;
 		if (!System.getProperty("os.name").equals("Linux")) {
 			assertEquals(true, true);
-		} else {
+		} 
+		else {
 			Camera cameraTest = new Camera();
 
 			try {
-				// TODO : NILAY
-				//cameraTest.takePicture("testPic.jpg");
+				Image imageTest = cameraTest.takePicture("testPic.jpg");
 
 				Path currentRelativePath = Paths.get("");
 				String s = currentRelativePath.toAbsolutePath().toString();
@@ -35,6 +35,10 @@ public class CameraTest {
 					fail("Camera Did not take picture");
 				}
 			} catch (CannotTakePictureException e) {
+				fail("Failed the test");
+				e.printStackTrace();
+			}
+			catch (WrongOSException e) {
 				fail("Failed the test");
 				e.printStackTrace();
 			}
