@@ -1,6 +1,7 @@
 package edu.ccsu.cs417.fall16.group4.main;
 
 /**
+ * Runs the application to take a picture 10 times before ending.
  * 
  * @author Edmir Alagic, Nilay Bhatt, Lukasz Brodowski, Deepankar Malhan,
  *         Sabahudin Mujcinovic

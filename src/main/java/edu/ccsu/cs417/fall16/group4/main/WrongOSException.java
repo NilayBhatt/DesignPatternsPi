@@ -1,3 +1,8 @@
+/**
+ * Exception class thrown when OS that the application is running on is not Linux.
+ * 
+ * @author Deepankar Malhan, Edmir Alagic, Lukasz Brodowski, Nilay Bhatt, Sabahudin Mujcinovic
+ */
 package edu.ccsu.cs417.fall16.group4.main;
 
 import java.io.IOException;
@@ -8,9 +13,6 @@ public class WrongOSException extends IOException {
 		super(string);
 	}
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 }
