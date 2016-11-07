@@ -16,7 +16,12 @@ public class Main {
 
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		Date date = new Date();
-		camera.takePicture(dateFormat.format(date) +".jpg");
+		try {
+			camera.takePicture(dateFormat.format(date) +".jpg");
+		} catch (CannotTakePictureException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 

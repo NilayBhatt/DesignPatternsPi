@@ -11,27 +11,20 @@ import java.io.InputStreamReader;
  * This abstract class helps adapt code from different languages to java.
  *
  */
-public abstract class IAdapter {
+public abstract class CommandLineAdapter {
 
 	/**
 	 * Executes a command line/terminal string that was passed in
 	 * 
 	 * @param str
+	 * @throws IOException 
 	 */
-	protected void execute(String str) {
+	protected final BufferedReader execute(String str) throws IOException {
 		Runtime rt = Runtime.getRuntime();
-		try {
 			Process pr = rt.exec(str);
 			BufferedReader input = new BufferedReader(new InputStreamReader(pr.getInputStream()));
-			String line;
 			
-			while ((line = input.readLine()) != null)
-				System.out.println(line);
-
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+			return input;
 	}
 
 }
