@@ -2,6 +2,7 @@
 package edu.ccsu.cs417.fall16.group4.main;
 
 import java.io.IOException;
+import java.util.Objects;
 
 /**
  * Adapter class that calls a python program on raspberrypi to take a picture
@@ -18,6 +19,7 @@ public class Camera extends CommandLineAdapter {
 	 * @return picture name
 	 */
 	public String getPictureName() {
+		
 		return pictureName;
 	}
 
@@ -27,28 +29,32 @@ public class Camera extends CommandLineAdapter {
 	 * @param pictureName
 	 */
 	private void setPictureName(String pictureName) {
-		this.pictureName = pictureName;
+		this.pictureName = pictureName + ".jpg";
 	}
 
 	/**
 	 * This method takes a picture using the camera attached to the raspberrypi.
 	 * 
 	 * @param picName
-	 * @throws CannotTakePictureException
+	 * @throws WrongOSException 
+	 * @throws CannotTakePictureException 
+	 * @throws Exception 
 	 */
-	public void takePicture(String picName) throws CannotTakePictureException {
+	public Image takePicture(String picName) throws WrongOSException, CannotTakePictureException  {
 		setPictureName(picName);
-		if (System.getProperty("os.name").equals("Linux")) {
-			String exec = buildTakePictureString();
-
-			try {
-				execute(exec);
-			} catch (IOException e) {
-				throw new CannotTakePictureException("Something went wrong with the Camera!", e);
-			}
-		} else {
-			System.out.println("Cannot take picure, OS not compatible!");
+		
+		if (! System.getProperty("os.name").equals("Linux")) {
+			throw new WrongOSException("Not Linux sorry.");
 		}
+		
+		String exec = buildCommand();
+		try {
+			execute(exec);
+		} catch (IOException e) {
+			throw new CannotTakePictureException("Something went wrong with the Camera!", e);
+		}
+		
+		return new Image(this.pictureName);
 	}
 
 	/**
@@ -56,9 +62,9 @@ public class Camera extends CommandLineAdapter {
 	 * 
 	 * @return executable string
 	 */
-	private String buildTakePictureString() {
+	private String buildCommand() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("raspistill -o ");
+		sb.append("raspistill -vf -hf -o ");
 		sb.append(pictureName);
 
 		return sb.toString();
@@ -71,10 +77,8 @@ public class Camera extends CommandLineAdapter {
 	 */
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((pictureName == null) ? 0 : pictureName.hashCode());
-		return result;
+		
+		return Objects.hash("raspistill", this.pictureName);
 	}
 
 	/**
@@ -84,18 +88,19 @@ public class Camera extends CommandLineAdapter {
 	 */
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
+		
+		if (! (obj instanceof Camera)) {
+			
 			return false;
-		if (getClass() != obj.getClass())
+		}
+		
+		Camera a = (Camera) obj;
+		
+		if (! a.getPictureName().equals(this.getPictureName())) {
+			
 			return false;
-		Camera other = (Camera) obj;
-		if (pictureName == null) {
-			if (other.pictureName != null)
-				return false;
-		} else if (!pictureName.equals(other.pictureName))
-			return false;
+		}
+		
 		return true;
 	}
 

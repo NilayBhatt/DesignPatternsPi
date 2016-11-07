@@ -19,7 +19,8 @@ public class CameraTest {
 			Camera cameraTest = new Camera();
 
 			try {
-				cameraTest.takePicture("testPic.jpg");
+				// TODO : NILAY
+				//cameraTest.takePicture("testPic.jpg");
 
 				Path currentRelativePath = Paths.get("");
 				String s = currentRelativePath.toAbsolutePath().toString();
