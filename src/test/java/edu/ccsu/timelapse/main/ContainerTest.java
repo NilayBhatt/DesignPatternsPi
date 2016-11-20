@@ -2,6 +2,7 @@ package edu.ccsu.timelapse.main;
 
 import org.junit.Test;
 
+import edu.ccsu.timelapse.event.EventDispatcher;
 import edu.ccsu.timelapse.main.Container;
 import edu.ccsu.timelapse.main.Image;
 
@@ -19,7 +20,7 @@ public class ContainerTest {
 			return;
 		} 
 		
-		Container container = new Container();
+		Container container = new Container(new Camera(), new EventDispatcher());
 		ArrayList<Image> images;
 		try {
 			container.run(1);
