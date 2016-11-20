@@ -3,7 +3,7 @@
  * 
  * @author Deepankar Malhan, Edmir Alagic, Lukasz Brodowski, Nilay Bhatt, Sabahudin Mujcinovic
  */
-package edu.ccsu.timelapse.main;
+package edu.ccsu.timelapse.adapters;
 
 import java.io.BufferedReader;
 import java.io.IOException;

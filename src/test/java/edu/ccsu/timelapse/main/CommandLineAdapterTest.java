@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
-import edu.ccsu.timelapse.main.CommandLineAdapter;
+import edu.ccsu.timelapse.adapters.CommandLineAdapter;
 
 public class CommandLineAdapterTest {
 

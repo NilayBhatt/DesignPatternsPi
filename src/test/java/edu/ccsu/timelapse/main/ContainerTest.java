@@ -2,9 +2,10 @@ package edu.ccsu.timelapse.main;
 
 import org.junit.Test;
 
+import edu.ccsu.timelapse.components.Camera;
 import edu.ccsu.timelapse.event.EventDispatcher;
 import edu.ccsu.timelapse.main.Container;
-import edu.ccsu.timelapse.main.Image;
+import edu.ccsu.timelapse.models.Image;
 
 import java.util.ArrayList;
 

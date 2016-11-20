@@ -1,5 +1,6 @@
 package edu.ccsu.timelapse.main;
 
+import edu.ccsu.timelapse.components.Camera;
 import edu.ccsu.timelapse.event.EventDispatcher;
 
 /**

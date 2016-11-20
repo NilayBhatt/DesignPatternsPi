@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
-import edu.ccsu.timelapse.main.Image;
+import edu.ccsu.timelapse.models.Image;
 
 public class ImageTest {
 

@@ -4,10 +4,15 @@
  * 
  * @author Deepankar Malhan, Edmir Alagic, Lukasz Brodowski, Nilay Bhatt, Sabahudin Mujcinovic
  */
-package edu.ccsu.timelapse.main;
+package edu.ccsu.timelapse.components;
 
 import java.io.IOException;
 import java.util.Objects;
+
+import edu.ccsu.timelapse.adapters.CommandLineAdapter;
+import edu.ccsu.timelapse.exceptions.CannotTakePictureException;
+import edu.ccsu.timelapse.exceptions.WrongOSException;
+import edu.ccsu.timelapse.models.Image;
 
 public class Camera extends CommandLineAdapter {
 

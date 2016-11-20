@@ -3,7 +3,7 @@
  * 
  * @author Deepankar Malhan, Edmir Alagic, Lukasz Brodowski, Nilay Bhatt, Sabahudin Mujcinovic
  */
-package edu.ccsu.timelapse.main;
+package edu.ccsu.timelapse.models;
 
 import java.util.Date;
 import java.util.Objects;

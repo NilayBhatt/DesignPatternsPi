@@ -8,10 +8,10 @@ import java.nio.file.Paths;
 
 import org.junit.Test;
 
-import edu.ccsu.timelapse.main.Camera;
-import edu.ccsu.timelapse.main.CannotTakePictureException;
-import edu.ccsu.timelapse.main.Image;
-import edu.ccsu.timelapse.main.WrongOSException;
+import edu.ccsu.timelapse.components.Camera;
+import edu.ccsu.timelapse.exceptions.CannotTakePictureException;
+import edu.ccsu.timelapse.exceptions.WrongOSException;
+import edu.ccsu.timelapse.models.Image;
 
 public class CameraTest {
 

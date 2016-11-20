@@ -9,10 +9,14 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Objects;
 
+import edu.ccsu.timelapse.components.Camera;
 import edu.ccsu.timelapse.event.EventDispatcher;
 import edu.ccsu.timelapse.events.TemperatureChange;
+import edu.ccsu.timelapse.exceptions.CannotTakePictureException;
+import edu.ccsu.timelapse.exceptions.WrongOSException;
 import edu.ccsu.timelapse.listeners.HueEditorListener;
 import edu.ccsu.timelapse.listeners.contracts.TemperatureListener;
+import edu.ccsu.timelapse.models.Image;
 
 public class Container {
 	
