@@ -1,6 +1,9 @@
-package edu.ccsu.cs417.fall16.group4.main;
+package edu.ccsu.timelapse.main;
 
 import org.junit.Test;
+
+import edu.ccsu.timelapse.main.Container;
+import edu.ccsu.timelapse.main.Image;
 
 import java.util.ArrayList;
 
