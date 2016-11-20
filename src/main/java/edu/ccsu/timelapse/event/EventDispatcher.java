@@ -1,4 +1,4 @@
-package edu.ccsu.cs417.fall16.group4.event;
+package edu.ccsu.timelapse.event;
 
 import java.util.ArrayList;
 import java.util.HashMap;

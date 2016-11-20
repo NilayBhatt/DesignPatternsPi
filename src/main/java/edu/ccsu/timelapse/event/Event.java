@@ -1,4 +1,4 @@
-package edu.ccsu.cs417.fall16.group4.event;
+package edu.ccsu.timelapse.event;
 
 public interface Event<E> {
 	public void publish(E listener);
