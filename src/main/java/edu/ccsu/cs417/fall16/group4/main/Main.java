@@ -1,5 +1,7 @@
 package edu.ccsu.cs417.fall16.group4.main;
 
+import edu.ccsu.cs417.fall16.group4.event.EventDispatcher;
+
 /**
  * Runs the application to take a picture 10 times before ending.
  * 
@@ -9,7 +11,8 @@ package edu.ccsu.cs417.fall16.group4.main;
 public class Main {
 
 	public static void main(String[] args) {
-		Container container = new Container();
+		
+		Container container = new Container(new Camera(), new EventDispatcher());
 		
 		try {
 			container.run(10);
