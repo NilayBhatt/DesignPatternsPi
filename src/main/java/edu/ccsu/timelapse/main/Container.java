@@ -10,8 +10,8 @@ import java.util.Date;
 import java.util.Objects;
 
 import edu.ccsu.timelapse.event.EventDispatcher;
+import edu.ccsu.timelapse.events.TemperatureChange;
 import edu.ccsu.timelapse.listeners.HueEditorListener;
-import edu.ccsu.timelapse.listeners.TemperatureChange;
 import edu.ccsu.timelapse.listeners.contracts.TemperatureListener;
 
 public class Container {
