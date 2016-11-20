@@ -1,4 +1,4 @@
-package edu.ccsu.cs417.fall16.group4.main;
+package edu.ccsu.timelapse.main;
 
 import static org.junit.Assert.*;
 
@@ -10,6 +10,8 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 
 import org.junit.Test;
+
+import edu.ccsu.timelapse.main.CommandLineAdapter;
 
 public class CommandLineAdapterTest {
 

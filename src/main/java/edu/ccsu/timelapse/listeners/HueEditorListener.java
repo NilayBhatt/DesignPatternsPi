@@ -1,6 +1,6 @@
-package edu.ccsu.cs417.fall16.group4.listeners;
+package edu.ccsu.timelapse.listeners;
 
-import edu.ccsu.cs417.fall16.group4.listeners.contracts.TemperatureListener;
+import edu.ccsu.timelapse.listeners.contracts.TemperatureListener;
 
 public class HueEditorListener implements TemperatureListener {
 

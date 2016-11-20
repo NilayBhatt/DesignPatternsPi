@@ -1,4 +1,4 @@
-package edu.ccsu.cs417.fall16.group4.main;
+package edu.ccsu.timelapse.main;
 
 import static org.junit.Assert.*;
 
@@ -7,6 +7,11 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import org.junit.Test;
+
+import edu.ccsu.timelapse.main.Camera;
+import edu.ccsu.timelapse.main.CannotTakePictureException;
+import edu.ccsu.timelapse.main.Image;
+import edu.ccsu.timelapse.main.WrongOSException;
 
 public class CameraTest {
 

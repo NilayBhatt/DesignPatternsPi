@@ -3,16 +3,16 @@
  * 
  * @author Deepankar Malhan, Edmir Alagic, Lukasz Brodowski, Nilay Bhatt, Sabahudin Mujcinovic
  */
-package edu.ccsu.cs417.fall16.group4.main;
+package edu.ccsu.timelapse.main;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Objects;
 
-import edu.ccsu.cs417.fall16.group4.event.EventDispatcher;
-import edu.ccsu.cs417.fall16.group4.listeners.HueEditorListener;
-import edu.ccsu.cs417.fall16.group4.listeners.TemperatureChange;
-import edu.ccsu.cs417.fall16.group4.listeners.contracts.TemperatureListener;
+import edu.ccsu.timelapse.event.EventDispatcher;
+import edu.ccsu.timelapse.listeners.HueEditorListener;
+import edu.ccsu.timelapse.listeners.TemperatureChange;
+import edu.ccsu.timelapse.listeners.contracts.TemperatureListener;
 
 public class Container {
 	

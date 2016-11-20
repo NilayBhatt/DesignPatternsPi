@@ -3,7 +3,7 @@
  * 
  * @author Deepankar Malhan, Edmir Alagic, Lukasz Brodowski, Nilay Bhatt, Sabahudin Mujcinovic
  */
-package edu.ccsu.cs417.fall16.group4.main;
+package edu.ccsu.timelapse.main;
 
 import java.io.IOException;
 

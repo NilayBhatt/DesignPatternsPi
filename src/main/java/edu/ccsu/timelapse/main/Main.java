@@ -1,6 +1,6 @@
-package edu.ccsu.cs417.fall16.group4.main;
+package edu.ccsu.timelapse.main;
 
-import edu.ccsu.cs417.fall16.group4.event.EventDispatcher;
+import edu.ccsu.timelapse.event.EventDispatcher;
 
 /**
  * Runs the application to take a picture 10 times before ending.
