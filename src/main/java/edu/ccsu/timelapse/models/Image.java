@@ -122,7 +122,7 @@ public class Image {
 	}
 	
 	/**
-	 * Returuns a hash code of the instance of the class.
+	 * Returns a hash code of the instance of the class.
 	 */
 	@Override
 	public int hashCode() {
