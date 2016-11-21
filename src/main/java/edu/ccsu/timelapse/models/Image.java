@@ -18,21 +18,52 @@ public class Image {
 	 * Name of image.
 	 */
 	private String name;
+	private ImageProperties properties;
 	
-	/**
-	 * Timestamp of image taken
-	 */
-	private Date timestamp;
+	private class ImageProperties {
+		
+		/**
+		 * Timestamp of image taken
+		 */
+		private Date timestamp;
+		
+		/**
+		 * Temperature value at the time the image was taken.
+		 */
+		private Double tempurature;
+		
+		/**
+		 * Value of hue applied to image.
+		 */
+		private Double hue;
+		
+		private Double brightness;
+		
+		public ImageProperties(Date timestamp, Double brightness, Double hue, Double temperature) {
+			
+			this.timestamp = timestamp;
+			this.brightness = brightness;
+			this.hue = hue;
+			this.tempurature = temperature;
+		}
+		
+		public Date getTimestamp() {
+			return this.timestamp;
+		}
+		
+		public Double getBrightness() {
+			return this.brightness;
+		}
+		
+		public Double getHue() {
+			return this.hue;
+		}
+		
+		public Double getTemperature() {
+			return this.tempurature;
+		}
+	}
 	
-	/**
-	 * Temperature value at the time the image was taken.
-	 */
-	private Double tempurature;
-	
-	/**
-	 * Value of hue applied to image.
-	 */
-	private Double hue;
 	
 	/**
 	 * Create a new instance of an image.
@@ -41,8 +72,7 @@ public class Image {
 	 */
 	public Image(String name) {
 		this.setName(name);
-		this.tempurature = 0.0;
-		this.hue = 0.0;
+		properties = new ImageProperties(null, new Double(100.0), new Double(0.0), new Double(50.0));
 	}
 	
 	/**
