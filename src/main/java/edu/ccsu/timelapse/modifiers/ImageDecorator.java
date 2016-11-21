@@ -1,4 +1,4 @@
-package edu.ccsu.timelapse.events;
+package edu.ccsu.timelapse.modifiers;
 import edu.ccsu.timelapse.models.Image;
 
 /**
@@ -8,10 +8,14 @@ import edu.ccsu.timelapse.models.Image;
  */
 abstract class ImageDecorator {
 	
+	/**
+	 * Image to be decorated.
+	 */
 	private Image imageToBeDecorated;
 	
 	/**
-	 * Creates ImageDecorator object
+	 * Creates new instance of an ImageDecorator.
+	 * 
 	 * @param toBeDecorated
 	 */
     public ImageDecorator (Image toBeDecorated) {
@@ -25,18 +29,22 @@ abstract class ImageDecorator {
     public abstract void process();
    
     /**
+     * Get the description of an image.
      * 
      * @return string of image description
      */
     public String getDescription() {
+    	
         return this.imageToBeDecorated.toString();
     }
     
     /**
+     * Get the image instance.
      * 
      * @return the private image object stored above
      */
     public Image getImage() {
+    	
     	return this.imageToBeDecorated;
     }
 }

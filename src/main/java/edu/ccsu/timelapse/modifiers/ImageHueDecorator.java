@@ -1,4 +1,4 @@
-package edu.ccsu.timelapse.events;
+package edu.ccsu.timelapse.modifiers;
 import edu.ccsu.timelapse.models.Image;
 
 /**
@@ -8,9 +8,13 @@ import edu.ccsu.timelapse.models.Image;
  */
 public class ImageHueDecorator extends ImageDecorator {
 	
+	/**
+	 * Hue value to be added over image.
+	 */
 	private Double hue;
 	
 	/**
+	 * Create a new instance of a ImageHueDecorator.
 	 * 
 	 * @param toBeDecorated
 	 */
@@ -33,6 +37,7 @@ public class ImageHueDecorator extends ImageDecorator {
     /**
      * Set the local private variable hue,
      * this should be set before processing.
+     * 
      * @param hue
      */
     private void setHue(Double hue) {
@@ -40,12 +45,11 @@ public class ImageHueDecorator extends ImageDecorator {
     }
     
     /**
-     * Return image description
-     * and include that its been
-     * hue-alized kappa.
+     * Return image description of an image with a hue.
      */
     @Override
     public String getDescription() {
-        return super.getDescription() + ", including an image hue";
+    	
+        return super.getDescription() + ", including an image hue.";
     }
 }

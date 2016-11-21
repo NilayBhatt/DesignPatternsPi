@@ -1,4 +1,4 @@
-package edu.ccsu.timelapse.events;
+package edu.ccsu.timelapse.modifiers;
 import java.util.Date;
 import edu.ccsu.timelapse.models.Image;
 
@@ -10,6 +10,7 @@ import edu.ccsu.timelapse.models.Image;
 public class ImageTimeDecorator extends ImageDecorator {
 	
 	/**
+	 * Create a new instance of an ImageTimeDecorator.
 	 * 
 	 * @param toBeDecorated
 	 */
@@ -27,11 +28,11 @@ public class ImageTimeDecorator extends ImageDecorator {
     }
     
     /**
-     * Returns the description after its been
-     * timestamp-ified kappa.
+     * Returns the description of a timestamped image.
      */
     @Override
     public String getDescription() {
-        return super.getDescription() + ", including a timestamp";
+    	
+        return super.getDescription() + ", including a timestamp.";
     }
 }
