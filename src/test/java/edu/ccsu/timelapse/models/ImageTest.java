@@ -1,4 +1,4 @@
-package edu.ccsu.timelapse.main;
+package edu.ccsu.timelapse.models;
 
 import static org.junit.Assert.*;
 
