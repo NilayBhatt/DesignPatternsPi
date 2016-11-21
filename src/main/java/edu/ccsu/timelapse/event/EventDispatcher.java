@@ -2,11 +2,29 @@ package edu.ccsu.timelapse.event;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Objects;
 
+import edu.ccsu.timelapse.models.Image;
+
+/**
+ * An event dispatcher. 
+ * Keeps track of listeners subscribed to an event.
+ * Notifies listeners when an event is fired
+ *
+ */
 public final class EventDispatcher {
 
+	/**
+	 * Contains key, value pair of events and listeners that subscribe to those events.
+	 */
 	private final HashMap<Class, ArrayList> events = new HashMap<Class, ArrayList>();
 	
+	/**
+	 * Subscribe a listener to an event.
+	 * 
+	 * @param event
+	 * @param listener
+	 */
 	public <E> void subscribe(Class<? extends Event<E>> event, E listener) {
 		ArrayList<E> subscribers = this.getListeners(event);
 		
@@ -15,6 +33,11 @@ public final class EventDispatcher {
 		}
 	}
 	
+	/**
+	 * Notify all subscribed listeners when an event is fired.
+	 * 
+	 * @param event
+	 */
 	public <E> void publish(Event<E> event) {
 		Class<Event<E>> eventClass = (Class<Event<E>>) event.getClass();
 		ArrayList<E> subscribers = this.getListeners(eventClass);
@@ -24,6 +47,12 @@ public final class EventDispatcher {
 		}
 	}
 	
+	/**
+	 * Get all listeners subscribed to an event.
+	 * 
+	 * @param event
+	 * @return a ArrayList of all subscribed listeners
+	 */
 	private <E> ArrayList<E> getListeners(Class<? extends Event<E>> event) {
 		ArrayList<E> subscribers = events.get(event);
 		
@@ -35,12 +64,73 @@ public final class EventDispatcher {
 		return subscribers;
 	}
 	
+	/**
+	 * Named publish method.
+	 * 
+	 * @param event
+	 */
 	public <E> void fire(Event<E> event) {
 		this.publish(event);
 	}
 	
+	/**
+	 * Named publish method.
+	 * 
+	 * @param event
+	 */
 	public <E> void dispatch(Event<E> event) {
 		this.publish(event);
+	}
+	
+	/**
+	 * Get the hashmap of events and listeners.
+	 * 
+	 * @return the hashmap
+	 */
+	public HashMap<Class, ArrayList> getEvents() {
+		
+		return this.events;
+	}
+	
+	/**
+	 * Returns a string representation of the class.
+	 */
+	@Override
+	public String toString() {
+		
+		return Integer.toString(this.hashCode());
+	}
+	
+	/**
+	 * Returns a hash code of the instance of the class.
+	 */
+	@Override
+	public int hashCode() {
+		
+		return Objects.hash(this.events);
+	}
+	
+	/**
+	 * Returns true if the EventDispatchers are equal.
+	 * 
+	 * @param another event dispatcher
+	 */
+	@Override
+	public boolean equals(Object dispatcher) {
+		
+		if(!(dispatcher instanceof EventDispatcher)) {
+			
+			return false;
+		}
+		
+		EventDispatcher otherDispatcher = (EventDispatcher) dispatcher;
+		
+		if(! this.getEvents().keySet().equals(otherDispatcher.getEvents().keySet())) {
+			
+			return false;
+		}
+		
+		return true;
 	}
 	
 	
