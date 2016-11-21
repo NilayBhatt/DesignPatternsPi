@@ -9,8 +9,13 @@ dht_sensor_type = 0  # change this depending on your sensor type
 #  2 - DHT21 - black one, aka AM2301
 
 try:
+    # This part of the code gets the temperature and the humidity from the GrovePi sensor.
     [temp, hum] = dht(dht_sensor_port, dht_sensor_type)  # Get the temperature and Humidity from the DHT sensor
-    print("temp =", temp, "C")
+
+    # Standard out for the temperature in celsius
+    print("temp =", temp)
+
+    # The following code adds the text to the digital display on the sensor.
     t = str(temp)
     h = str(hum)
 
