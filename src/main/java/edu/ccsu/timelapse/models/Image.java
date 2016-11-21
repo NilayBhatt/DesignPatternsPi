@@ -11,8 +11,10 @@ import java.util.Objects;
 public class Image {
 	
 	private String name;
-	private Date created_at;
-
+	private Date timestamp;
+	private Double tempurature;
+	private Double hue;
+	
 	/**
 	 * Instantiates an <code>Image</code> and gives it a timestamp of creation.
 	 * 
@@ -20,11 +22,28 @@ public class Image {
 	 */
 	public Image(String name) {
 		this.setName(name);
-		this.created_at = new Date();
+		this.tempurature = 0.0;
+		this.hue = 0.0;
 	}
 	
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public void setHue(Double hue){
+		this.hue = hue;
+	}
+	
+	public double getHue(){
+		return this.hue;
+	}
+	
+	public void setTimestamp(Date timestamp){
+		this.timestamp = timestamp;
+	}
+	
+	public Date getTimestamp(){
+		return this.timestamp;
 	}
 	
 	public String getName() {
@@ -34,19 +53,19 @@ public class Image {
 	
 	public Date getCreatedAt() {
 		
-		return this.created_at;
+		return this.timestamp;
 	}
 	
 	@Override
 	public String toString() {
 		
-		return this.name + " was created at: " + created_at.toString() + ".";
+		return this.name + " was created at: " + timestamp.toString() + ".";
 	}
 	
 	@Override
 	public int hashCode() {
 		
-		return Objects.hash(this.name, this.created_at);
+		return Objects.hash(this.name, this.timestamp);
 	}
 	
 	/**
