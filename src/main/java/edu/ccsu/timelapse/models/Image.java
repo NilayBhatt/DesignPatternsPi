@@ -8,11 +8,14 @@ package edu.ccsu.timelapse.models;
 import java.util.Date;
 import java.util.Objects;
 
+import edu.ccsu.timelapse.imagecollections.ImageComposite;
+import edu.ccsu.timelapse.modifiers.ImageDecorator;
+
 /**
  * Image is a model to contain data about images that are taken.
  *
  */
-public class Image {
+public class Image implements ImageComposite{
 	
 	/**
 	 * Name of image.
@@ -134,6 +137,13 @@ public class Image {
 		return true;
 	}
 	
+	/**
+	 * This decorate method decorates this image using any decorator passed through as an argument.
+	 */
+	public void decorate(ImageDecorator decorator) {
+		decorator.process(this);
+	}
+	
 	private class Properties {
 		
 		/**
@@ -171,6 +181,5 @@ public class Image {
 			this.hue = 0;
 			this.tempurature = 0;
 		}
-	}
-			
+	}		
 }

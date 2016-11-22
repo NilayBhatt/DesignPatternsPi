@@ -16,10 +16,10 @@ public class ImageTimeDecorator extends ImageDecorator {
 	 * 
 	 * @param toBeDecorated
 	 */
-    public ImageTimeDecorator(Image toBeDecorated) {
-		super(toBeDecorated);
+    public ImageTimeDecorator() {
+		super();
 		
-		this.timestamp = toBeDecorated.getCreatedAt();
+		this.timestamp = new Date(); //toBeDecorated.getCreatedAt(); TODO: Figure out how to use TimeStamp as a decorator.
 	}
     
     /**
@@ -27,16 +27,16 @@ public class ImageTimeDecorator extends ImageDecorator {
      * object to the current date-time
      */
     @Override
-    public void process() {
+    public void process(Image imageToBeDecorated) {
     	// Water mark time stamp on image;
     }
     
-    /**
-     * Returns the description of a time stamped image.
-     */
-    @Override
-    public String getDescription() {
-    	
-        return super.getDescription() + ", including a time stamp.";
-    }
+//    /**
+//     * Returns the description of a time stamped image.
+//     */
+//    @Override
+//    public String getDescription() {
+//    	
+//        return super.getDescription() + ", including a time stamp.";
+//    }
 }

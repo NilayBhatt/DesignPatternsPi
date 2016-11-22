@@ -18,8 +18,8 @@ public class ImageHueDecorator extends ImageDecorator {
 	 * 
 	 * @param toBeDecorated
 	 */
-    public ImageHueDecorator(Image toBeDecorated) {
-		super(toBeDecorated);
+    public ImageHueDecorator() {
+		super();
 		
 		this.hue = 0;
 	}
@@ -34,16 +34,16 @@ public class ImageHueDecorator extends ImageDecorator {
      * then pushes the hue up to the image object
      */
     @Override
-    public void process() {
-    	super.getImage().setHue(this.hue);
+    public void process(Image imageToBeDecorated) {
+    	imageToBeDecorated.setHue(this.hue);
     }
     
-    /**
-     * Return image description of an image with a hue.
-     */
-    @Override
-    public String getDescription() {
-    	
-        return super.getDescription() + ", including an image hue.";
-    }
+//    /**
+//     * Return image description of an image with a hue.
+//     */
+//    @Override
+//    public String getDescription() {
+//    	
+//        return super.getDescription() + ", including an image hue.";
+//    }
 }
