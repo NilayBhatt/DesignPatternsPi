@@ -6,7 +6,7 @@ import edu.ccsu.timelapse.models.Image;
  * abstract class which specializes in setting and adding
  * an image hue to an image object
  */
-public class ImageHueDecorator extends ImageDecorator {
+public class ImageHueDecorator implements ImageDecorator {
 	
 	/**
 	 * Hue value to be added over image.
@@ -18,15 +18,11 @@ public class ImageHueDecorator extends ImageDecorator {
 	 * 
 	 * @param toBeDecorated
 	 */
-    public ImageHueDecorator() {
+    public ImageHueDecorator(int hue) {
 		super();
 		
-		this.hue = 0;
+		this.hue = hue;
 	}
-    
-    public void setHue(int hue) {
-    	this.hue = hue;
-    }
     
     /**
      * An override of the process 

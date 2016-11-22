@@ -20,6 +20,7 @@ import edu.ccsu.timelapse.models.Image;
 
 public class Container {
 	
+	// TODO: Instead of images, start using ImageCollection
 	private ArrayList<Image> images;
 	
 	private EventDispatcher dispatcher;

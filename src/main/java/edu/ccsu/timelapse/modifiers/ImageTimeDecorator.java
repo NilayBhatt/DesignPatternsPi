@@ -7,7 +7,7 @@ import edu.ccsu.timelapse.models.Image;
  * abstract class which specializes adding a time stamp
  * to the image object passed through it
  */
-public class ImageTimeDecorator extends ImageDecorator {
+public class ImageTimeDecorator implements ImageDecorator {
 	
 	private Date timestamp;
 	

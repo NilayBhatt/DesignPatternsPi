@@ -15,7 +15,7 @@ import edu.ccsu.timelapse.modifiers.ImageDecorator;
  * Image is a model to contain data about images that are taken.
  *
  */
-public class Image implements ImageComposite{
+public class Image implements ImageComposite, ImageDecorator{
 	
 	/**
 	 * Name of image.
@@ -144,6 +144,12 @@ public class Image implements ImageComposite{
 		decorator.process(this);
 	}
 	
+	/**
+	 * This method has to be implemented due to image being the object that is being decorated.
+	 * @param imageToBeDecorated
+	 */
+	public void process(Image imageToBeDecorated) {}	
+	
 	private class Properties {
 		
 		/**
@@ -181,5 +187,5 @@ public class Image implements ImageComposite{
 			this.hue = 0;
 			this.tempurature = 0;
 		}
-	}		
+	}	
 }

@@ -6,15 +6,8 @@ import edu.ccsu.timelapse.models.Image;
  * that specialize in adding an image hue, timestamp,
  * and whatever else we are doing later.
  */
-public abstract class ImageDecorator {
-	
-	/**
-	 * Creates new instance of an ImageDecorator.
-	 * 
-	 * @param toBeDecorated
-	 */
-    public ImageDecorator () {}
-    
+public interface ImageDecorator {
+	    
     /**
      * Abstract method process to be
      * overridden in concrete decorators.
