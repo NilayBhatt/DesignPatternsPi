@@ -62,11 +62,15 @@ public class ImageCollection implements ImageComposite{
 		Iterator<ImageComposite> elementsIterator = elements.iterator();
 		String imageCollectionString = "";
 		
+		imageCollectionString += "{\n";
+		
 		while(elementsIterator.hasNext()) {
-			imageCollectionString += "{\n";
-			imageCollectionString += elementsIterator.next().toString() + "\n";
-			imageCollectionString += "}";
+			imageCollectionString += "[ ";
+			imageCollectionString += elementsIterator.next().toString();
+			imageCollectionString += " ]";
 		}
+		
+		imageCollectionString += "/n}";
 		
 		return imageCollectionString;
 	}
