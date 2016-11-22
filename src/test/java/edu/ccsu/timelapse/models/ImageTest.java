@@ -2,11 +2,6 @@ package edu.ccsu.timelapse.models;
 
 import static org.junit.Assert.*;
 
-import java.io.File;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-
 import org.junit.Test;
 
 import edu.ccsu.timelapse.models.Image;

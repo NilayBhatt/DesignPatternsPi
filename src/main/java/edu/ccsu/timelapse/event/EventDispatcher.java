@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Objects;
 
-import edu.ccsu.timelapse.models.Image;
-
 /**
  * An event dispatcher. 
  * Keeps track of listeners subscribed to an event.
@@ -53,7 +51,7 @@ public final class EventDispatcher {
 	 * @param event
 	 * @return a ArrayList of all subscribed listeners
 	 */
-	private <E> ArrayList<E> getListeners(Class<? extends Event<E>> event) {
+	public <E> ArrayList<E> getListeners(Class<? extends Event<E>> event) {
 		ArrayList<E> subscribers = events.get(event);
 		
 		if (subscribers == null) {

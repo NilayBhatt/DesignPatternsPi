@@ -18,51 +18,11 @@ public class Image {
 	 * Name of image.
 	 */
 	private String name;
-	private ImageProperties properties;
 	
-	private class ImageProperties {
-		
-		/**
-		 * Timestamp of image taken
-		 */
-		private Date timestamp;
-		
-		/**
-		 * Temperature value at the time the image was taken.
-		 */
-		private Double tempurature;
-		
-		/**
-		 * Value of hue applied to image.
-		 */
-		private Double hue;
-		
-		private Double brightness;
-		
-		public ImageProperties(Date timestamp, Double brightness, Double hue, Double temperature) {
-			
-			this.timestamp = timestamp;
-			this.brightness = brightness;
-			this.hue = hue;
-			this.tempurature = temperature;
-		}
-		
-		public Date getTimestamp() {
-			return this.timestamp;
-		}
-		
-		public Double getBrightness() {
-			return this.brightness;
-		}
-		
-		public Double getHue() {
-			return this.hue;
-		}
-		
-		public Double getTemperature() {
-			return this.tempurature;
-		}
-	}
+	/**
+	 * Image properties;
+	 */
+	private Properties properties;
 	
 	
 	/**
@@ -72,7 +32,8 @@ public class Image {
 	 */
 	public Image(String name) {
 		this.setName(name);
-		properties = new ImageProperties(null, new Double(100.0), new Double(0.0), new Double(50.0));
+		
+		this.properties = new Properties(new Date());
 	}
 	
 	/**
@@ -84,43 +45,6 @@ public class Image {
 		this.name = name;
 	}
 	
-	/**
-	 * Set the hue of the image.
-	 * 
-	 * @param hue
-	 */
-	public void setHue(Double hue) {
-		this.hue = hue;
-	}
-	
-	/**
-	 * Get the hue of the image.
-	 * 
-	 * @return value of the hue
-	 */
-	public double getHue() {
-		
-		return this.hue;
-	}
-	
-	/**
-	 * Set the timestamp of the image.
-	 * 
-	 * @param timestamp
-	 */
-	public void setTimestamp(Date timestamp) {
-		this.timestamp = timestamp;
-	}
-	
-	/**
-	 * Get the timestamp of the image.
-	 * 
-	 * @return the timestamp
-	 */
-	public Date getTimestamp() {
-		
-		return this.timestamp;
-	}
 	
 	/**
 	 * Get the name of the image.
@@ -135,11 +59,38 @@ public class Image {
 	/**
 	 * Get the created at date.
 	 * 
-	 * @return created at Date object
+	 * @return the date the image was created
 	 */
 	public Date getCreatedAt() {
 		
-		return this.timestamp;
+		return this.properties.created_at;
+	}
+	
+	/**
+	 * Setter for the hue property.
+	 * 
+	 * @param hue
+	 */
+	public void setHue(int hue) {
+		this.properties.hue = hue;
+	}
+	
+	/**
+	 * Setter for the brightness property.
+	 * 
+	 * @param brightness
+	 */
+	public void setBrightness(int brightness) {
+		this.properties.brightness = brightness;
+	}
+	
+	/**
+	 * Setter for the temperature property.
+	 * 
+	 * @param temperature
+	 */
+	public void setTemperature(int temperature) {
+		this.properties.tempurature = temperature;
 	}
 	
 	/**
@@ -148,7 +99,7 @@ public class Image {
 	@Override
 	public String toString() {
 		
-		return this.name + " was created at: " + timestamp.toString() + ".";
+		return this.name + " was created at: " + this.properties.created_at + ".";
 	}
 	
 	/**
@@ -157,7 +108,7 @@ public class Image {
 	@Override
 	public int hashCode() {
 		
-		return Objects.hash(this.name, this.timestamp);
+		return Objects.hash(this.name, this.properties.created_at);
 	}
 	
 	/**
@@ -181,6 +132,45 @@ public class Image {
 		}
 		
 		return true;
+	}
+	
+	private class Properties {
+		
+		/**
+		 * Time stamp of image taken
+		 */
+		Date created_at;
+		
+		/**
+		 * Temperature value at the time the image was taken.
+		 */
+		int tempurature;
+		
+		/**
+		 * Value of hue applied to image.
+		 */
+		int hue;
+		
+		/**
+		 * Brightness of image.
+		 */
+		int brightness;
+		
+		/**
+		 * Create a new instance of Properties.
+		 * 
+		 * @param created_at
+		 * @param brightness
+		 * @param hue
+		 * @param temperature
+		 */
+		Properties(Date created_at) {
+			
+			this.created_at = created_at;
+			this.brightness = 0;
+			this.hue = 0;
+			this.tempurature = 0;
+		}
 	}
 			
 }

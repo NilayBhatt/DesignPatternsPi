@@ -1,4 +1,4 @@
-package edu.ccsu.timelapse.components;
+ package edu.ccsu.timelapse.components;
 
 import static org.junit.Assert.*;
 
@@ -11,7 +11,6 @@ import org.junit.Test;
 import edu.ccsu.timelapse.components.Camera;
 import edu.ccsu.timelapse.exceptions.CannotTakePictureException;
 import edu.ccsu.timelapse.exceptions.WrongOSException;
-import edu.ccsu.timelapse.models.Image;
 
 public class CameraTest {
 
@@ -25,7 +24,7 @@ public class CameraTest {
 			Camera cameraTest = new Camera();
 
 			try {
-				Image imageTest = cameraTest.takePicture("testPic.jpg");
+				cameraTest.takePicture("testPic.jpg");
 
 				Path currentRelativePath = Paths.get("");
 				String s = currentRelativePath.toAbsolutePath().toString();

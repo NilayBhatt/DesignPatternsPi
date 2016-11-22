@@ -11,7 +11,7 @@ public class ImageHueDecorator extends ImageDecorator {
 	/**
 	 * Hue value to be added over image.
 	 */
-	private Double hue;
+	private int hue;
 	
 	/**
 	 * Create a new instance of a ImageHueDecorator.
@@ -20,7 +20,13 @@ public class ImageHueDecorator extends ImageDecorator {
 	 */
     public ImageHueDecorator(Image toBeDecorated) {
 		super(toBeDecorated);
+		
+		this.hue = 0;
 	}
+    
+    public void setHue(int hue) {
+    	this.hue = hue;
+    }
     
     /**
      * An override of the process 
@@ -29,19 +35,7 @@ public class ImageHueDecorator extends ImageDecorator {
      */
     @Override
     public void process() {
-    	if(this.hue != null){
-    		super.getImage().setHue(this.hue);
-    	}
-    }
-    
-    /**
-     * Set the local private variable hue,
-     * this should be set before processing.
-     * 
-     * @param hue
-     */
-    private void setHue(Double hue) {
-        this.hue = hue;
+    	super.getImage().setHue(this.hue);
     }
     
     /**

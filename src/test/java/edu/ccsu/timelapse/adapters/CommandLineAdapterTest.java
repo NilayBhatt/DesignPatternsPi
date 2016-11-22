@@ -3,11 +3,7 @@ package edu.ccsu.timelapse.adapters;
 import static org.junit.Assert.*;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.ArrayList;
 
 import org.junit.Test;
 

@@ -1,10 +1,7 @@
 package edu.ccsu.timelapse.listeners;
 
-import java.util.Objects;
 
 import edu.ccsu.timelapse.listeners.contracts.TemperatureListener;
-import edu.ccsu.timelapse.main.Container;
-import edu.ccsu.timelapse.models.Image;
 
 /**
  * Concrete listener for TemperatureListener.
@@ -32,6 +29,15 @@ public class HueEditorListener implements TemperatureListener {
 	public void temperatureDecreased(double delta) {
 		System.out.println("Hue editor reacting to a temperature decrease.");
 		
+	}
+	
+	/**
+	 * String representation of the listener.
+	 */
+	@Override
+	public String toString() {
+		
+		return new String("HueEditorListener");
 	}
 	
 }
