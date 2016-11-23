@@ -77,7 +77,14 @@ public class Image implements ImageComposite, ImageDecorator{
 	public void setHue(int hue) {
 		this.properties.hue = hue;
 	}
-	
+
+	/**
+	 * Getter for the hue property
+	 * @return hue
+	 */
+	public int getHue() {
+		return this.properties.hue;
+	}
 	/**
 	 * Setter for the brightness property.
 	 * 

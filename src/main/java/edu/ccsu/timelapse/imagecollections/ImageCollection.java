@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Objects;
 
+import edu.ccsu.timelapse.models.Image;
 import edu.ccsu.timelapse.modifiers.ImageDecorator;
 
 public class ImageCollection implements ImageComposite{
@@ -35,7 +36,15 @@ public class ImageCollection implements ImageComposite{
 			elementsIterator.next().decorate(decorator);
 		}
 	}
-	
+
+	/**
+	 * Reuturns the current collection of ImageCompsite elements
+	 * @return the ArrayList of ImageCompsite objects
+	 */
+	public ArrayList<ImageComposite> getElements() {
+
+		return this.elements;
+	}
 	/**
 	 * Adding elements to this specific composite's sub-elements.
 	 * @param element
