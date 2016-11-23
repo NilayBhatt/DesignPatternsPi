@@ -14,7 +14,6 @@ public class HueEditorListener implements TemperatureListener {
 	 * 
 	 * @param delta
 	 */
-	@Override
 	public void temperatureIncreased(double delta) {
 		System.out.println("Hue editor reacting to a temperature increase.");
 		
@@ -25,7 +24,6 @@ public class HueEditorListener implements TemperatureListener {
 	 * 
 	 * @param delta
 	 */
-	@Override
 	public void temperatureDecreased(double delta) {
 		System.out.println("Hue editor reacting to a temperature decrease.");
 		

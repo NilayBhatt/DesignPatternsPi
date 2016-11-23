@@ -29,7 +29,6 @@ public class ImageHueDecorator implements ImageDecorator {
      * requires hue to be set before processing
      * then pushes the hue up to the image object
      */
-    @Override
     public void process(Image imageToBeDecorated) {
     	imageToBeDecorated.setHue(this.hue);
     }

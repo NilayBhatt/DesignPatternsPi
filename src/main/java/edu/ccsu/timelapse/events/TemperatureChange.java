@@ -30,7 +30,6 @@ public class TemperatureChange implements Event<TemperatureListener> {
 	 * 
 	 * @param listener
 	 */
-	@Override
 	public void publish(TemperatureListener listener) {
 		
 		if (delta > 0) {

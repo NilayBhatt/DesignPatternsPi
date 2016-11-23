@@ -26,7 +26,6 @@ public class ImageTimeDecorator implements ImageDecorator {
      * Set the time stamp variable of the image 
      * object to the current date-time
      */
-    @Override
     public void process(Image imageToBeDecorated) {
     	// Water mark time stamp on image;
     }
