@@ -1,6 +1,13 @@
 package edu.ccsu.timelapse.modifiers;
-import java.util.Date;
+
 import edu.ccsu.timelapse.models.Image;
+
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.Date;
 
 /**
  * This is a concrete implementation of ImageDecorator
@@ -26,8 +33,17 @@ public class ImageTimeDecorator implements ImageDecorator {
      * Set the time stamp variable of the image 
      * object to the current date-time
      */
-    public void process(Image imageToBeDecorated) {
-    	// Water mark time stamp on image;
+    public void process(Image imageToBeDecorated) throws IOException {
+		File file = new File(imageToBeDecorated.getName());
+		BufferedImage bi = ImageIO.read(file);
+
+		Graphics2D graphics = bi.createGraphics();
+		Font font = new Font("ARIAL", Font.PLAIN, 20);
+		graphics.setFont(font);
+		graphics.drawString(imageToBeDecorated.getCreatedAt().toString(), 50, 50);
+
+        bi.flush();
+		ImageIO.write(bi, "jpg", file);
     }
     
 //    /**

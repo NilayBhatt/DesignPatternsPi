@@ -1,6 +1,8 @@
 package edu.ccsu.timelapse.modifiers;
 import edu.ccsu.timelapse.models.Image;
 
+import java.io.IOException;
+
 /**
  * This abstract class helps create concrete decorators
  * that specialize in adding an image hue, timestamp,
@@ -12,7 +14,7 @@ public interface ImageDecorator {
      * Abstract method process to be
      * overridden in concrete decorators.
      */
-    public abstract void process(Image imageToBeDecorated);
+    public abstract void process(Image imageToBeDecorated) throws IOException;
    
 //    /**
 //     * Get the description of an image.
