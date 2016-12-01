@@ -55,6 +55,8 @@ public class TimelapseTest {
 	@Test
 	public void testHashDifferent(){
 		Timelapse timelapse1 = new Timelapse();
+		timelapse.setWidth(10);
+
 
 		assertNotEquals(timelapse1.hashCode(),timelapse.hashCode());
 	}
@@ -65,5 +67,4 @@ public class TimelapseTest {
 
 		assertEquals(timelapse.getTimeBetween(),10);
 	}
-	
 }
