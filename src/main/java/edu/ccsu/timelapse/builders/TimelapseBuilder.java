@@ -1,6 +1,6 @@
 package edu.ccsu.timelapse.builders;
 
-import edu.ccsu.timelapse.imagecollections.ImageComposite;
+import edu.ccsu.timelapse.models.Image;
 import edu.ccsu.timelapse.models.Timelapse;
 
 /**
@@ -21,7 +21,7 @@ public class TimelapseBuilder implements TimelapseBuilderInterface {
 		this.timelapse = new Timelapse();
 	}
 
-	public TimelapseBuilderInterface addFrame(ImageComposite image) {
+	public TimelapseBuilderInterface addFrame(Image image) {
 		this.timelapse.addFrame(image);
 		
 		return this;

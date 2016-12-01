@@ -1,10 +1,8 @@
 package edu.ccsu.timelapse.models;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-
-import edu.ccsu.timelapse.components.Camera;
-import edu.ccsu.timelapse.imagecollections.ImageComposite;
 
 /**
  * Timelapse class which represents the timelapse job.
@@ -16,7 +14,7 @@ public class Timelapse {
 	/**
 	 * Collection of frames of timelapse.
 	 */
-	private List<ImageComposite> frames;
+	private List<Image> frames = new ArrayList<Image>();
 	
 	/**
 	 * Time in between frames for in MS.
@@ -41,14 +39,14 @@ public class Timelapse {
 	/**
 	 * Create a new instance of a timelapse.
 	 */
-	public Timelapse() { }
+	public Timelapse() {}
 	
 	/**
 	 * Add a frame to the timelapse.
 	 * 
 	 * @param image
 	 */
-	public void addFrame(ImageComposite image) {
+	public void addFrame(Image image) {
 		frames.add(image);
 	}
 	
@@ -57,7 +55,7 @@ public class Timelapse {
 	 * 
 	 * @return List of ImageComposites
 	 */
-	public List<ImageComposite> getFrames() {
+	public List<Image> getFrames() {
 		
 		return this.frames;
 	}
@@ -95,7 +93,7 @@ public class Timelapse {
 	 * @param repeat
 	 * @return
 	 */
-	public boolean getRepeat(boolean repeat) {
+	public boolean getRepeat() {
 		
 		return this.repeat;
 	}

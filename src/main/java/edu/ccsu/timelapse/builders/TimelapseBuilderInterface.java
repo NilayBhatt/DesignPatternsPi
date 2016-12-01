@@ -1,6 +1,6 @@
 package edu.ccsu.timelapse.builders;
 
-import edu.ccsu.timelapse.imagecollections.ImageComposite;
+import edu.ccsu.timelapse.models.Image;
 import edu.ccsu.timelapse.models.Timelapse;
 
 /**
@@ -15,7 +15,7 @@ interface TimelapseBuilderInterface {
 	 * @param image
 	 * @return instance of itself
 	 */
-	public TimelapseBuilderInterface addFrame(ImageComposite image);
+	public TimelapseBuilderInterface addFrame(Image image);
 	
 	/**
 	 * Set time between frames in MS.

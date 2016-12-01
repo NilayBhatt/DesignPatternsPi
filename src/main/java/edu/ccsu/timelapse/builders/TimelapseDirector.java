@@ -2,7 +2,8 @@ package edu.ccsu.timelapse.builders;
 
 import java.util.List;
 
-import edu.ccsu.timelapse.imagecollections.ImageCollection;
+import edu.ccsu.timelapse.imagecollections.ImageComposite;
+import edu.ccsu.timelapse.models.Image;
 import edu.ccsu.timelapse.models.Timelapse;
 
 /**
@@ -42,10 +43,10 @@ public class TimelapseDirector {
 	 * @param images
 	 * @return the timelapse
 	 */
-	public Timelapse construct(List<ImageCollection> images) {
+	public Timelapse construct(List<Image> images) {
 		this.builder.setHeight(600).setWidth(800).setRepeat(true).setTimeBetween(100);
 		
-		for (ImageCollection image : images) {
+		for (Image image : images) {
 			this.builder.addFrame(image);
 		}
 			

@@ -1,13 +1,13 @@
 package edu.ccsu.timelapse.builders;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
 
-import edu.ccsu.timelapse.imagecollections.ImageCollection;
+import edu.ccsu.timelapse.models.Image;
 import edu.ccsu.timelapse.models.Timelapse;
 
 public class TimelapseDirectorTest {
@@ -19,7 +19,7 @@ public class TimelapseDirectorTest {
 		
 		TimelapseDirector director = new TimelapseDirector(builder);
 		
-		List<ImageCollection> emptyList = new ArrayList();
+		List<Image> emptyList = new ArrayList();
 		
 		Timelapse a = director.construct(emptyList);
 		Timelapse b = this.createTimelapse();
