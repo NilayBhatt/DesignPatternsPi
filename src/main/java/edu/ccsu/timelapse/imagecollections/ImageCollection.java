@@ -81,35 +81,31 @@ public class ImageCollection implements ImageComposite{
 			imageCollectionString += " ]";
 		}
 		
-		imageCollectionString += "/n}";
+		imageCollectionString += "\n}";
 		
 		return imageCollectionString;
 	}
-	
+
 	/**
 	 * Checks if this imageCollection is equal to the one passed in as an argument.
 	 * @return True if imageCollections are same, false otherwise.
 	 */
 	@Override
-	public boolean equals(Object imageCollection) {
-		Iterator<ImageComposite> elementsIterator = elements.iterator();
-		
-		while(elementsIterator.hasNext()) {
-			if(elementsIterator.next().equals(imageCollection) == false) {
-				return false;
-			}
-		}
-		
-		return true;
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof ImageCollection)) return false;
+
+		ImageCollection that = (ImageCollection) o;
+
+		return getElements() != null ? getElements().equals(that.getElements()) : that.getElements() == null;
+
 	}
-	
+
 	/**
 	 * Returns a hash code of the instance of the class.
 	 */
 	@Override
 	public int hashCode() {
-		
-		return Objects.hash(this.elements);
+		return getElements() != null ? getElements().hashCode() : 0;
 	}
-	
 }
