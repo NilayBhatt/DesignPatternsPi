@@ -66,24 +66,19 @@ public class ImageCollection implements ImageComposite{
 	
 	/**
 	 * Returns a String representation of this composite with each sub composite being represented inside { and }
+	 * 
 	 * @return String representation of this imageCollection
 	 */
 	@Override
 	public String toString() {
-		Iterator<ImageComposite> elementsIterator = elements.iterator();
-		String imageCollectionString = "";
 		
-		imageCollectionString += "{\n";
+		String output = "";
 		
-		while(elementsIterator.hasNext()) {
-			imageCollectionString += "[ ";
-			imageCollectionString += elementsIterator.next().toString();
-			imageCollectionString += " ]";
+		for (ImageComposite composite : this.elements) {
+			output += composite.toString() + " ";
 		}
 		
-		imageCollectionString += "\n}";
-		
-		return imageCollectionString;
+		return output;
 	}
 
 	/**
