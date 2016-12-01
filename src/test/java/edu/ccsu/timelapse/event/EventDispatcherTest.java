@@ -61,7 +61,6 @@ public class EventDispatcherTest {
 			this.increased_called = true;
 		}
 
-		@Override
 		public void temperatureDecreased(double delta) {
 			this.decrease_called = true;
 			
