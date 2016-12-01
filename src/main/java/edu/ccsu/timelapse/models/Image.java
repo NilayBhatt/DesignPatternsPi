@@ -5,6 +5,7 @@
  */
 package edu.ccsu.timelapse.models;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.Objects;
 
@@ -147,7 +148,7 @@ public class Image implements ImageComposite, ImageDecorator{
 	/**
 	 * This decorate method decorates this image using any decorator passed through as an argument.
 	 */
-	public void decorate(ImageDecorator decorator) {
+	public void decorate(ImageDecorator decorator) throws IOException {
 		decorator.process(this);
 	}
 	
