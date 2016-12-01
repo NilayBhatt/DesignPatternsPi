@@ -1,14 +1,13 @@
-/**
- * This abstract class helps adapt code from different languages to java.
- * 
- * @author Deepankar Malhan, Edmir Alagic, Lukasz Brodowski, Nilay Bhatt, Sabahudin Mujcinovic
- */
 package edu.ccsu.timelapse.adapters;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+/**
+ * This abstract class helps adapt code from different languages to java.
+ *
+ */
 public abstract class CommandLineAdapter {
 
 	/**

@@ -7,6 +7,7 @@
 
 package edu.ccsu.timelapse.imagecollections;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Objects;
@@ -27,8 +28,9 @@ public class ImageCollection implements ImageComposite{
 	
 	/**
 	 *  This decorate method decorates all the images inside this specific composite ImageCollection
+	 * @throws IOException 
 	 */
-	public void decorate(ImageDecorator decorator) {
+	public void decorate(ImageDecorator decorator) throws IOException {
 		
 		Iterator<ImageComposite> elementsIterator = elements.iterator();
 		

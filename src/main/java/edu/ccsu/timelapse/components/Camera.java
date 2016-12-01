@@ -73,6 +73,16 @@ public class Camera extends CommandLineAdapter {
 
 		return sb.toString();
 	}
+	
+	/**
+	 * String representation of Camera.
+	 * 
+	 * @return
+	 */
+	@Override
+	public String toString() {
+		return this.pictureName != null ? "A camera that has taken a picture called: " + this.pictureName : "A camera who has not taken a picture yet.";
+	}
 
 	/**
 	 * Returns the hash code of the pictureName.
