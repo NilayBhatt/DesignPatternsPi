@@ -50,9 +50,9 @@ public class ImageCollectionTest {
     @Test
     public void toSString() throws Exception {
         Image testImage = new Image("testImage.png");
-        String s = "{\n[";
+        String s = "{\n[ ";
         s += testImage.toString();
-        s+= "]\n}";
+        s+= " ]\n}";
         ImageCollection imageCollection = new ImageCollection();
         imageCollection.addElements(testImage);
 
