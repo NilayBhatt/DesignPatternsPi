@@ -28,6 +28,17 @@ public class TimelapseDirector {
 	/**
 	 * Construct a timelapse.
 	 * 
+	 * @return the timelapse
+	 */
+	public Timelapse construct() {
+		this.builder.setHeight(600).setWidth(800).setRepeat(true).setTimeBetween(100);
+		
+		return this.builder.getResult();
+	}
+	
+	/**
+	 * Construct a timelapse with a image collection.
+	 * 
 	 * @param images
 	 * @return the timelapse
 	 */
