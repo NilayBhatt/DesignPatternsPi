@@ -1,6 +1,5 @@
 package edu.ccsu.timelapse.components;
 
-import java.io.IOException;
 import java.util.Objects;
 
 import edu.ccsu.timelapse.adapters.CommandLineAdapter;

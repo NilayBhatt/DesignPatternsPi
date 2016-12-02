@@ -6,9 +6,9 @@
  */
 package edu.ccsu.timelapse.imagecollections;
 
-import edu.ccsu.timelapse.modifiers.ImageDecorator;
-
 import java.io.IOException;
+
+import edu.ccsu.timelapse.modifiers.ImageDecorator;
 
 public interface ImageComposite {
 	

@@ -1,14 +1,16 @@
 package edu.ccsu.timelapse.event;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
+import java.util.List;
+
 import org.junit.Test;
 
-import edu.ccsu.timelapse.events.TemperatureChange;
-import edu.ccsu.timelapse.listeners.HueEditorListener;
-import edu.ccsu.timelapse.listeners.contracts.TemperatureListener;
-
-import static org.junit.Assert.*;
-
-import java.util.ArrayList;
+import edu.ccsu.timelapse.events.AppBootstrapped;
+import edu.ccsu.timelapse.listeners.SayHello;
+import edu.ccsu.timelapse.listeners.contracts.GenericListener;
 
 
 public class EventDispatcherTest {
@@ -17,13 +19,11 @@ public class EventDispatcherTest {
 	@Test
 	public void itHasASubscriber() {
 		
-		EventDispatcher dispatcher = new EventDispatcher();
+		EventDispatcher dispatcher = EventDispatcher.getInstance();
+
+		dispatcher.subscribe(AppBootstrapped.class, new SayHello());
 		
-		TemperatureListener hueEditor = new HueEditorListener();
-		
-		dispatcher.subscribe(TemperatureChange.class, hueEditor);
-		
-		ArrayList<?> listeners = dispatcher.getListeners(TemperatureChange.class);
+		List<?> listeners = dispatcher.getListeners(AppBootstrapped.class);
 		
 		assertEquals(listeners.size(), 1);
 	}
@@ -31,25 +31,26 @@ public class EventDispatcherTest {
 	@Test
 	public void itNotifiesSubscriber() {
 		
-		EventDispatcher dispatcher = new EventDispatcher();
+		EventDispatcher dispatcher = EventDispatcher.getInstance();
 		
 		TempListener temp = new TempListener();
 		
-		dispatcher.subscribe(TemperatureChange.class, temp);
+		dispatcher.subscribe(AppBootstrapped.class, temp);
 		
 		assertFalse(temp.called);
 		
-		dispatcher.dispatch(new TemperatureChange(10));
+		dispatcher.dispatch(new AppBootstrapped());
 		
 		assertTrue(temp.called);
 	}
 	 
 	
-	public class TempListener implements TemperatureListener {
+	public class TempListener implements GenericListener {
 		
 		public boolean called = false;
 		
-		public void temperatureChanged(double delta) {
+		@Override
+		public void handle() {
 			this.called = true;
 		}
 

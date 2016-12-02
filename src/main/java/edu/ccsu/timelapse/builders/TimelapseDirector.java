@@ -2,7 +2,6 @@ package edu.ccsu.timelapse.builders;
 
 import java.util.List;
 
-import edu.ccsu.timelapse.imagecollections.ImageComposite;
 import edu.ccsu.timelapse.models.Image;
 import edu.ccsu.timelapse.models.Timelapse;
 

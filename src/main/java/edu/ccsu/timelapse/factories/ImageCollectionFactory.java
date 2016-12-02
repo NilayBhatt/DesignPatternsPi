@@ -3,7 +3,6 @@ package edu.ccsu.timelapse.factories;
 import java.io.IOException;
 
 import edu.ccsu.timelapse.components.Camera;
-import edu.ccsu.timelapse.exceptions.CannotTakePictureException;
 import edu.ccsu.timelapse.exceptions.WrongOSException;
 import edu.ccsu.timelapse.imagecollections.ImageCollection;
 import edu.ccsu.timelapse.models.Image;

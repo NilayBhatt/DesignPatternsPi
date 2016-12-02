@@ -10,9 +10,7 @@ package edu.ccsu.timelapse.imagecollections;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.Objects;
 
-import edu.ccsu.timelapse.models.Image;
 import edu.ccsu.timelapse.modifiers.ImageDecorator;
 
 public class ImageCollection implements ImageComposite{

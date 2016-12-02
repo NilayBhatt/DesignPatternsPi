@@ -3,8 +3,8 @@ package edu.ccsu.timelapse.main;
 import org.junit.Test;
 
 import edu.ccsu.timelapse.components.Camera;
+import edu.ccsu.timelapse.core.App;
 import edu.ccsu.timelapse.event.EventDispatcher;
-import edu.ccsu.timelapse.main.App;
 import edu.ccsu.timelapse.models.Image;
 
 import java.util.ArrayList;

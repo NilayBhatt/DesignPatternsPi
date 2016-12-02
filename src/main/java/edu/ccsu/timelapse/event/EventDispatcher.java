@@ -2,6 +2,7 @@ package edu.ccsu.timelapse.event;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -11,11 +12,36 @@ import java.util.Objects;
  *
  */
 public final class EventDispatcher {
-
+	
+	/**
+	 * Singleton instance of the dispatcher.
+	 */
+	private static EventDispatcher instance = null;
+	
 	/**
 	 * Contains key, value pair of events and listeners that subscribe to those events.
 	 */
 	private final HashMap<Class, ArrayList> events = new HashMap<Class, ArrayList>();
+	
+	/**
+	 * Create a new instance of an event dispatcher.
+	 */
+	private EventDispatcher() { }
+	
+	/**
+	 * If an instance exists return it, if not create then return.
+	 * 
+	 * @return instance of a dispatcher
+	 */
+	public static EventDispatcher getInstance() {
+		
+		if (EventDispatcher.instance == null) {
+			EventDispatcher.instance = new EventDispatcher();
+		}
+		
+		return EventDispatcher.instance;
+
+	}
 	
 	/**
 	 * Subscribe a listener to an event.

@@ -1,7 +1,7 @@
 package edu.ccsu.timelapse.modifiers;
-import edu.ccsu.timelapse.models.Image;
-
 import java.io.IOException;
+
+import edu.ccsu.timelapse.models.Image;
 
 /**
  * This abstract class helps create concrete decorators
