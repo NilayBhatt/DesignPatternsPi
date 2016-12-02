@@ -11,7 +11,8 @@ dht_sensor_type = 0  # change this depending on your sensor type
 try:
     # This part of the code gets the temperature and the humidity from the GrovePi sensor.
     [temp, hum] = dht(dht_sensor_port, dht_sensor_type)  # Get the temperature and Humidity from the DHT sensor
-
+    
+    temp = ((9*temp)/5) + 32
     # Standard out for the temperature in celsius
     print(temp)
     
