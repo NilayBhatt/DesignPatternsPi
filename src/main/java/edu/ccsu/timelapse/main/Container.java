@@ -70,8 +70,6 @@ public class Container {
 		try {
 			Image picture = this.camera.takePicture(date.toString());
 			images.add(picture);
-		} catch (CannotTakePictureException e) {
-			e.printStackTrace();
 		} catch (WrongOSException e) {
 			System.out.println(e.getMessage());
 		}

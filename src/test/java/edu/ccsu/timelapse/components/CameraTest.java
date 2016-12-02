@@ -38,9 +38,6 @@ public class CameraTest {
 				} else {
 					fail("Camera Did not take picture");
 				}
-			} catch (CannotTakePictureException e) {
-				fail("Failed the test");
-				e.printStackTrace();
 			}
 			catch (WrongOSException e) {
 				fail("Failed the test");

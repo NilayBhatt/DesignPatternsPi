@@ -48,8 +48,6 @@ public class ImageCollectionFactory {
 				
 			} catch (WrongOSException e) {
 				e.printStackTrace();
-			} catch (CannotTakePictureException e) {
-				e.printStackTrace();
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

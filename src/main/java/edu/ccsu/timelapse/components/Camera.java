@@ -16,6 +16,9 @@ import edu.ccsu.timelapse.models.Image;
  */
 public class Camera extends CommandLineAdapter {
 
+	/**
+	 * The picture name.
+	 */
 	private String pictureName;
 
 	/**
@@ -26,6 +29,16 @@ public class Camera extends CommandLineAdapter {
 	public String getPictureName() {
 		
 		return pictureName;
+	}
+	
+	/**
+	 * Returns the terminal command string that will execute Raspistill tool.
+	 * 
+	 * @return the command
+	 */
+	public String command() {
+
+		return "raspistill -vf -hf -o " + this.pictureName;
 	}
 
 	/**
@@ -44,34 +57,16 @@ public class Camera extends CommandLineAdapter {
 	 * @throws WrongOSException Exception thrown when OS is not Linux
 	 * @throws CannotTakePictureException Exception thrown with picture not taken
 	 */
-	public Image takePicture(String picName) throws WrongOSException, CannotTakePictureException  {
+	public Image takePicture(String picName) throws WrongOSException  {
 		setPictureName(picName);
 		
 		if (! System.getProperty("os.name").equals("Linux")) {
 			throw new WrongOSException("Not Linux sorry.");
 		}
 		
-		String exec = buildCommand();
-		try {
-			execute(exec);
-		} catch (IOException e) {
-			throw new CannotTakePictureException("Something went wrong with the Camera!", e);
-		}
+		this.execute();
 		
 		return new Image(this.pictureName);
-	}
-
-	/**
-	 * Creates the terminal command string that will execute Raspistill tool.
-	 * 
-	 * @return TerminalCommandString
-	 */
-	private String buildCommand() {
-		StringBuilder sb = new StringBuilder();
-		sb.append("raspistill -vf -hf -o ");
-		sb.append(pictureName);
-
-		return sb.toString();
 	}
 	
 	/**

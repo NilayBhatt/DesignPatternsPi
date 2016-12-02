@@ -11,17 +11,33 @@ import java.io.InputStreamReader;
 public abstract class CommandLineAdapter {
 
 	/**
+	 * Command to be executed.
+	 * 
+	 * @return the command
+	 */
+	public String command() {
+		return null;
+	}
+	
+	/**
 	 * Executes the <code>str</code> terminal command and returns the InputStream for this command.
 	 * 
 	 * @param str The terminal command string
 	 * @throws IOException Thrown when InputStream is not created successfully 
 	 */
-	protected final BufferedReader execute(String str) throws IOException {
+	public final BufferedReader execute() {
 		Runtime rt = Runtime.getRuntime();
-			Process pr = rt.exec(str);
-			BufferedReader input = new BufferedReader(new InputStreamReader(pr.getInputStream()));
+		Process pr = null;
+		
+		try {
+			pr = rt.exec(this.command());
+		} catch (IOException e) {
+			e.printStackTrace();
+			System.err.println("The command line adapter failed.");
+		}
 			
-			return input;
+		return new BufferedReader(new InputStreamReader(pr.getInputStream()));
+			
 	}
 
 }
