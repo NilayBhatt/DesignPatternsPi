@@ -35,15 +35,9 @@ public class Timelapse {
 	private int width;
 	
 	/**
-	 * Create a new instance of a timelapse video with default properties and no frames.
+	 * Create a new instance of a timelapse video with properties and frames built by a builder.
 	 */
-	public Timelapse() {
-		this.frames  = new ArrayList<Image>();
-		timeBetween = 0;
-		repeat = false;
-		height = 0;
-		width = 0;
-	}
+	public Timelapse() {}
 	
 	/**
 	 * Add a frame to the timelapse.
