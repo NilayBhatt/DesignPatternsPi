@@ -1,5 +1,6 @@
-package edu.ccsu.timelapse.factories;
+package edu.ccsu.timelapse.main;
 
+import edu.ccsu.timelapse.factories.ImageCollectionFactory;
 import edu.ccsu.timelapse.imagecollections.ImageCollection;
 
 public class ImageCollectionFactoryTest {
@@ -15,7 +16,7 @@ public class ImageCollectionFactoryTest {
 	 */
 	public static void main(String[] args) {
 		
-		ImageCollection collection = ImageCollectionFactory.construct(3.5, 20);
+		ImageCollection collection = ImageCollectionFactory.make(3.5, 20);
 		
 	}
 }

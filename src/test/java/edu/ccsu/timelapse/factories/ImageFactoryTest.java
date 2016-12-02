@@ -12,7 +12,7 @@ public class ImageFactoryTest {
 	@Test
 	public void itCollectsNoImages() {
 		
-		ImageCollection test = ImageCollectionFactory.construct(0.0, 10);
+		ImageCollection test = ImageCollectionFactory.make(0.0, 10);
 		ArrayList<ImageComposite> temp = test.getElements();
 		assertEquals(temp.size(), 0);
 		
@@ -21,7 +21,7 @@ public class ImageFactoryTest {
 	@Test
 	public void itCollectsOneImage() {
 		
-		ImageCollection test = ImageCollectionFactory.construct(0.00138889, 5);
+		ImageCollection test = ImageCollectionFactory.make(0.00138889, 5);
 		ArrayList<ImageComposite> temp = test.getElements();
 		assertEquals(temp.size(), 1);
 		
@@ -30,7 +30,7 @@ public class ImageFactoryTest {
 	@Test
 	public void itCollectsManyImages() {
 		
-		ImageCollection test = ImageCollectionFactory.construct(0.00138889, 1);
+		ImageCollection test = ImageCollectionFactory.make(0.00138889, 1);
 		ArrayList<ImageComposite> temp = test.getElements();
 		assertEquals(temp.size(), 5);
 		

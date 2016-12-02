@@ -27,7 +27,7 @@ public class ImageCollectionFactory {
 	 * @param captureInterval (how often the camera takes a picture)(in seconds)
 	 * @return an ImageCollection object with all of the images taken in the elapsed time and decorated
 	 */
-	public static ImageCollection construct(double elapsedTime, int captureInterval) {
+	public static ImageCollection make(double elapsedTime, int captureInterval) {
 		
 		ImageCollection collection = new ImageCollection();
 		Image temp;
@@ -37,7 +37,7 @@ public class ImageCollectionFactory {
 		double elapsedMilli = ((elapsedTime / 60.0) / 60.0) * 1000;
 		int captureMilli = captureInterval * 1000;
 		
-		while(elapsedMilli > 0) {
+		while(elapsedMilli > 0.0) {
 			
 			try {
 				
