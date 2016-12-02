@@ -1,10 +1,9 @@
 package edu.ccsu.timelapse.main;
 
-import static edu.ccsu.timelapse.core.Helper.app;
-
-import edu.ccsu.timelapse.components.Camera;
+import edu.ccsu.timelapse.components.TemperatureSensor;
 import edu.ccsu.timelapse.providers.SensorServiceProvider;
 import edu.ccsu.timelapse.providers.ServiceProvider;
+import static edu.ccsu.timelapse.core.Helper.*;
 
 /**
  * Runs the application to take a picture 10 times before ending.
@@ -19,14 +18,15 @@ public class Main {
 		App app = new App(new ServiceProvider[]{
 			new SensorServiceProvider(),
 		});
+
+		TemperatureSensor temperatureSensor = (TemperatureSensor) app("temperatureSensor");
+		//app.bootstrap();
 		
-		app.bootstrap();
+		//Led myLed = (Led) app("led");
 		
-		Led myLed = (Led) app("led");
+		//Camera camera = (Camera) app("camera");
 		
-		Camera camera = (Camera) app("camera");
-		
-		camera.toString();
+		//camera.toString();
 		
 	}
 

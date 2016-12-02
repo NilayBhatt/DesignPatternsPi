@@ -1,6 +1,7 @@
 package edu.ccsu.timelapse.providers;
 
 import edu.ccsu.timelapse.components.Camera;
+import edu.ccsu.timelapse.components.TemperatureSensor;
 import edu.ccsu.timelapse.main.Led;
 import static edu.ccsu.timelapse.core.Helper.*;
 
@@ -11,6 +12,8 @@ public class SensorServiceProvider extends ServiceProvider {
 		bind("led", new Led());
 		
 		bind("camera", new Camera());
+
+		bind("temperatureSensor", new TemperatureSensor());
 		
 	}
 	
