@@ -1,14 +1,13 @@
 package edu.ccsu.timelapse.components;
 
+import com.pi4j.io.gpio.*;
+
 /**
  * This method is a concrete strategy that turns led on using
  * JAVA code.
  * This code uses pi4J libraries.
  * Created by Nilay on 11/30/2016.
  */
-
-import com.pi4j.io.gpio.*;
-
 public class LedJava implements LedOnStrategy {
 
     private final GpioController gpio = GpioFactory.getInstance();
@@ -40,6 +39,11 @@ public class LedJava implements LedOnStrategy {
         return this.led.isHigh();
     }
 
+    /**
+     * Finds whether the objects are equal to each other
+     * @param object o
+     * @return true if the objects are equal
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -52,6 +56,10 @@ public class LedJava implements LedOnStrategy {
 
     }
 
+    /**
+     * Gets the hash code of the object.
+     * @return int hashcode
+     */
     @Override
     public int hashCode() {
         int result = gpio != null ? gpio.hashCode() : 0;
