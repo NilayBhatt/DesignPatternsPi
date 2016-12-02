@@ -7,7 +7,7 @@ public class TemperatureSensor extends CommandLineAdapter {
 	@Override
 	public String command() {
 		
-		return "python ./temperature.py";
+		return "python ./scripts/temperature.py";
 	}
 	
 }
