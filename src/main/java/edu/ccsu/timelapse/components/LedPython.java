@@ -13,6 +13,10 @@ import java.io.IOException;
  */
 public class LedPython extends CommandLineAdapter implements LedOnStrategy{
 
+    /**
+     * Executes method to blink led 10 times using native python code.
+     * @throws WrongOSException
+     */
     public void  execute() throws WrongOSException {
         if (! System.getProperty("os.name").equals("Linux")) {
             throw new WrongOSException("Not Linux sorry.");
@@ -25,11 +29,14 @@ public class LedPython extends CommandLineAdapter implements LedOnStrategy{
         }
     }
 
+    /**
+     * method to create the command.
+     * @return string of python command.
+     */
     private String buildCommand(){
         String s;
         s = "sudo python /CS417F16FinalProject-group04/src/main/resources/ledBlink.py";
 
         return s;
-
     }
 }
