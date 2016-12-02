@@ -11,12 +11,6 @@ public interface TemperatureListener {
 	 * 
 	 * @param delta
 	 */
-	public void temperatureIncreased(double delta);
+	public void temperatureChanged(double delta);
 	
-	/**
-	 * Called when the temperature decreases with a delta.
-	 * 
-	 * @param delta
-	 */
-	public void temperatureDecreased(double delta);
 }

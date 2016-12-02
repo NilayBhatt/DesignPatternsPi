@@ -32,12 +32,7 @@ public class TemperatureChange implements Event<TemperatureListener> {
 	 */
 	public void publish(TemperatureListener listener) {
 		
-		if (delta > 0) {
-			listener.temperatureIncreased(delta);
-			return;
-		}
-		
-		listener.temperatureDecreased(delta);
+		listener.temperatureChanged(this.delta);
 	}
 	
 	/**

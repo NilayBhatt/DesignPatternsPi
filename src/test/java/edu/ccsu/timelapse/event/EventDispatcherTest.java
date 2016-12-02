@@ -37,34 +37,22 @@ public class EventDispatcherTest {
 		
 		dispatcher.subscribe(TemperatureChange.class, temp);
 		
-		assertFalse(temp.increased_called);
-		assertFalse(temp.decrease_called);
+		assertFalse(temp.called);
 		
 		dispatcher.dispatch(new TemperatureChange(10));
 		
-		assertTrue(temp.increased_called);
-		assertFalse(temp.decrease_called);
-		
-		dispatcher.dispatch(new TemperatureChange(-5));
-		
-		assertTrue(temp.decrease_called);
-		
+		assertTrue(temp.called);
 	}
 	 
 	
 	public class TempListener implements TemperatureListener {
 		
-		public boolean increased_called = false;
-		public boolean decrease_called = false;
+		public boolean called = false;
 		
-		public void temperatureIncreased(double delta) {
-			this.increased_called = true;
+		public void temperatureChanged(double delta) {
+			this.called = true;
 		}
 
-		public void temperatureDecreased(double delta) {
-			this.decrease_called = true;
-			
-		}
 		
 	}
 }

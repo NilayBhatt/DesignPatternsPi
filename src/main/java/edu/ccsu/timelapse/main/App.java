@@ -12,13 +12,13 @@ import java.util.Objects;
 import edu.ccsu.timelapse.components.Camera;
 import edu.ccsu.timelapse.event.EventDispatcher;
 import edu.ccsu.timelapse.events.TemperatureChange;
-import edu.ccsu.timelapse.exceptions.CannotTakePictureException;
 import edu.ccsu.timelapse.exceptions.WrongOSException;
 import edu.ccsu.timelapse.listeners.HueEditorListener;
 import edu.ccsu.timelapse.listeners.contracts.TemperatureListener;
 import edu.ccsu.timelapse.models.Image;
+import edu.ccsu.timelapse.providers.ServiceProvider;
 
-public class Container {
+public class App {
 	
 	// TODO: Instead of images, start using ImageCollection
 	private ArrayList<Image> images;
@@ -27,12 +27,25 @@ public class Container {
 	
 	private Camera camera;
 	
+	private ServiceProvider[] providers;
+	
+	
 	/**
 	 * Instantiates a new camera when a new container is constructed. Images list is empty initially for this container.
 	 */
-	public Container(Camera camera, EventDispatcher dispatcher) {
-		this.camera = camera;
-		this.dispatcher = dispatcher;
+	public App(ServiceProvider[] providers) {
+		this.providers = providers;
+	}
+	
+	/**
+	 * Bootstrap application.
+	 */
+	public void bootstrap() {
+		
+		for (ServiceProvider provider : this.providers) {
+			provider.register();
+		}
+		
 	}
 	
 	/**
@@ -46,8 +59,7 @@ public class Container {
 		/**
 		 * DEMO CODE FOR DISPATCHER / EVENT SYSTEM
 		 */
-		TemperatureListener hueEditor = new HueEditorListener(); // Create a concrete listener that wants to react to an event.
-		this.dispatcher.subscribe(TemperatureChange.class, hueEditor); // Listener subscribes to the event "TemperatuerChange".
+		this.dispatcher.subscribe(TemperatureChange.class, new HueEditorListener()); // Listener subscribes to the event "TemperatuerChange".
 		
 		this.dispatcher.fire(new TemperatureChange(100)); // We fire an event of a temperature change, hueEditor class reacts.
 		
@@ -111,12 +123,12 @@ public class Container {
 	 */
 	@Override
 	public boolean equals(Object obj) {
-		if (! (obj instanceof Container)) {
+		if (! (obj instanceof App)) {
 			
 			return false;
 		}
 		
-		Container a = (Container) obj;
+		App a = (App) obj;
 		
 		for (Image image : this.images) {
 			if (! a.getImages().contains(image)) {

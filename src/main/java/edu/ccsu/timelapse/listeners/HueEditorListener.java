@@ -14,21 +14,11 @@ public class HueEditorListener implements TemperatureListener {
 	 * 
 	 * @param delta
 	 */
-	public void temperatureIncreased(double delta) {
-		System.out.println("Hue editor reacting to a temperature increase.");
+	public void temperatureChanged(double delta) {
+		System.out.println("Hue editor reacting to a temperature change of " + delta + ".");
 		
 	}
 
-	/**
-	 * Act on an temperature decrease with a delta.
-	 * 
-	 * @param delta
-	 */
-	public void temperatureDecreased(double delta) {
-		System.out.println("Hue editor reacting to a temperature decrease.");
-		
-	}
-	
 	/**
 	 * String representation of the listener.
 	 */
