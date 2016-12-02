@@ -12,7 +12,7 @@ public class Timelapse {
 	/**
 	 * Collection of frames of timelapse.
 	 */
-	private List<Image> frames;
+	private List<Image> frames = new ArrayList<Image>();
 	
 	/**
 	 * Time in between frames for in MS.
