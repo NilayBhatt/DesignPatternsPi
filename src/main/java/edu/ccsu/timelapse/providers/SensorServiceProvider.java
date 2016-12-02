@@ -8,6 +8,7 @@ public class SensorServiceProvider extends ServiceProvider {
 		
 		// Bind the camera component to the service container.
 		this.app().bind("camera", new Camera());
+
 		
 	}
 	

@@ -17,8 +17,9 @@ public class Main {
 			new SensorServiceProvider(),
 			new EventServiceProvider()
 		});
-		
+
 		app.bootstrap();
+
 	}
 
 }
