@@ -9,7 +9,8 @@ import java.io.IOException;
  * This class turns on and off the led on pi using the commandlineAdapter
  * This class is also a concrete implementation of LedOnStrategy
  * and uses native python code adapated from Dexter Industries.
- * Created by Nilay on 11/30/2016.
+ *  @author Deepankar Malhan, Edmir Alagic, Lukasz Brodowski, Nilay Bhatt,
+ *         Sabahudin Mujcinovic
  */
 public class LedPython extends CommandLineAdapter implements LedOnStrategy{
 

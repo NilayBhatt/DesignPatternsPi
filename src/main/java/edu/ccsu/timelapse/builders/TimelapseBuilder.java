@@ -4,7 +4,7 @@ import edu.ccsu.timelapse.models.Image;
 import edu.ccsu.timelapse.models.Timelapse;
 
 /**
- * Implementation of a concreate builder.
+ * Implementation of a concrete Timelapse builder.
  *
  */
 public class TimelapseBuilder implements TimelapseBuilderInterface {
@@ -55,6 +55,5 @@ public class TimelapseBuilder implements TimelapseBuilderInterface {
 
 		return this.timelapse;
 	}
-
-
+	
 }

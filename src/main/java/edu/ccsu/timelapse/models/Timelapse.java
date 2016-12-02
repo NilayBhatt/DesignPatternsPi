@@ -5,16 +5,14 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Timelapse class which represents the timelapse job.
- * 
- *
+ * Timelapse class which represents a Timelapse video.
  */
 public class Timelapse {
 	
 	/**
 	 * Collection of frames of timelapse.
 	 */
-	private List<Image> frames = new ArrayList<Image>();
+	private List<Image> frames;
 	
 	/**
 	 * Time in between frames for in MS.
@@ -37,9 +35,15 @@ public class Timelapse {
 	private int width;
 	
 	/**
-	 * Create a new instance of a timelapse.
+	 * Create a new instance of a timelapse video with default properties and no frames.
 	 */
-	public Timelapse() {}
+	public Timelapse() {
+		this.frames  = new ArrayList<Image>();
+		timeBetween = 0;
+		repeat = false;
+		height = 0;
+		width = 0;
+	}
 	
 	/**
 	 * Add a frame to the timelapse.
@@ -150,20 +154,20 @@ public class Timelapse {
 	}
 
 	/**
-	 * Returns the hash code of the pictureName.
+	 * Returns the hash code of this Timelapse.
 	 * 
-	 * @return int Hashcode of the tool name and the picture name of this camera
+	 * @return int Hashcode of all the properties as well as all the frames in this Timelapse
 	 */
 	@Override
 	public int hashCode() {
 		
-		return Objects.hash(this.width, this.height, this.frames, this.timeBetween);
+		return Objects.hash(this.width, this.height, this.frames, this.timeBetween, this.repeat);
 	}
 
 	/**
-	 * Checks if two camera objects are equal
+	 * Checks if two Timelapse objects are equal
 	 * 
-	 * @return boolean true when picture names for both <code>Camera</code> objects.
+	 * @return boolean true when properties and frames for both <code>TimeLapse</code> objects are same.
 	 */
 	@Override
 	public boolean equals(Object obj) {
@@ -190,13 +194,11 @@ public class Timelapse {
 			return false;
 		}
 		
-		if (a.getFrames().toString().compareTo(this.getFrames().toString()) != 0) {
+		if (a.getFrames().hashCode() != this.getFrames().hashCode()) {
 			
 			return false;
 		}
 		
-		
-
 		return true;
 	}
 
