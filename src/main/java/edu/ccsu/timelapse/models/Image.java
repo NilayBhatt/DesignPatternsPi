@@ -16,7 +16,7 @@ import edu.ccsu.timelapse.modifiers.ImageDecorator;
  * Image is a model to contain data about images that are taken.
  *
  */
-public class Image implements ImageComposite, ImageDecorator{
+public class Image implements ImageComposite, ImageDecorator {
 	
 	/**
 	 * Name of image.

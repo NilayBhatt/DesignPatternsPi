@@ -1,9 +1,3 @@
-/**
- * Adapter class that calls a Python program (Raspistill) on a Raspberry Pi to take a picture
- * using the camera attached to it.
- * 
- * @author Deepankar Malhan, Edmir Alagic, Lukasz Brodowski, Nilay Bhatt, Sabahudin Mujcinovic
- */
 package edu.ccsu.timelapse.components;
 
 import java.io.IOException;
@@ -14,6 +8,12 @@ import edu.ccsu.timelapse.exceptions.CannotTakePictureException;
 import edu.ccsu.timelapse.exceptions.WrongOSException;
 import edu.ccsu.timelapse.models.Image;
 
+/**
+ * Adapter class that calls a Python program (Raspistill) on a Raspberry Pi to take a picture
+ * using the camera attached to it.
+ * 
+ * @author Deepankar Malhan, Edmir Alagic, Lukasz Brodowski, Nilay Bhatt, Sabahudin Mujcinovic
+ */
 public class Camera extends CommandLineAdapter {
 
 	private String pictureName;

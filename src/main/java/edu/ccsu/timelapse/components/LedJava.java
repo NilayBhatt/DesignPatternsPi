@@ -1,14 +1,12 @@
 package edu.ccsu.timelapse.components;
 
-/**
- * This method is a concrete strategy that turns led on using
- * JAVA code.
- * This code uses pi4J libraries.
- * Created by Nilay on 11/30/2016.
- */
-
 import com.pi4j.io.gpio.*;
 
+/**
+ * This method is a concrete strategy that turns led on using JAVA code.
+ * This code uses pi4J libraries.
+ * @author Deepankar Malhan, Edmir Alagic, Lukasz Brodowski, Nilay Bhatt, Sabahudin Mujcinovic
+ */
 public class LedJava implements LedOnStrategy {
 
     private final GpioController gpio = GpioFactory.getInstance();
@@ -24,7 +22,7 @@ public class LedJava implements LedOnStrategy {
     }
 
     /**
-     * Turns of the led
+     * Turns off the led
      *
      */
     public void unexecute(){
@@ -34,24 +32,37 @@ public class LedJava implements LedOnStrategy {
     /**
      * finds if the led is on or not.
      *
-     * @return true if led is set for this Account instance.
+     * @return true if led is on.
      */
     public boolean isLedSet() {
         return this.led.isHigh();
     }
 
+    /**
+     * Finds whether the objects are equal to each other
+     * @param object o
+     * @return true if the objects are equal
+     */
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof LedJava)) return false;
+        if (!(o instanceof LedJava)){
+        	return false;
+        }
 
         LedJava ledJava = (LedJava) o;
 
-        if (gpio != null ? !gpio.equals(ledJava.gpio) : ledJava.gpio != null) return false;
-        return led != null ? led.equals(ledJava.led) : ledJava.led == null;
+        if (this.gpio != null ? !this.gpio.equals(ledJava.gpio) : ledJava.gpio != null) {
+        	return false;
+        }
+        
+        return this.led != null ? this.led.equals(ledJava.led) : ledJava.led == null;
 
     }
 
+    /**
+     * Gets the hash code of the object.
+     * @return int hashcode
+     */
     @Override
     public int hashCode() {
         int result = gpio != null ? gpio.hashCode() : 0;
