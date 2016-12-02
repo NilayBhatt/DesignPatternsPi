@@ -46,10 +46,12 @@ public class ImageCollectionFactory {
 				Thread.sleep(captureMilli);
 				elapsedMilli = elapsedMilli - captureMilli;
 				
-			} catch (WrongOSException | CannotTakePictureException | InterruptedException e) {
-				
+			} catch (WrongOSException e) {
 				e.printStackTrace();
-				
+			} catch (CannotTakePictureException e) {
+				e.printStackTrace();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
 			}
 			
 		}
