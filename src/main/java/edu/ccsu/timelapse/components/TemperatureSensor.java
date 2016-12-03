@@ -2,7 +2,6 @@ package edu.ccsu.timelapse.components;
 
 import edu.ccsu.timelapse.adapters.CommandLineAdapter;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 
 /**
@@ -16,7 +15,7 @@ public class TemperatureSensor extends CommandLineAdapter {
 	 * @return String
 	 */
 	@Override
-	public String command() {
+	protected String command() {
 		
 		return "python ./scripts/temperature.py";
 	}
@@ -26,11 +25,11 @@ public class TemperatureSensor extends CommandLineAdapter {
 	 * temperature sensor of the GrovePi
 	 * @return double temperature in fahrenheit.
 	 */
-	public double getTemperature(){
-		BufferedReader output = execute();
-		double tempInFahrenheit = 0;
+	public int getTemperature(){
+
+		int tempInFahrenheit = 0;
 		try {
-			tempInFahrenheit = Double.parseDouble(output.readLine());
+			tempInFahrenheit = (int) Double.parseDouble(this.readFirstLine(this.execute()));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

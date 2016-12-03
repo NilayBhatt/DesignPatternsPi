@@ -9,7 +9,9 @@ import edu.ccsu.timelapse.exceptions.WrongOSException;
  * @author Deepankar Malhan, Edmir Alagic, Lukasz Brodowski, Nilay Bhatt,
  *         Sabahudin Mujcinovic
  */
-public interface LedOnStrategy {
+public interface LedOnOffStrategy {
 
-	void execute() throws WrongOSException;
+	void turnOn() throws WrongOSException;
+
+	void turnOff() throws WrongOSException;
 }

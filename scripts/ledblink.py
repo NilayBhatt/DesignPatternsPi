@@ -3,8 +3,6 @@ import sys
 import time
 from grovepi import *
 
-# Connect the Grove LED to digital port D4
-led = 4
 led = int(str(sys.argv[1]))
 switch = int(str(sys.argv[2]))
 

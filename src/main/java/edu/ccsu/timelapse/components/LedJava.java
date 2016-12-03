@@ -9,19 +9,18 @@ import com.pi4j.io.gpio.RaspiPin;
 /**
  * This method is a concrete strategy that turns led on using JAVA code.
  * This code uses pi4J libraries.
- * @author Deepankar Malhan, Edmir Alagic, Lukasz Brodowski, Nilay Bhatt, Sabahudin Mujcinovic
  */
-public class LedJava implements LedOnStrategy {
+public class LedJava implements LedOnOffStrategy {
 
     private final GpioController gpio = GpioFactory.getInstance();
 
-    private final GpioPinDigitalOutput led = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_01, "MyLED", PinState.LOW);
+    private final GpioPinDigitalOutput led = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_04, "MyLED", PinState.LOW);
 
     /**
      * Turns on the led.
      *
      */
-    public void execute() {
+    public void turnOn() {
         led.high();
     }
 
@@ -29,7 +28,7 @@ public class LedJava implements LedOnStrategy {
      * Turns off the led
      *
      */
-    public void unexecute(){
+    public void turnOff(){
         led.low();
     }
 

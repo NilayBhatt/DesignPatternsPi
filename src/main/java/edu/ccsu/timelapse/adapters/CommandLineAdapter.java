@@ -15,15 +15,14 @@ public abstract class CommandLineAdapter {
 	 * 
 	 * @return the command
 	 */
-	public String command() {
+	protected String command() {
 		return null;
 	}
 	
 	/**
 	 * Executes the <code>str</code> terminal command and returns the InputStream for this command.
 	 * 
-	 * @param str The terminal command string
-	 * @throws IOException Thrown when InputStream is not created successfully 
+	 * @throws IOException Thrown when InputStream is not created successfully
 	 */
 	public final BufferedReader execute() {
 		Runtime rt = Runtime.getRuntime();
@@ -38,6 +37,18 @@ public abstract class CommandLineAdapter {
 			
 		return new BufferedReader(new InputStreamReader(pr.getInputStream()));
 			
+	}
+
+	/**
+	 * Reads and returns the first line of the bufferReader
+	 * @param br
+	 * @return
+	 * @throws IOException
+	 */
+	public final String readFirstLine(BufferedReader br) throws IOException {
+		String s = br.readLine();
+
+		return s;
 	}
 
 }
