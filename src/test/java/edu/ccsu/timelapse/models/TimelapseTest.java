@@ -24,7 +24,7 @@ public class TimelapseTest {
 
 	@Test
 	public void testGetFrames(){
-		Image image = new Image("testImage.png");
+		Image image = (Image) new Image().setPath("testImage.png");
 
 		timelapse.addFrame(image);
 
