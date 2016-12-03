@@ -11,39 +11,34 @@ import org.junit.Test;
 import edu.ccsu.timelapse.components.Camera;
 import edu.ccsu.timelapse.exceptions.CannotTakePictureException;
 import edu.ccsu.timelapse.exceptions.WrongOSException;
+import edu.ccsu.timelapse.models.Image;
 
 public class CameraTest {
 
 	@Test
 	public void testTakePicture() {
+			
 		boolean returnValue = false;
+		
 		if (!System.getProperty("os.name").equals("Linux")) {
 			assertEquals(true, true);
+			return;
 		} 
-		else {
-			Camera cameraTest = new Camera();
-
-			try {
-				cameraTest.takePicture("testPic.jpg");
-
-				Path currentRelativePath = Paths.get("");
-				String s = currentRelativePath.toAbsolutePath().toString();
-				s += "/testPic.jpg";
-				
-				File f = new File(s);
-				if (f.exists() && !f.isDirectory()) {
-					returnValue = true;
-					assertEquals(true, returnValue);
-					f.delete();
-				} else {
-					fail("Camera Did not take picture");
-				}
-			}
-			catch (WrongOSException e) {
-				fail("Failed the test");
-				e.printStackTrace();
-			}
-		}
+	
+		Camera cameraTest = new Camera();
+		Image image = cameraTest.snap();
+		
+		File f = new File(Paths.get(image.getName()).toAbsolutePath().toString());
+		
+		if (f.exists() && !f.isDirectory()) {
+			returnValue = true;
+			assertEquals(true, returnValue);
+			f.delete();
+			return;
+		} 
+		
+		fail("Camera Did not take picture");
+	
 	}
 
 }

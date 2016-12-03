@@ -26,48 +26,26 @@ public class ImageCollectionFactory {
 	 * @param captureInterval (how often the camera takes a picture)(in seconds)
 	 * @return an ImageCollection object with all of the images taken in the elapsed time and decorated
 	 */
-	public static ImageCollection make(double elapsedTime, int captureInterval) {
+	public static ImageCollection make(int numPictures, int captureInterval) {
 		
 		ImageCollection collection = new ImageCollection();
 		Image temp;
 		Camera cam = new Camera();
-		ImageDecorator hueDecorator;
 		
-		double elapsedMilli = ((elapsedTime / 60.0) / 60.0) * 1000;
 		int captureMilli = captureInterval * 1000;
 		
-		while(elapsedMilli > 0.0) {
-			
+		for(int i = 0; i < numPictures; i++){
 			try {
-				
-				temp = cam.takePicture(Double.toString(elapsedMilli));
+				temp = cam.snap();
+				System.out.println(i + ": snapped picture.");
 				collection.addElements(temp);
 				Thread.sleep(captureMilli);
-				elapsedMilli = elapsedMilli - captureMilli;
-				
-			} catch (WrongOSException e) {
-				e.printStackTrace();
 			} catch (InterruptedException e) {
 				e.printStackTrace();
-			}
-			
-		}
-		
-		/*
-		 * 5 is just a filler for now, we will calculate
-		 * an actual temperature-to-hue algorithm later.
-		 */
-		hueDecorator = new ImageHueDecorator(5);
-		try {
-			
-			collection.decorate(hueDecorator);
-			
-		} catch (IOException e) {
-			
-			e.printStackTrace();
-			
+			}	
 		}
 		
 		return collection;
+		
 	}
 }

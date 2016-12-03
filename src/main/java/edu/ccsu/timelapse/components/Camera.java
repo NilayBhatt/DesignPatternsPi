@@ -21,7 +21,7 @@ public class Camera extends CommandLineAdapter {
 	@Override
 	public String command() {
 
-		return "python ./camera.py" + this.path;
+		return "python ./camera.py ../images/" + this.path;
 	}
 
 	/**
