@@ -38,6 +38,7 @@ public class Container {
 	}
 	
 	public void bind(Class<?> key, Bind closure) {
+		this.keys.put(key.getName().toLowerCase(), key);
 		this.elements.put(key, closure.bind());
 	}
 	
