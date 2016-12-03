@@ -49,7 +49,6 @@ public class EventDispatcherTest {
 		
 		public boolean called = false;
 		
-		@Override
 		public void handle() {
 			this.called = true;
 		}
