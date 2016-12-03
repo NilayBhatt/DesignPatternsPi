@@ -37,6 +37,7 @@ public class ImageCollectionFactory {
 		for(int i = 0; i < numPictures; i++){
 			try {
 				temp = cam.snap();
+				System.out.print(temp.getName());
 				System.out.println(i + ": snapped picture.");
 				collection.addElements(temp);
 				Thread.sleep(captureMilli);

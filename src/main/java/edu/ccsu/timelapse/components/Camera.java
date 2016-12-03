@@ -21,7 +21,7 @@ public class Camera extends CommandLineAdapter {
 	@Override
 	public String command() {
 
-		return "python ./camera.py ../images/" + this.path;
+		return "python ./scripts/camera.py ./images/" + this.path;
 	}
 
 	/**
@@ -49,7 +49,7 @@ public class Camera extends CommandLineAdapter {
 	}
 	
 	private String buildPath() {
-		return this.path = new SimpleDateFormat("M-d-y-k-m").format(new Date());
+		return this.path = new SimpleDateFormat("M-d-y-k-m").format(new Date()) + ".jpeg";
 	}
 	
 	/**
