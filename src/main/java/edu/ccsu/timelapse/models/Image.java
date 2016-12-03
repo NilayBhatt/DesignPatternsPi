@@ -5,18 +5,17 @@
  */
 package edu.ccsu.timelapse.models;
 
-import java.io.IOException;
 import java.util.Date;
 import java.util.Objects;
 
+import edu.ccsu.timelapse.components.DateFormatted;
 import edu.ccsu.timelapse.imagecollections.ImageComponent;
-import edu.ccsu.timelapse.modifiers.ImageDecorator;
 
 /**
  * Image is a model to contain data about images that are taken.
  *
  */
-public class Image extends ImageComponent{ // implements ImageComposite, ImageDecorator {
+public class Image extends ImageComponent{ 
 	
 	/**
 	 * Name of image.
@@ -36,8 +35,7 @@ public class Image extends ImageComponent{ // implements ImageComposite, ImageDe
 	 */
 	public Image(String name) {
 		this.name = name;
-		//TODO: Change the timestamp to use the Date Wrapper
-		this.properties = new Properties(new Date());
+		this.properties = new Properties(DateFormatted.getInstance().formatDate(new Date()));
 	}
 	
 	
@@ -56,7 +54,7 @@ public class Image extends ImageComponent{ // implements ImageComposite, ImageDe
 	 * 
 	 * @return the date the image was created
 	 */
-	public Date getCreatedAt() {
+	public String getCreatedAt() {
 		
 		return this.properties.created_at;
 	}
@@ -82,18 +80,7 @@ public class Image extends ImageComponent{ // implements ImageComposite, ImageDe
 	 * 
 	 * @param brightness
 	 */
-	public void setBrightness(int brightness) {
-		this.properties.brightness = brightness;
-	}
-	
-	/**
-	 * Getter for the brightness property.
-	 * @return brightness
-	 */
-	public int getBrightness() {
-		return this.properties.brightness;
-	}
-	
+
 	/**
 	 * Setter for the temperature property.
 	 * 
@@ -118,7 +105,7 @@ public class Image extends ImageComponent{ // implements ImageComposite, ImageDe
 	public String toString() {
 		
 		return "This image was created at: " + this.properties.created_at + " with temp: " +
-		this.properties.temperature + ", hue: " + this.properties.hue + " and brightness: " + this.properties.brightness;
+		this.properties.temperature + ", hue: " + this.properties.hue + ".";
 	}
 	
 	/**
@@ -153,28 +140,13 @@ public class Image extends ImageComponent{ // implements ImageComposite, ImageDe
 		return true;
 	}
 	
-	/**
-	 * This decorate method decorates this image using any decorator passed through as an argument.
-	 */
-	//TODO: Will this stay here?
-	public void decorate(ImageDecorator decorator) throws IOException {
-		decorator.process(this);
-	}
-	
-	/**
-	 * This method has to be implemented due to image being the object that is being decorated.
-	 * @param imageToBeDecorated
-	 */
-	//TODO: Will this stay here?
-	public void process(Image imageToBeDecorated) {}	
-	
 	private class Properties {
 		
 		/**
 		 * Time stamp of image taken
 		 */
-		//TODO: Change created_at type to Date wrapper
-		Date created_at;
+		
+		String created_at;
 		
 		/**
 		 * Temperature value at the time the image was taken.
@@ -187,11 +159,6 @@ public class Image extends ImageComponent{ // implements ImageComposite, ImageDe
 		int hue;
 		
 		/**
-		 * Brightness of image.
-		 */
-		int brightness;
-		
-		/**
 		 * Create a new instance of Properties.
 		 * 
 		 * @param created_at
@@ -200,10 +167,9 @@ public class Image extends ImageComponent{ // implements ImageComposite, ImageDe
 		 * @param temperature
 		 */
 		// Change argument type to take Date wrapper
-		Properties(Date created_at) {
+		Properties(String created_at) {
 			
 			this.created_at = created_at;
-			this.brightness = 0;
 			this.hue = 0;
 			this.temperature = 0.0;
 		}

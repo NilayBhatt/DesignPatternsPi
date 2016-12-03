@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import edu.ccsu.timelapse.components.Camera;
 import edu.ccsu.timelapse.exceptions.WrongOSException;
-import edu.ccsu.timelapse.imagecollections.ImageCollection;
+import edu.ccsu.timelapse.imagecollections.ImageComponent;
 import edu.ccsu.timelapse.models.Image;
 import edu.ccsu.timelapse.modifiers.ImageDecorator;
 import edu.ccsu.timelapse.modifiers.ImageHueDecorator;
@@ -26,9 +26,10 @@ public class ImageCollectionFactory {
 	 * @param captureInterval (how often the camera takes a picture)(in seconds)
 	 * @return an ImageCollection object with all of the images taken in the elapsed time and decorated
 	 */
-	public static ImageCollection make(int numPictures, int captureInterval) {
+	public static ImageComponent make(int numPictures, int captureInterval) {
 		
-		ImageCollection collection = new ImageCollection();
+		//TODO: Fix this bug
+		ImageComponent collection = null;
 		Image temp;
 		Camera cam = new Camera();
 		
@@ -39,7 +40,7 @@ public class ImageCollectionFactory {
 				temp = cam.snap();
 				System.out.print(temp.getName());
 				System.out.println(i + ": snapped picture.");
-				collection.addElements(temp);
+				collection.addComponent(temp);
 				Thread.sleep(captureMilli);
 			} catch (InterruptedException e) {
 				e.printStackTrace();

@@ -9,6 +9,7 @@ import java.util.Date;
 
 import javax.imageio.ImageIO;
 
+import edu.ccsu.timelapse.components.DateFormatted;
 import edu.ccsu.timelapse.models.Image;
 
 /**
@@ -18,7 +19,7 @@ import edu.ccsu.timelapse.models.Image;
  */
 public class ImageTimeDecorator implements ImageDecorator {
 	
-	private Date timestamp;
+	private String timestamp;
 	
 	/**
 	 * Create a new instance of an ImageTimeDecorator.
@@ -28,7 +29,7 @@ public class ImageTimeDecorator implements ImageDecorator {
     public ImageTimeDecorator() {
 		super();
 		
-		this.timestamp = new Date(); //toBeDecorated.getCreatedAt(); TODO: Figure out how to use TimeStamp as a decorator.
+		this.timestamp = DateFormatted.getInstance().formatDate(new Date());
 	}
     
     /**
@@ -42,18 +43,10 @@ public class ImageTimeDecorator implements ImageDecorator {
 		Graphics2D graphics = bi.createGraphics();
 		Font font = new Font("ARIAL", Font.PLAIN, 20);
 		graphics.setFont(font);
-		graphics.drawString(imageToBeDecorated.getCreatedAt().toString(), 50, 50);
-
+		graphics.drawString(imageToBeDecorated.getCreatedAt(), 50, 50);
+		graphics.dispose();
+		
         bi.flush();
 		ImageIO.write(bi, "jpg", file);
     }
-    
-//    /**
-//     * Returns the description of a time stamped image.
-//     */
-//    @Override
-//    public String getDescription() {
-//    	
-//        return super.getDescription() + ", including a time stamp.";
-//    }
 }
