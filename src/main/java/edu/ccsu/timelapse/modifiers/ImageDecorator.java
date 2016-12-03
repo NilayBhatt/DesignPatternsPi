@@ -14,6 +14,6 @@ public interface ImageDecorator {
      * Abstract method process to be
      * overridden in concrete decorators.
      */
-    public abstract void process(Image imageToBeDecorated) throws IOException;
+    public abstract void process();
     
 }

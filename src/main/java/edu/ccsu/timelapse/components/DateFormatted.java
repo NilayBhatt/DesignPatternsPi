@@ -3,23 +3,19 @@ package edu.ccsu.timelapse.components;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public final class DateFormatted {
+public class DateFormatted {
 	
-	private static DateFormatted dateFormatted = null;
+	private Date date;
 	
-	private DateFormatted() {}
-	
-	public static DateFormatted getInstance() {
-		if(dateFormatted == null) {
-			dateFormatted = new DateFormatted();
-		}
-		
-		return dateFormatted;
+	public DateFormatted() {
+		this.date = new Date();
 	}
 	
-	public String formatDate(Date toBeFormatted) {
+	@Override
+	public String toString() {
 		
-		SimpleDateFormat dateFormat = new SimpleDateFormat("dd,MMM,YYYY EEE hh:mm:ss:SSS aaa");
-		return dateFormat.format(toBeFormatted);
+		return new SimpleDateFormat("M-d-y-k-m-s-S").format(this.date);
 	}
+
+	
 }

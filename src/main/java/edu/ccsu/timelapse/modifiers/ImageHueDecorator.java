@@ -1,4 +1,6 @@
 package edu.ccsu.timelapse.modifiers;
+import java.io.IOException;
+
 import edu.ccsu.timelapse.models.Image;
 
 /**
@@ -27,15 +29,12 @@ public class ImageHueDecorator implements ImageDecorator {
 		
 		this.objectToBeDecorated = decorate;
 	}
-    
-    /**
-     * An override of the process 
-     * requires hue to be set before processing
-     * then pushes the hue up to the image object
-     */
-    public void process() {
-    	//imageToBeDecorated.setHue(this.hue);
-    }
+
+	@Override
+	public void process() {
+		// TODO Auto-generated method stub
+		
+	}
     
 //    /**
 //     * Return image description of an image with a hue.

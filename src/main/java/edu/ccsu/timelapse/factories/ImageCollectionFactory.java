@@ -13,7 +13,6 @@ import edu.ccsu.timelapse.modifiers.ImageHueDecorator;
  * Creates a new ImageCollectionFactory object that takes parameters that
  * specify in the type of collection you want and outputs the completed collection.
  * 
- * @author Edmir Alagic, Lukasz Brodowski, Nilay Bhatt, Sabahudin Mujcinovic, Deepankar Malhan
  */
 public class ImageCollectionFactory {
 	
@@ -30,22 +29,22 @@ public class ImageCollectionFactory {
 		
 		//TODO: Fix this bug
 		ImageComponent collection = null;
-		Image temp;
-		Camera cam = new Camera();
-		
-		int captureMilli = captureInterval * 1000;
-		
-		for(int i = 0; i < numPictures; i++){
-			try {
-				temp = cam.snap();
-				System.out.print(temp.getName());
-				System.out.println(i + ": snapped picture.");
-				collection.addComponent(temp);
-				Thread.sleep(captureMilli);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}	
-		}
+//		Image temp;
+//		Camera cam = new Camera();
+//		
+//		int captureMilli = captureInterval * 1000;
+//		
+//		for(int i = 0; i < numPictures; i++){
+//			try {
+//				temp = cam.snap();
+//				System.out.print(temp.getName());
+//				System.out.println(i + ": snapped picture.");
+//				collection.addComponent(temp);
+//				Thread.sleep(captureMilli);
+//			} catch (InterruptedException e) {
+//				e.printStackTrace();
+//			}	
+//		}
 		
 		return collection;
 		

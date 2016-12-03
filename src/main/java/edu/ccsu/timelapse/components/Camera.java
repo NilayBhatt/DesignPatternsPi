@@ -16,21 +16,20 @@ public class Camera extends CommandLineAdapter {
 	/**
 	 * Cached string used for taking picture.
 	 */
-	private String path;
+	private String fileName;
 
 	@Override
 	public String command() {
 
-		return "python ./scripts/camera.py ./images/" + this.path;
+		return "python ./scripts/camera.py ./images/" + this.fileName;
 	}
 
 	/**
 	 * This method takes a picture using the camera attached to the Raspberry Pi.
 	 * 
-	 * @param picName The name for the picture that will be taken through the method
-	 * @throws WrongOSException Exception thrown when OS is not Linux
+	 * @returns path to image snapped.
 	 */
-	public Image snap() {
+	public String snap() {
 
 		if (! System.getProperty("os.name").equals("Linux")) {
 			try {
@@ -41,15 +40,20 @@ public class Camera extends CommandLineAdapter {
 			}
 		}
 		
-		this.buildPath();
+		this.fileName();
 		
 		this.execute();
 		
-		return new Image(this.path);
+		return "./images/" + this.fileName;
 	}
 	
-	private String buildPath() {
-		return this.path = new SimpleDateFormat("M-d-y-k-m-s-S").format(new Date()) + ".jpeg";
+	/**
+	 * Build unique path for file name for adaptor.
+	 * 
+	 * @return the name 
+	 */
+	private String fileName() {
+		return this.fileName = new DateFormatted() + ".jpeg";
 	}
 	
 	/**

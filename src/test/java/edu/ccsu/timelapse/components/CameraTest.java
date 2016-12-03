@@ -26,9 +26,9 @@ public class CameraTest {
 		} 
 	
 		Camera cameraTest = new Camera();
-		Image image = cameraTest.snap();
+		String path = cameraTest.snap();
 		
-		File f = new File(Paths.get(image.getName()).toAbsolutePath().toString());
+		File f = new File(Paths.get(path).toAbsolutePath().toString());
 		
 		if (f.exists() && !f.isDirectory()) {
 			returnValue = true;

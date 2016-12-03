@@ -5,7 +5,6 @@
  */
 package edu.ccsu.timelapse.models;
 
-import java.util.Date;
 import java.util.Objects;
 
 import edu.ccsu.timelapse.components.DateFormatted;
@@ -15,97 +14,85 @@ import edu.ccsu.timelapse.imagecollections.ImageComponent;
  * Image is a model to contain data about images that are taken.
  *
  */
-public class Image extends ImageComponent{ 
+public class Image extends ImageComponent { 
 	
-	/**
-	 * Name of image.
-	 */
-	private String name;
+	private String path;
 	
-	/**
-	 * Image properties;
-	 */
-	private Properties properties;
+	private int temperature;
 	
-	
+	private DateFormatted timestamp;
+
 	/**
 	 * Create a new instance of an image.
 	 * 
 	 * @param name Name of the image
 	 */
-	public Image(String name) {
-		this.name = name;
-		this.properties = new Properties(DateFormatted.getInstance().formatDate(new Date()));
-	}
+	public Image() { }
 	
 	
-	/**
-	 * Get the name of the image which the creation time.
-	 * 
-	 * @return the name
-	 */
-	public String getName() {
+	@Override
+	public ImageComponent setPath(String path) {
 		
-		return this.name;
-	}
-	
-	/**
-	 * Get the created at date.
-	 * 
-	 * @return the date the image was created
-	 */
-	public String getCreatedAt() {
+		this.path = path;
 		
-		return this.properties.created_at;
+		return this;
 	}
 	
 	/**
-	 * Setter for the hue property.
+	 * Get the path of the image
 	 * 
-	 * @param hue
+	 * @return the path
 	 */
-	public void setHue(int hue) {
-		this.properties.hue = hue;
+	@Override
+	public String getPath() {
+		
+		return this.path;
 	}
-
-	/**
-	 * Getter for the hue property
-	 * @return hue
-	 */
-	public int getHue() {
-		return this.properties.hue;
-	}
-	/**
-	 * Setter for the brightness property.
-	 * 
-	 * @param brightness
-	 */
 
 	/**
 	 * Setter for the temperature property.
 	 * 
 	 * @param temperature
 	 */
-	public void setTemperature(double temperature) {
-		this.properties.temperature = temperature;
+	@Override
+	public ImageComponent setTemperature(int temperature) {
+		this.temperature = temperature;
+		
+		return this;
 	}
 	
 	/**
 	 * Getter for the temperature property.
 	 * @return temperature
 	 */
-	public double getTemperature() {
-		return this.properties.temperature;
+	@Override
+	public int getTemperature() {
+		
+		return this.temperature;
 	}
 	
+	@Override
+	public DateFormatted getTimestamp() {
+		
+		return this.timestamp;
+	}
+
+
+	@Override
+	public ImageComponent setTimestamp(DateFormatted date) {
+		this.timestamp = date;
+		
+		return this;
+	}
+	
+
 	/**
 	 * Returns a string representation of the class.
 	 */
 	@Override
 	public String toString() {
 		
-		return "This image was created at: " + this.properties.created_at + " with temp: " +
-		this.properties.temperature + ", hue: " + this.properties.hue + ".";
+		return "An image with a path of " + this.getPath();
 	}
 	
 	/**
@@ -114,7 +101,7 @@ public class Image extends ImageComponent{
 	@Override
 	public int hashCode() {
 		
-		return Objects.hash(this.name, this.properties);
+		return Objects.hashCode(this.getPath());
 	}
 	
 	/**
@@ -139,45 +126,12 @@ public class Image extends ImageComponent{
 		
 		return true;
 	}
-	
-	private class Properties {
-		
-		/**
-		 * Time stamp of image taken
-		 */
-		
-		String created_at;
-		
-		/**
-		 * Temperature value at the time the image was taken.
-		 */
-		double temperature;
-		
-		/**
-		 * Value of hue applied to image.
-		 */
-		int hue;
-		
-		/**
-		 * Create a new instance of Properties.
-		 * 
-		 * @param created_at
-		 * @param brightness
-		 * @param hue
-		 * @param temperature
-		 */
-		// Change argument type to take Date wrapper
-		Properties(String created_at) {
-			
-			this.created_at = created_at;
-			this.hue = 0;
-			this.temperature = 0.0;
-		}
-	}
+
 
 	@Override
 	public void processComponent() {
 		// TODO Auto-generated method stub
 		
-	}	
+	}
+	
 }

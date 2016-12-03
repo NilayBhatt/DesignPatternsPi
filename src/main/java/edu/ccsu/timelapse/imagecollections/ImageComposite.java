@@ -12,6 +12,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 
+import edu.ccsu.timelapse.components.DateFormatted;
+
 public class ImageComposite extends ImageComponent{
 	
 	/**
@@ -114,5 +116,41 @@ public class ImageComposite extends ImageComponent{
 	@Override
 	public int hashCode() {
 		return Objects.hashCode(this.elements);
+	}
+
+	@Override
+	public String getPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int getTemperature() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public DateFormatted getTimestamp() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ImageComponent setPath(String path) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ImageComponent setTemperature(int temperature) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ImageComponent setTimestamp(DateFormatted date) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
