@@ -38,10 +38,9 @@ public class LedPython extends CommandLineAdapter implements LedOnOffStrategy {
      * @return command to be executed in terminal
      */
     @Override
-    protected String command(){
-        return "python ./scripts/ledblink.py " + buildOnOffCommand(" " + this.flip);
+    protected String command() {
+        return "python ./scripts/ledblink.py " + this.getLedPort() + " " + this.flip;
     }
-
 
     /**
      * Turns On the led
@@ -62,20 +61,5 @@ public class LedPython extends CommandLineAdapter implements LedOnOffStrategy {
         this.flip = "0";
 
         this.execute();
-    }
-
-    /**
-     * Method that creates the command to turn on the led
-     * on a specified port and switch.
-     * @param s String switch
-     * @return String parameters
-     */
-    private String buildOnOffCommand(String s) {
-        String command = new String();
-        command += getLedPort();
-
-        command += s;
-
-        return command;
     }
 }

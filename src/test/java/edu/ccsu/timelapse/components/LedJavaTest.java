@@ -11,26 +11,26 @@ import static org.junit.Assert.assertTrue;
  */
 public class LedJavaTest {
     @Test
-    public void execute() throws Exception {
+    public void turnOn() throws Exception {
         if (!System.getProperty("os.name").equals("Linux")) {
             Assert.assertEquals(true, true);
         } else {
             LedJava ledJava = new LedJava();
-            ledJava.execute();
+            ledJava.turnOn();
 
             assertTrue(ledJava.isLedSet());
 
-            ledJava.unexecute();
+            ledJava.turnOff();
         }
     }
 
     @Test
-    public void unexecute() throws Exception {
+    public void turnOff() throws Exception {
         if (!System.getProperty("os.name").equals("Linux")) {
             Assert.assertEquals(true, true);
         } else {
             LedJava ledJava = new LedJava();
-            ledJava.unexecute();
+            ledJava.turnOff();
 
             assertTrue(!ledJava.isLedSet());
         }
@@ -42,11 +42,11 @@ public class LedJavaTest {
             Assert.assertEquals(true, true);
         } else {
             LedJava ledJava = new LedJava();
-            ledJava.execute();
+            ledJava.turnOn();
 
             assertTrue(ledJava.isLedSet());
 
-            ledJava.unexecute();
+            ledJava.turnOff();
         }
     }
 
