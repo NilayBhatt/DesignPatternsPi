@@ -49,7 +49,7 @@ public class Camera extends CommandLineAdapter {
 	}
 	
 	private String buildPath() {
-		return this.path = new SimpleDateFormat("M-d-y-k-m").format(new Date()) + ".jpeg";
+		return this.path = new SimpleDateFormat("M-d-y-k-m-s-S").format(new Date()) + ".jpeg";
 	}
 	
 	/**
