@@ -21,6 +21,8 @@ public class Main {
 		});
 
 		app.bootstrap();
+		
+		app.start();
 
 	}
 

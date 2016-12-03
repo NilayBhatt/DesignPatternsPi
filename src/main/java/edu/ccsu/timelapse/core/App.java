@@ -37,5 +37,12 @@ public class App {
 		event(new AppBootstrapped());
 		
 	}
+	
+	/**
+	 * Start the application.
+	 */
+	public void start() {
+		System.out.println("The application has started.");
+	}
 
 }
