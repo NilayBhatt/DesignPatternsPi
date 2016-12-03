@@ -1,9 +1,9 @@
 package edu.ccsu.timelapse.components;
 
-import edu.ccsu.timelapse.adapters.CommandLineAdapter;
-
 import java.io.BufferedReader;
 import java.io.IOException;
+
+import edu.ccsu.timelapse.adapters.CommandLineAdapter;
 
 public class TemperatureSensor extends CommandLineAdapter {
 
