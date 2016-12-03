@@ -13,19 +13,24 @@ public class ConsoleUnixLogger implements Logger {
     private static final String ANSI_CYAN = "\u001B[36m";
     private static final String ANSI_WHITE = "\u001B[37m";
 
-    public void printInfo(String s) {
-        System.out.println(ANSI_CYAN + s + ANSI_RESET);
+    public void info(String s) {
+    System.out.println(ANSI_PURPLE +"$timelapse: "+ ANSI_RESET + ANSI_CYAN + s + ANSI_RESET);
     }
 
-    public void printError(String s) {
-        System.out.println(ANSI_RED + s + ANSI_RESET);
+    public void error(String s) {
+        System.out.println(ANSI_PURPLE +"$timelapse: "+ ANSI_RESET +ANSI_RED + s + ANSI_RESET);
     }
 
-    public void printWarning(String s) {
-        System.out.println(ANSI_YELLOW + s + ANSI_RESET);
+    public void warning(String s) {
+        System.out.println(ANSI_PURPLE +"$timelapse: "+ ANSI_RESET +ANSI_YELLOW + s + ANSI_RESET);
     }
 
-    public void printDefault(String s) {
-        System.out.println();
+    public void normal(String s) {
+        System.out.println(ANSI_PURPLE +"$timelapse: "+ ANSI_RESET +s);
     }
+
+    public void success(String s) {
+        System.out.println(ANSI_PURPLE + "$timelapse: " + ANSI_RESET + ANSI_GREEN + s + ANSI_RESET);
+    }
+
 }

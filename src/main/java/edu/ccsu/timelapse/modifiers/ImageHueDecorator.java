@@ -1,7 +1,7 @@
 package edu.ccsu.timelapse.modifiers;
-import java.io.IOException;
 
-import edu.ccsu.timelapse.models.Image;
+import marvin.image.MarvinImage;
+import marvin.io.MarvinImageIO;
 
 /**
  * This is a concrete implementation of ImageDecorator
@@ -30,9 +30,7 @@ public class ImageHueDecorator implements ImageDecorator {
 		this.objectToBeDecorated = decorate;
 	}
 
-	@Override
 	public void process() {
-		// TODO Auto-generated method stub
 		
 	}
     

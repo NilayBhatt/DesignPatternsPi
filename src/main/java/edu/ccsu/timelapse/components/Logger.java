@@ -5,12 +5,14 @@ package edu.ccsu.timelapse.components;
  */
 public interface Logger {
 
-    void printInfo(String s);
+    void info(String s);
 
-    void printError(String s);
+    void error(String s);
 
-    void printWarning(String s);
+    void warning(String s);
 
-    void printDefault(String s);
+    void normal(String s);
+
+    void success(String s);
 
 }

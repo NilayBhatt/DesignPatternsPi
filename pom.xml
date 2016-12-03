@@ -15,6 +15,20 @@
             <artifactId>pi4j-core</artifactId>
             <version>1.1</version>
         </dependency>
+        <dependency>
+            <groupId>GifMaker</groupId>
+            <artifactId>GifMaker</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>C:/Users/Nilay/Documents/GitHub/CS417F16FinalProject-group04/src/main/resources/jars/GIFMaker.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>Marvin</groupId>
+            <artifactId>Marvin</artifactId>
+            <version>1.5.4</version>
+            <scope>system</scope>
+            <systemPath>C:/Users/Nilay/Documents/GitHub/CS417F16FinalProject-group04/src/Marvin/framework/marvin_1.5.4.jar</systemPath>
+        </dependency>
     </dependencies>
     <name>CS417 Fall'16 Group 4 Final Project</name>
 </project>
