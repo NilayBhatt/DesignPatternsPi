@@ -9,14 +9,14 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.Objects;
 
-import edu.ccsu.timelapse.imagecollections.ImageComposite;
+import edu.ccsu.timelapse.imagecollections.ImageComponent;
 import edu.ccsu.timelapse.modifiers.ImageDecorator;
 
 /**
  * Image is a model to contain data about images that are taken.
  *
  */
-public class Image implements ImageComposite, ImageDecorator {
+public class Image extends ImageComponent{ // implements ImageComposite, ImageDecorator {
 	
 	/**
 	 * Name of image.
@@ -35,23 +35,14 @@ public class Image implements ImageComposite, ImageDecorator {
 	 * @param name Name of the image
 	 */
 	public Image(String name) {
-		this.setName(name);
-		
+		this.name = name;
+		//TODO: Change the timestamp to use the Date Wrapper
 		this.properties = new Properties(new Date());
 	}
 	
-	/**
-	 * Set the name of the image.
-	 * 
-	 * @param name
-	 */
-	public void setName(String name) {
-		this.name = name;
-	}
-	
 	
 	/**
-	 * Get the name of the image.
+	 * Get the name of the image which the creation time.
 	 * 
 	 * @return the name
 	 */
@@ -96,12 +87,28 @@ public class Image implements ImageComposite, ImageDecorator {
 	}
 	
 	/**
+	 * Getter for the brightness property.
+	 * @return brightness
+	 */
+	public int getBrightness() {
+		return this.properties.brightness;
+	}
+	
+	/**
 	 * Setter for the temperature property.
 	 * 
 	 * @param temperature
 	 */
-	public void setTemperature(int temperature) {
-		this.properties.tempurature = temperature;
+	public void setTemperature(double temperature) {
+		this.properties.temperature = temperature;
+	}
+	
+	/**
+	 * Getter for the temperature property.
+	 * @return temperature
+	 */
+	public double getTemperature() {
+		return this.properties.temperature;
 	}
 	
 	/**
@@ -110,7 +117,8 @@ public class Image implements ImageComposite, ImageDecorator {
 	@Override
 	public String toString() {
 		
-		return this.name + " was created at: " + this.properties.created_at + ".";
+		return "This image was created at: " + this.properties.created_at + " with temp: " +
+		this.properties.temperature + ", hue: " + this.properties.hue + " and brightness: " + this.properties.brightness;
 	}
 	
 	/**
@@ -119,7 +127,7 @@ public class Image implements ImageComposite, ImageDecorator {
 	@Override
 	public int hashCode() {
 		
-		return Objects.hash(this.name, this.properties.created_at);
+		return Objects.hash(this.name, this.properties);
 	}
 	
 	/**
@@ -137,7 +145,7 @@ public class Image implements ImageComposite, ImageDecorator {
 		
 		Image otherImage = (Image) image;
 		
-		if(! this.getName().equals(otherImage.getName())) {
+		if(this.hashCode() != otherImage.hashCode()) {
 			
 			return false;
 		}
@@ -148,6 +156,7 @@ public class Image implements ImageComposite, ImageDecorator {
 	/**
 	 * This decorate method decorates this image using any decorator passed through as an argument.
 	 */
+	//TODO: Will this stay here?
 	public void decorate(ImageDecorator decorator) throws IOException {
 		decorator.process(this);
 	}
@@ -156,6 +165,7 @@ public class Image implements ImageComposite, ImageDecorator {
 	 * This method has to be implemented due to image being the object that is being decorated.
 	 * @param imageToBeDecorated
 	 */
+	//TODO: Will this stay here?
 	public void process(Image imageToBeDecorated) {}	
 	
 	private class Properties {
@@ -163,12 +173,13 @@ public class Image implements ImageComposite, ImageDecorator {
 		/**
 		 * Time stamp of image taken
 		 */
+		//TODO: Change created_at type to Date wrapper
 		Date created_at;
 		
 		/**
 		 * Temperature value at the time the image was taken.
 		 */
-		int tempurature;
+		double temperature;
 		
 		/**
 		 * Value of hue applied to image.
@@ -188,12 +199,19 @@ public class Image implements ImageComposite, ImageDecorator {
 		 * @param hue
 		 * @param temperature
 		 */
+		// Change argument type to take Date wrapper
 		Properties(Date created_at) {
 			
 			this.created_at = created_at;
 			this.brightness = 0;
 			this.hue = 0;
-			this.tempurature = 0;
+			this.temperature = 0.0;
 		}
+	}
+
+	@Override
+	public void processComponent() {
+		// TODO Auto-generated method stub
+		
 	}	
 }

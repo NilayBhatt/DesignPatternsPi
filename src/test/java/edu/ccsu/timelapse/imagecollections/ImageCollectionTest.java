@@ -22,7 +22,7 @@ public class ImageCollectionTest {
     public void addElements() throws Exception {
 
         Image testImage = new Image("testImage.png");
-        ImageCollection imageCollection = new ImageCollection();
+        ImageComposite imageCollection = new ImageComposite();
         try {
             imageCollection.addElements(testImage);
         } catch (Exception e) {
@@ -35,7 +35,7 @@ public class ImageCollectionTest {
     @Test
     public void removeElement() throws Exception {
         Image testImage = new Image("testImage.png");
-        ImageCollection imageCollection = new ImageCollection();
+        ImageComposite imageCollection = new ImageComposite();
         try {
             imageCollection.addElements(testImage);
             imageCollection.removeElement(testImage);
@@ -50,7 +50,7 @@ public class ImageCollectionTest {
     @Test
     public void toSString() throws Exception {
         Image testImage = new Image("testImage.png");
-        ImageCollection imageCollection = new ImageCollection();
+        ImageComposite imageCollection = new ImageComposite();
         imageCollection.addElements(testImage);
 
         assertTrue(imageCollection.toString().equals(testImage.toString() + " "));
@@ -59,9 +59,9 @@ public class ImageCollectionTest {
     @Test
     public void equalsTrue() throws Exception {
         Image testImage = new Image("testImage.png");
-        ImageCollection imageCollection = new ImageCollection();
+        ImageComposite imageCollection = new ImageComposite();
         imageCollection.addElements(testImage);
-        ImageCollection imageCollection1 = new ImageCollection();
+        ImageComposite imageCollection1 = new ImageComposite();
         imageCollection1.addElements(testImage);
 
         assertTrue(imageCollection.equals(imageCollection1));
@@ -70,10 +70,10 @@ public class ImageCollectionTest {
     @Test
     public void equalsFalse() throws Exception {
         Image testImage = new Image("testImage.png");
-        ImageCollection imageCollection = new ImageCollection();
+        ImageComposite imageCollection = new ImageComposite();
         imageCollection.addElements(testImage);
         Image testImage1 = new Image("testImage.jpg");
-        ImageCollection imageCollection1 = new ImageCollection();
+        ImageComposite imageCollection1 = new ImageComposite();
         imageCollection1.addElements(testImage1);
 
         assertFalse(imageCollection.equals(imageCollection1));
@@ -82,9 +82,9 @@ public class ImageCollectionTest {
     @Test
     public void hashCCode() throws Exception {
         Image testImage = new Image("testImage.png");
-        ImageCollection imageCollection = new ImageCollection();
+        ImageComposite imageCollection = new ImageComposite();
         imageCollection.addElements(testImage);
-        ImageCollection imageCollection1 = new ImageCollection();
+        ImageComposite imageCollection1 = new ImageComposite();
         imageCollection1.addElements(testImage);
 
         assertEquals(imageCollection.hashCode(),imageCollection1.hashCode());
@@ -93,7 +93,7 @@ public class ImageCollectionTest {
     @Test
     public void getElements() throws Exception {
         Image testImage = new Image("testImage.png");
-        ImageCollection imageCollection = new ImageCollection();
+        ImageComposite imageCollection = new ImageComposite();
         imageCollection.addElements(testImage);
 
         ArrayList<ImageComposite> images = imageCollection.getElements();

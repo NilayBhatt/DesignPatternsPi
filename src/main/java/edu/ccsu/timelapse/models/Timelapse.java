@@ -12,6 +12,7 @@ public class Timelapse {
 	/**
 	 * Collection of frames of timelapse.
 	 */
+	//TODO: Use ImageComposite instead of List<Image>
 	private List<Image> frames = new ArrayList<Image>();
 	
 	/**

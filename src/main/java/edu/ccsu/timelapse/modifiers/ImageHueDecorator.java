@@ -13,15 +13,19 @@ public class ImageHueDecorator implements ImageDecorator {
 	 */
 	private int hue;
 	
+	private ImageDecorator objectToBeDecorated;
+	
 	/**
 	 * Create a new instance of a ImageHueDecorator.
 	 * 
 	 * @param toBeDecorated
 	 */
-    public ImageHueDecorator(int hue) {
+    public ImageHueDecorator(ImageDecorator decorate, int hue) {
 		super();
 		
 		this.hue = hue;
+		
+		this.objectToBeDecorated = decorate;
 	}
     
     /**
@@ -29,8 +33,8 @@ public class ImageHueDecorator implements ImageDecorator {
      * requires hue to be set before processing
      * then pushes the hue up to the image object
      */
-    public void process(Image imageToBeDecorated) {
-    	imageToBeDecorated.setHue(this.hue);
+    public void process() {
+    	//imageToBeDecorated.setHue(this.hue);
     }
     
 //    /**
