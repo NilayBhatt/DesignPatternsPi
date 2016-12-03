@@ -64,6 +64,7 @@ public class LedJava implements LedOnOffStrategy {
 
     /**
      * Gets the hash code of the object.
+     * 
      * @return int hashcode
      */
     @Override

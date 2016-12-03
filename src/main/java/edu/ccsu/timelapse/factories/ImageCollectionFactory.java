@@ -2,7 +2,7 @@ package edu.ccsu.timelapse.factories;
 
 import java.io.IOException;
 
-import edu.ccsu.timelapse.components.Camera;
+import edu.ccsu.timelapse.components.PiCamera;
 import edu.ccsu.timelapse.exceptions.WrongOSException;
 import edu.ccsu.timelapse.imagecollections.ImageComponent;
 import edu.ccsu.timelapse.models.Image;

@@ -9,25 +9,31 @@ import edu.ccsu.timelapse.event.EventDispatcher;
  */
 public final class Helper {
 	
-	/**
-	 * Resolve an object out of the container.
-	 * 
-	 * @param key
-	 * @return Object
-	 */
-	public static Object app(String key) {
+
+	public static <E> E app(Class<E> key) {
 		
-		return Container.getInstance().get(key);
+		return (E) Container.getInstance().get(key);
+	}	
+	
+	public static <E> E app(String key) {
+		
+		return (E) Container.getInstance().get(key);
 	}
 	
-	/**
-	 * Bind a key and object into the app container.
-	 * 
-	 * @param key
-	 * @param value
-	 */
-	public static void bind(String key, Object value) {
+	public static void bind(String normal, Class<?> key, Object value) {
+		Container.getInstance().bind(normal, key, value);
+	}
+	
+	public static void bind(Class<?> key, Object value) {
 		Container.getInstance().bind(key, value);
+	}
+	
+	public static void bind(String normal, Class<?> key, Bind closure) {
+		Container.getInstance().bind(normal, key, closure);
+	}
+	
+	public void bind(Class<?> key, Bind closure) {
+		Container.getInstance().bind(key, closure);
 	}
 	
 	/**

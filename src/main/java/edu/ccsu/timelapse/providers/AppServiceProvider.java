@@ -10,7 +10,7 @@ public class AppServiceProvider extends ServiceProvider {
 	@Override
 	public void register() {
 		
-		this.app().bind("gif", new GIFMaker());
+		//this.app().bind("gif", new GIFMaker());
 		
 	}
 	

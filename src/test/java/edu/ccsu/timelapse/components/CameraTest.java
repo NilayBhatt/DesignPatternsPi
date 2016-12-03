@@ -8,7 +8,7 @@ import java.nio.file.Paths;
 
 import org.junit.Test;
 
-import edu.ccsu.timelapse.components.Camera;
+import edu.ccsu.timelapse.components.PiCamera;
 import edu.ccsu.timelapse.exceptions.CannotTakePictureException;
 import edu.ccsu.timelapse.exceptions.WrongOSException;
 import edu.ccsu.timelapse.models.Image;
@@ -25,7 +25,7 @@ public class CameraTest {
 			return;
 		} 
 	
-		Camera cameraTest = new Camera();
+		PiCamera cameraTest = new PiCamera();
 		String path = cameraTest.snap();
 		
 		File f = new File(Paths.get(path).toAbsolutePath().toString());

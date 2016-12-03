@@ -25,7 +25,7 @@ public class TemperatureSensor extends CommandLineAdapter {
 	 * temperature sensor of the GrovePi
 	 * @return double temperature in fahrenheit.
 	 */
-	public int getTemperature(){
+	public int getTemperature() {
 
 		int tempInFahrenheit = 0;
 		try {

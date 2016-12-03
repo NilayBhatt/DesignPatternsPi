@@ -4,9 +4,6 @@
  */
 package edu.ccsu.timelapse.core;
 
-import static edu.ccsu.timelapse.core.Helper.event;
-
-import edu.ccsu.timelapse.events.AppBootstrapped;
 import edu.ccsu.timelapse.factories.ImageCollectionFactory;
 import edu.ccsu.timelapse.providers.ServiceProvider;
 
@@ -35,7 +32,7 @@ public class App {
 			provider.register();
 		}
 		
-		event(new AppBootstrapped());
+		//event(new AppBootstrapped());
 		
 	}
 	

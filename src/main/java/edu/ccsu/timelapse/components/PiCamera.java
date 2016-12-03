@@ -1,17 +1,14 @@
 package edu.ccsu.timelapse.components;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import edu.ccsu.timelapse.adapters.CommandLineAdapter;
+import edu.ccsu.timelapse.components.contracts.Camera;
 import edu.ccsu.timelapse.exceptions.WrongOSException;
-import edu.ccsu.timelapse.models.Image;
 
 /**
  * Camera that takes pictures.
  * 
  */
-public class Camera extends CommandLineAdapter {
+public class PiCamera extends CommandLineAdapter implements Camera {
 	
 	/**
 	 * Cached string used for taking picture.

@@ -6,14 +6,16 @@ public class Container {
 	
 	private static Container instance = null;
 	
-	private Hashtable <String, Object> elements;
+	private Hashtable <Class<?>, Object> elements;
+	
+	private Hashtable<String, Class<?>> keys;
 
 	private Container() {
-		this.elements = new Hashtable<String, Object>();
+		this.elements = new Hashtable<Class<?>, Object>();
+		this.keys = new Hashtable<String, Class<?>>();
 	}
 	
 	public static Container getInstance() {
-		
 		if (Container.instance == null) {
 			Container.instance = new Container();
 		}
@@ -21,13 +23,34 @@ public class Container {
 		return Container.instance;
 	}
 	
-	public void bind(String key, Object value) {
+	public void bind(String normal, Class<?> key, Object value) {
+		this.keys.put(normal, key);
 		this.elements.put(key, value);
 	}
 	
-	public Object get(String key) {
-		return this.elements.get(key);
+	public void bind(Class<?> key, Object value) {
+		this.elements.put(key, value);
+	}
+	
+	public void bind(String normal, Class<?> key, Bind closure) {
+		this.keys.put(normal, key);
+		this.elements.put(key, closure.bind());	
+	}
+	
+	public void bind(Class<?> key, Bind closure) {
+		this.elements.put(key, closure.bind());
+	}
+	
+	public <E> E get(Class<E> key) {
+		
+		return (E) this.elements.get(key);
 	}	
+	
+	public <E> E get(String key) {
+		E contract = (E) this.keys.get(key);
+		
+		return (E) this.elements.get(contract);
+	}
 	
 	
 }

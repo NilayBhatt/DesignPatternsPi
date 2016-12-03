@@ -1,6 +1,8 @@
 package edu.ccsu.timelapse.providers;
 
-import edu.ccsu.timelapse.components.Camera;
+import edu.ccsu.timelapse.components.PiCamera;
+import edu.ccsu.timelapse.components.contracts.Camera;
+import static edu.ccsu.timelapse.core.Helper.*;
 
 /**
  * Register and bind sensors to the container.
@@ -10,12 +12,8 @@ public class SensorServiceProvider extends ServiceProvider {
 
 	public void register() {
 		
-		// Bind the camera component to the service container.
-		this.app().bind("camera", new Camera());
+		bind("camera", Camera.class, new PiCamera());
+		
 	}
-	
-}
-
-interface CameraInterface {
 	
 }
