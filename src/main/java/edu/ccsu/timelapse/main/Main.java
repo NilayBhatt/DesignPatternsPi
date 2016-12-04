@@ -1,25 +1,28 @@
 package edu.ccsu.timelapse.main;
 
-import edu.ccsu.timelapse.components.Camera;
-import edu.ccsu.timelapse.event.EventDispatcher;
+import edu.ccsu.timelapse.core.App;
+import edu.ccsu.timelapse.providers.AppServiceProvider;
+import edu.ccsu.timelapse.providers.EventServiceProvider;
+import edu.ccsu.timelapse.providers.SensorServiceProvider;
+import edu.ccsu.timelapse.providers.ServiceProvider;
 
 /**
  * Runs the application to take a picture 10 times before ending.
- * 
- * @author Edmir Alagic, Nilay Bhatt, Lukasz Brodowski, Deepankar Malhan,
- *         Sabahudin Mujcinovic
+ *
  */
 public class Main {
 
 	public static void main(String[] args) {
 		
-		Container container = new Container(new Camera(), new EventDispatcher());
+		App app = new App(new ServiceProvider[]{
+			new AppServiceProvider(),
+			new SensorServiceProvider(),
+			new EventServiceProvider()
+		});
+
+		app.bootstrap();
 		
-		try {
-			container.run(10);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		app.start();
 
 	}
 

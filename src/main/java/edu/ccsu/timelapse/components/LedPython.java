@@ -3,41 +3,63 @@ package edu.ccsu.timelapse.components;
 import edu.ccsu.timelapse.adapters.CommandLineAdapter;
 import edu.ccsu.timelapse.exceptions.WrongOSException;
 
-import java.io.IOException;
-
 /**
- * This class turns on and off the led on pi using the commandlineAdapter
- * This class is also a concrete implementation of LedOnStrategy
- * and uses native python code adapated from Dexter Industries.
- *  @author Deepankar Malhan, Edmir Alagic, Lukasz Brodowski, Nilay Bhatt,
- *         Sabahudin Mujcinovic
+ * This method is a concrete strategy that turns led on using Python code.
+ * This code wraps the python code existing on the RaspberryPi.
  */
-public class LedPython extends CommandLineAdapter implements LedOnStrategy{
+public class LedPython extends CommandLineAdapter implements LedOnOffStrategy {
 
     /**
-     * Executes method to blink led 10 times using native python code.
-     * @throws WrongOSException
+     * Port number where the led is attached.
+     * Defaulted to 4
      */
-    public void  execute() throws WrongOSException {
-        if (! System.getProperty("os.name").equals("Linux")) {
-            throw new WrongOSException("Not Linux sorry.");
-        }
-        String exec = buildCommand();
-        try {
-            execute(exec);
-        } catch (IOException e) {
-                e.printStackTrace();
-        }
+    private int ledPort = 4;
+
+    /**
+     * Switch to turn led on or off
+     * Defaulted to 1 to turn on.s
+     */
+    private String flip = "1";
+
+    /**
+     * Sets the portNumber where the led is attached.
+     * @param portNum
+     */
+    public void setLedPort(int portNum) {
+        this.ledPort = portNum;
+    }
+
+    private int getLedPort() {
+        return this.ledPort;
     }
 
     /**
-     * method to create the command.
-     * @return string of python command.
+     * Creates the python command to execute.
+     * @return command to be executed in terminal
      */
-    private String buildCommand(){
-        String s;
-        s = "sudo python /CS417F16FinalProject-group04/src/main/resources/ledBlink.py";
+    @Override
+    protected String command() {
+        return "python ./scripts/ledblink.py " + this.getLedPort() + " " + this.flip;
+    }
 
-        return s;
+    /**
+     * Turns On the led
+     * @throws WrongOSException
+     */
+    public void turnOn() throws WrongOSException {
+        this.flip = "1";
+
+        this.execute();
+
+    }
+
+    /**
+     * Turns off the led
+     * @throws WrongOSException
+     */
+    public void turnOff() throws WrongOSException {
+        this.flip = "0";
+
+        this.execute();
     }
 }

@@ -58,19 +58,19 @@ public class TimelapseBuilderTest {
 		
 	}
 	
-	@Test
-	public void itHasAFrame() {
-		TimelapseBuilder builder = new TimelapseBuilder();
-		
-		Image image = new Image("test");
-		
-		builder.addFrame(image);
-		
-		Timelapse timelapse = builder.getResult();
-		
-		assertEquals(timelapse.getFrames().size(), 1);
-		
-	}
+//	@Test
+//	public void itHasAFrame() {
+//		TimelapseBuilder builder = new TimelapseBuilder();
+//		
+//		Image image = new Image("test");
+//		
+//		builder.addFrame(image);
+//		
+//		Timelapse timelapse = builder.getResult();
+//		
+//		assertEquals(timelapse.getFrames().size(), 1);
+//		
+//	}
 	
 	
 }

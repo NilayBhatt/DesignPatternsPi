@@ -5,112 +5,94 @@
  */
 package edu.ccsu.timelapse.models;
 
-import java.io.IOException;
-import java.util.Date;
 import java.util.Objects;
 
-import edu.ccsu.timelapse.imagecollections.ImageComposite;
-import edu.ccsu.timelapse.modifiers.ImageDecorator;
+import edu.ccsu.timelapse.components.DateFormatted;
+import edu.ccsu.timelapse.imagecollections.ImageComponent;
 
 /**
  * Image is a model to contain data about images that are taken.
  *
  */
-public class Image implements ImageComposite, ImageDecorator {
+public class Image extends ImageComponent { 
 	
-	/**
-	 * Name of image.
-	 */
-	private String name;
+	private String path;
 	
-	/**
-	 * Image properties;
-	 */
-	private Properties properties;
+	private int temperature;
 	
-	
+	private DateFormatted timestamp;
+
 	/**
 	 * Create a new instance of an image.
 	 * 
 	 * @param name Name of the image
 	 */
-	public Image(String name) {
-		this.setName(name);
+	public Image() { }
+	
+	
+	@Override
+	public ImageComponent setPath(String path) {
 		
-		this.properties = new Properties(new Date());
-	}
-	
-	/**
-	 * Set the name of the image.
-	 * 
-	 * @param name
-	 */
-	public void setName(String name) {
-		this.name = name;
-	}
-	
-	
-	/**
-	 * Get the name of the image.
-	 * 
-	 * @return the name
-	 */
-	public String getName() {
+		this.path = path;
 		
-		return this.name;
+		return this;
 	}
 	
 	/**
-	 * Get the created at date.
+	 * Get the path of the image
 	 * 
-	 * @return the date the image was created
+	 * @return the path
 	 */
-	public Date getCreatedAt() {
+	@Override
+	public String getPath() {
 		
-		return this.properties.created_at;
-	}
-	
-	/**
-	 * Setter for the hue property.
-	 * 
-	 * @param hue
-	 */
-	public void setHue(int hue) {
-		this.properties.hue = hue;
+		return this.path;
 	}
 
-	/**
-	 * Getter for the hue property
-	 * @return hue
-	 */
-	public int getHue() {
-		return this.properties.hue;
-	}
-	/**
-	 * Setter for the brightness property.
-	 * 
-	 * @param brightness
-	 */
-	public void setBrightness(int brightness) {
-		this.properties.brightness = brightness;
-	}
-	
 	/**
 	 * Setter for the temperature property.
 	 * 
 	 * @param temperature
 	 */
-	public void setTemperature(int temperature) {
-		this.properties.tempurature = temperature;
+	@Override
+	public ImageComponent setTemperature(int temperature) {
+		this.temperature = temperature;
+		
+		return this;
 	}
 	
+	/**
+	 * Getter for the temperature property.
+	 * @return temperature
+	 */
+	@Override
+	public int getTemperature() {
+		
+		return this.temperature;
+	}
+	
+	@Override
+	public DateFormatted getTimestamp() {
+		
+		return this.timestamp;
+	}
+
+
+	@Override
+	public ImageComponent setTimestamp(DateFormatted date) {
+		this.timestamp = date;
+		
+		return this;
+	}
+	
+
 	/**
 	 * Returns a string representation of the class.
 	 */
 	@Override
 	public String toString() {
 		
-		return this.name + " was created at: " + this.properties.created_at + ".";
+		return "An image with a path of " + this.getPath();
 	}
 	
 	/**
@@ -119,7 +101,7 @@ public class Image implements ImageComposite, ImageDecorator {
 	@Override
 	public int hashCode() {
 		
-		return Objects.hash(this.name, this.properties.created_at);
+		return Objects.hashCode(this.getPath());
 	}
 	
 	/**
@@ -137,63 +119,19 @@ public class Image implements ImageComposite, ImageDecorator {
 		
 		Image otherImage = (Image) image;
 		
-		if(! this.getName().equals(otherImage.getName())) {
+		if(this.hashCode() != otherImage.hashCode()) {
 			
 			return false;
 		}
 		
 		return true;
 	}
-	
-	/**
-	 * This decorate method decorates this image using any decorator passed through as an argument.
-	 */
-	public void decorate(ImageDecorator decorator) throws IOException {
-		decorator.process(this);
+
+
+	@Override
+	public void processComponent() {
+		// TODO Auto-generated method stub
+		
 	}
 	
-	/**
-	 * This method has to be implemented due to image being the object that is being decorated.
-	 * @param imageToBeDecorated
-	 */
-	public void process(Image imageToBeDecorated) {}	
-	
-	private class Properties {
-		
-		/**
-		 * Time stamp of image taken
-		 */
-		Date created_at;
-		
-		/**
-		 * Temperature value at the time the image was taken.
-		 */
-		int tempurature;
-		
-		/**
-		 * Value of hue applied to image.
-		 */
-		int hue;
-		
-		/**
-		 * Brightness of image.
-		 */
-		int brightness;
-		
-		/**
-		 * Create a new instance of Properties.
-		 * 
-		 * @param created_at
-		 * @param brightness
-		 * @param hue
-		 * @param temperature
-		 */
-		Properties(Date created_at) {
-			
-			this.created_at = created_at;
-			this.brightness = 0;
-			this.hue = 0;
-			this.tempurature = 0;
-		}
-	}	
 }

@@ -15,7 +15,7 @@ public class CommandLineAdapterTest {
 	public void testBufferedReader() {
 		TestAdapter adapter = new TestAdapter();
 		try {
-			BufferedReader buff = adapter.execute("echo hello");
+			BufferedReader buff = adapter.execute();
 			assertTrue(buff.readLine().equals("hello"));
 		} catch (IOException e) {
 			fail("Error reading buffer.");
@@ -23,7 +23,10 @@ public class CommandLineAdapterTest {
 	}
 	
 	public class TestAdapter extends CommandLineAdapter {
-		
+		@Override
+		public String command() {
+			return "echo hello";
+		}
 	}
 
 }

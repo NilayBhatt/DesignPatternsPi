@@ -13,4 +13,5 @@ public interface Event<E> {
 	 * @param listener
 	 */
 	public void publish(E listener);
+	
 }
