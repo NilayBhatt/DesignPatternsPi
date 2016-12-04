@@ -15,18 +15,5 @@
             <artifactId>pi4j-core</artifactId>
             <version>1.1</version>
         </dependency>
-        <dependency>
-            <groupId>net.sourceforge.marvinproject</groupId>
-            <artifactId>marvin_1.5.4</artifactId>
-        </dependency>
     </dependencies>
-    <dependencyManagement>
-    	<dependencies>
-    		<dependency>
-    			<groupId>net.sourceforge.marvinproject</groupId>
-    			<artifactId>marvin_1.5.4</artifactId>
-    			<version>1.5.4</version>
-    		</dependency>
-    	</dependencies>
-    </dependencyManagement>
 </project>
