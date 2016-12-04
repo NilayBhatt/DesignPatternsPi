@@ -6,6 +6,8 @@ import java.io.InputStreamReader;
 
 /**
  * This abstract class helps adapt code from different languages to java.
+ * 
+ * @author Deepankar Malhan, Edmir Alagic, Lukasz Brodowski, Sabahudin Mujcinovic, Nilay Bhatts
  *
  */
 public abstract class CommandLineAdapter {

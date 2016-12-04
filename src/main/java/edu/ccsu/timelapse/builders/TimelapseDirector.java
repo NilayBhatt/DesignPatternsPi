@@ -1,13 +1,13 @@
 package edu.ccsu.timelapse.builders;
 
-import java.util.List;
-
-import edu.ccsu.timelapse.models.Image;
+import java.util.Iterator;
 import edu.ccsu.timelapse.models.Timelapse;
+import edu.ccsu.timelapse.imagecollections.*;
 
 /**
  * Timelapse director for building timelapses.
  *
+ * @author Deepankar Malhan, Edmir Alagic, Lukasz Brodowski, Sabahudin Mujcinovic, Nilay Bhatt
  */
 public class TimelapseDirector {
 	
@@ -42,11 +42,20 @@ public class TimelapseDirector {
 	 * @param images
 	 * @return the timelapse
 	 */
-	public Timelapse construct(List<Image> images) {
+	public Timelapse construct(ImageComponent images) {
 		this.builder.setHeight(600).setWidth(800).setRepeat(true).setTimeBetween(100);
 		
-		for (Image image : images) {
-			this.builder.addFrame(image);
+		Iterator<ImageComponent> iteratorImages = images.iterator();
+		
+		while(iteratorImages.hasNext()) {
+			ImageComponent currentComponent = iteratorImages.next();
+			
+			if(currentComponent instanceof ConcreteImageComponent) {
+				this.builder.addFrame(currentComponent);
+			}
+			else if (currentComponent instanceof ImageComposite) {
+				this.construct(currentComponent);
+			}
 		}
 			
 		return this.builder.getResult();

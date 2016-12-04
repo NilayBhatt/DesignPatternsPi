@@ -10,24 +10,30 @@ public class ImageTest {
 
 	@Test
 	public void testHasUniqueHash() {
-		Image image1 = (Image) new Image().setPath("a");
-		Image image2 = (Image) new Image().setPath("a");
+		Image image1 = (Image) new Image();
+		image1.setPath("a");
+		Image image2 = (Image) new Image();
+		image2.setPath("a");
 		
 		assertFalse(image1.hashCode() == image2.hashCode());
 	}
 	
 	@Test
 	public void testImageEqualsTrue() {
-		Image image1 = (Image) new Image().setPath("a");
-		Image image2 = (Image) new Image().setPath("a");
+		Image image1 = (Image) new Image();
+		image1.setPath("a");
+		Image image2 = (Image) new Image();
+		image2.setPath("a");
 		
 		assertTrue(image1.equals(image2));
 	}
 	
 	@Test
 	public void testImageEqualsFalse() {
-		Image image1 = (Image) new Image().setPath("a");
-		Image image2 = (Image) new Image().setPath("a");
+		Image image1 = (Image) new Image();
+		image1.setPath("a");
+		Image image2 = (Image) new Image();
+		image2.setPath("a");
 		
 		assertFalse(image1.equals(image2));
 	}

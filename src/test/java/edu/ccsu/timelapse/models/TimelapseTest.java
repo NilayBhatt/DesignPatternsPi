@@ -6,6 +6,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
+import edu.ccsu.timelapse.imagecollections.*;
+
 public class TimelapseTest {
 	private Timelapse timelapse = new Timelapse();
 	@Test
@@ -24,11 +26,12 @@ public class TimelapseTest {
 
 	@Test
 	public void testGetFrames(){
-		Image image = (Image) new Image().setPath("testImage.png");
+		ImageComponent image = new ConcreteImageComponent();
+		image.getImage().setPath("testImage.png");
 
 		timelapse.addFrame(image);
 
-		assertTrue(timelapse.getFrames().size()>0);
+		assertTrue(timelapse.getFrames().iterator().hasNext());
 	}
 
 	@Test

@@ -7,6 +7,7 @@ import edu.ccsu.timelapse.event.EventDispatcher;
  * Static helper for a nice API in referencing Singletons.
  *
  */
+@SuppressWarnings("unchecked")
 public final class Helper {
 	
 
@@ -28,11 +29,11 @@ public final class Helper {
 		Container.getInstance().bind(key, value);
 	}
 	
-	public static void bind(String normal, Class<?> key, Bind closure) {
+	public static void bind(String normal, Class<?> key, Bind<?> closure) {
 		Container.getInstance().bind(normal, key, closure);
 	}
 	
-	public void bind(Class<?> key, Bind closure) {
+	public void bind(Class<?> key, Bind<?> closure) {
 		Container.getInstance().bind(key, closure);
 	}
 	

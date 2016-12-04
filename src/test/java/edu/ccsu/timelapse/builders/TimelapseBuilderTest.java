@@ -4,8 +4,6 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import edu.ccsu.timelapse.imagecollections.ImageComposite;
-import edu.ccsu.timelapse.models.Image;
 import edu.ccsu.timelapse.models.Timelapse;
 
 public class TimelapseBuilderTest {
