@@ -1,56 +1,81 @@
-//package edu.ccsu.timelapse.modifiers;
-//
-//import java.awt.Font;
-//import java.awt.Graphics2D;
-//import java.awt.image.BufferedImage;
-//import java.io.File;
-//import java.io.IOException;
-//import java.util.Date;
-//
-//import javax.imageio.ImageIO;
-//
-//import edu.ccsu.timelapse.components.DateFormatted;
-//import edu.ccsu.timelapse.imagecollections.ImageComponent;
-//import edu.ccsu.timelapse.models.Image;
-//
-///**
-// * This is a concrete implementation of ImageDecorator
-// * abstract class which specializes adding a time stamp
-// * to the image object passed through it
-// */
-//public class ImageTimeDecorator implements ImageDecorator {
-//	
-//	private String timestamp;
-//	
-//	private ImageComponent image;
-//	
-//	/**
-//	 * Create a new instance of an ImageTimeDecorator.
-//	 * 
-//	 * @param toBeDecorated
-//	 */
-//    public ImageTimeDecorator(ImageComponent image) {
-//		super();
-//		
-//		this.image = image;
-//		this.timestamp = DateFormatted.getInstance().formatDate(new Date());
-//	}
-//    
-//    /**
-//     * Set the time stamp variable of the image 
-//     * object to the current date-time
-//     */
-//    public void process() throws IOException {
-//		File file = new File(this.image.getName());
-//		BufferedImage bi = ImageIO.read(file);
-//
-//		Graphics2D graphics = bi.createGraphics();
-//		Font font = new Font("ARIAL", Font.PLAIN, 20);
-//		graphics.setFont(font);
-//		graphics.drawString(this.image.getCreatedAt(), 50, 50);
-//		graphics.dispose();
-//		
-//        bi.flush();
-//		ImageIO.write(bi, "jpg", file);
-//    }
-//}
+package edu.ccsu.timelapse.modifiers;
+
+import java.awt.Font;
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+
+import edu.ccsu.timelapse.imagecollections.ImageComponent;
+
+/**
+ * This is a concrete implementation of ImageDecorator
+ * abstract class which specializes adding a time stamp
+ * to the image object passed through it
+ * 
+ * @author Deepankar Malhan, Edmir Alagic, Lukasz Brodowski, Sabahudin Mujcinovic, Nilay Bhatt
+ */
+public class ImageTimeDecorator extends ImageDecorator {
+		
+	/**
+	 * Create a new instance of an ImageTimeDecorator.
+	 * 
+	 * @param toBeDecorated
+	 */
+    public ImageTimeDecorator(ImageComponent image) {
+		super(image);
+		
+	}
+    
+    /**
+     * Physically edit an image to add a timestamp to it using the Image stored in ImageComponent toBeDecorated.
+     */
+    @Override
+    public void processComponent() {
+		File file = new File(this.toBeDecorated.getImage().getPath());
+		BufferedImage bi;
+		try {
+			bi = ImageIO.read(file);
+
+			Graphics2D graphics = bi.createGraphics();
+			Font font = new Font("ARIAL", Font.PLAIN, 20);
+			graphics.setFont(font);
+			graphics.drawString(this.toBeDecorated.getImage().getTimestamp().toString(), 50, 50);
+			graphics.dispose();
+		
+			bi.flush();
+			ImageIO.write(bi, "jpg", file);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+    }
+    
+    /**
+     * String representation of the object to be decorated.
+     */
+    @Override
+	public String toString() {
+		return this.toBeDecorated.toString();
+	}
+	
+    /**
+     * Checks if this object and the one passed in are equal or not.
+     * 
+     * @return true if both are equal
+     */
+	@Override
+	public boolean equals(Object decorator) {
+		if(!(decorator instanceof ImageTimeDecorator)) {
+			return false;
+		}
+		
+		ImageTimeDecorator otherObj = (ImageTimeDecorator) decorator;
+		
+		if(this.hashCode() != otherObj.hashCode()) {
+			return false;
+		}
+		
+		return true;
+	}
+}

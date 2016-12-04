@@ -8,13 +8,13 @@ package edu.ccsu.timelapse.models;
 import java.util.Objects;
 
 import edu.ccsu.timelapse.components.DateFormatted;
-import edu.ccsu.timelapse.imagecollections.ImageComponent;
 
 /**
  * Image is a model to contain data about images that are taken.
- *
+ * 
+ * @author Deepankar Malhan, Edmir Alagic, Lukasz Brodowski, Sabahudin Mujcinovic, Nilay Bhatt
  */
-public class Image extends ImageComponent { 
+public class Image { 
 	
 	private String path;
 	
@@ -25,17 +25,13 @@ public class Image extends ImageComponent {
 	/**
 	 * Create a new instance of an image.
 	 * 
-	 * @param name Name of the image
 	 */
-	public Image() { }
+	public Image() {}
 	
 	
-	@Override
-	public ImageComponent setPath(String path) {
+	public void setPath(String path) {
 		
 		this.path = path;
-		
-		return this;
 	}
 	
 	/**
@@ -43,7 +39,6 @@ public class Image extends ImageComponent {
 	 * 
 	 * @return the path
 	 */
-	@Override
 	public String getPath() {
 		
 		return this.path;
@@ -54,35 +49,27 @@ public class Image extends ImageComponent {
 	 * 
 	 * @param temperature
 	 */
-	@Override
-	public ImageComponent setTemperature(int temperature) {
+	public void setTemperature(int temperature) {
 		this.temperature = temperature;
-		
-		return this;
 	}
 	
 	/**
 	 * Getter for the temperature property.
 	 * @return temperature
 	 */
-	@Override
 	public int getTemperature() {
 		
 		return this.temperature;
 	}
 	
-	@Override
 	public DateFormatted getTimestamp() {
 		
 		return this.timestamp;
 	}
 
 
-	@Override
-	public ImageComponent setTimestamp(DateFormatted date) {
+	public void setTimestamp(DateFormatted date) {
 		this.timestamp = date;
-		
-		return this;
 	}
 	
 
@@ -92,7 +79,8 @@ public class Image extends ImageComponent {
 	@Override
 	public String toString() {
 		
-		return "An image with a path of " + this.getPath();
+		return "An image with a path of \"" + this.getPath() + "\", temperature of: " + this.temperature +
+				"and created at: " + this.timestamp;
 	}
 	
 	/**
@@ -101,7 +89,7 @@ public class Image extends ImageComponent {
 	@Override
 	public int hashCode() {
 		
-		return Objects.hashCode(this.getPath());
+		return Objects.hash(this.getPath(), this.getTimestamp(), this.getTemperature());
 	}
 	
 	/**
@@ -126,12 +114,4 @@ public class Image extends ImageComponent {
 		
 		return true;
 	}
-
-
-	@Override
-	public void processComponent() {
-		// TODO Auto-generated method stub
-		
-	}
-	
 }

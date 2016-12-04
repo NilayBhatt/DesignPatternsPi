@@ -1,19 +1,21 @@
 package edu.ccsu.timelapse.models;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
+
+import edu.ccsu.timelapse.imagecollections.ImageComponent;
+import edu.ccsu.timelapse.imagecollections.ImageComposite;
 
 /**
  * Timelapse class which represents a Timelapse video.
+ * 
+ * @author Deepankar Malhan, Edmir Alagic, Lukasz Brodowski, Sabahudin Mujcinovic, Nilay Bhatt
  */
 public class Timelapse {
 	
 	/**
 	 * Collection of frames of timelapse.
 	 */
-	//TODO: Use ImageComposite instead of List<Image>
-	private List<Image> frames = new ArrayList<Image>();
+	private ImageComponent frames = new ImageComposite("TimelapseVideo");
 	
 	/**
 	 * Time in between frames for in MS.
@@ -45,16 +47,16 @@ public class Timelapse {
 	 * 
 	 * @param image
 	 */
-	public void addFrame(Image image) {
-		frames.add(image);
+	public void addFrame(ImageComponent image) {
+		frames.addComponent(image);
 	}
 	
 	/**
 	 * Get the list of frames for the timelapse.
 	 * 
-	 * @return List of ImageComposites
+	 * @return ImageComponent which is a composite of frames
 	 */
-	public List<Image> getFrames() {
+	public ImageComponent getFrames() {
 		
 		return this.frames;
 	}
@@ -196,8 +198,4 @@ public class Timelapse {
 		
 		return true;
 	}
-
-	
-	
-
 }
