@@ -14,7 +14,7 @@ import edu.ccsu.timelapse.components.DateFormatted;
  * 
  * @author Deepankar Malhan, Edmir Alagic, Lukasz Brodowski, Sabahudin Mujcinovic, Nilay Bhatt
  */
-public class Image { 
+public class Image{ 
 	
 	private String path;
 	
