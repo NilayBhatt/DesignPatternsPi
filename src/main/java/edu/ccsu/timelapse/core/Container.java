@@ -2,6 +2,7 @@ package edu.ccsu.timelapse.core;
 
 import java.util.Hashtable;
 
+@SuppressWarnings("unchecked")
 public class Container {
 	
 	private static Container instance = null;
@@ -32,15 +33,16 @@ public class Container {
 		this.elements.put(key, value);
 	}
 	
-	public void bind(String normal, Class<?> key, Bind closure) {
+	public void bind(String normal, Class<?> key, Bind<?> closure) {
 		this.keys.put(normal, key);
 		this.elements.put(key, closure.bind());	
 	}
 	
-	public void bind(Class<?> key, Bind closure) {
+	public void bind(Class<?> key, Bind<?> closure) {
 		this.keys.put(key.getName().toLowerCase(), key);
 		this.elements.put(key, closure.bind());
 	}
+	
 	
 	public <E> E get(Class<E> key) {
 		

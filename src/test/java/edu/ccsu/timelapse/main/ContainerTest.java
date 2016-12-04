@@ -2,15 +2,6 @@ package edu.ccsu.timelapse.main;
 
 import org.junit.Test;
 
-import edu.ccsu.timelapse.components.PiCamera;
-import edu.ccsu.timelapse.core.App;
-import edu.ccsu.timelapse.event.EventDispatcher;
-import edu.ccsu.timelapse.models.Image;
-
-import java.util.ArrayList;
-
-import static org.junit.Assert.*;
-
 public class ContainerTest {
 
 	@Test

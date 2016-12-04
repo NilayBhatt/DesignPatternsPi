@@ -1,13 +1,8 @@
 package edu.ccsu.timelapse.factories;
 
-import java.io.IOException;
-
 import edu.ccsu.timelapse.components.PiCamera;
-import edu.ccsu.timelapse.exceptions.WrongOSException;
-import edu.ccsu.timelapse.imagecollections.ImageComponent;
-import edu.ccsu.timelapse.models.Image;
-import edu.ccsu.timelapse.modifiers.ImageDecorator;
-import edu.ccsu.timelapse.modifiers.ImageHueDecorator;
+import edu.ccsu.timelapse.imagecollections.*;
+import edu.ccsu.timelapse.components.contracts.*;
 
 /**
  * Creates a new ImageCollectionFactory object that takes parameters that
@@ -27,24 +22,23 @@ public class ImageCollectionFactory {
 	 */
 	public static ImageComponent make(int numPictures, int captureInterval) {
 		
-		//TODO: Fix this bug
-		ImageComponent collection = null;
-//		Image temp;
-//		Camera cam = new Camera();
-//		
-//		int captureMilli = captureInterval * 1000;
-//		
-//		for(int i = 0; i < numPictures; i++){
-//			try {
-//				temp = cam.snap();
-//				System.out.print(temp.getName());
-//				System.out.println(i + ": snapped picture.");
-//				collection.addComponent(temp);
-//				Thread.sleep(captureMilli);
-//			} catch (InterruptedException e) {
-//				e.printStackTrace();
-//			}	
-//		}
+		ImageComponent collection = new ImageComposite("ImageCollectionFactoryComposite");
+		ImageComponent temp = new ConcreteImageComponent();
+		Camera cam = new PiCamera();
+		
+		int captureMilli = captureInterval * 1000;
+		
+		for(int i = 0; i < numPictures; i++){
+			try {
+				temp.getImage().setPath(cam.snap());
+				System.out.print(temp.getImage().getPath());
+				System.out.println(i + ": snapped picture.");
+				collection.addComponent(temp);
+				Thread.sleep(captureMilli);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}	
+		}
 		
 		return collection;
 		

@@ -10,6 +10,7 @@ import java.util.Objects;
  * Notifies listeners when an event is fired
  *
  */
+@SuppressWarnings({"rawtypes", "unchecked"})
 public final class EventDispatcher {
 	
 	/**
@@ -20,6 +21,7 @@ public final class EventDispatcher {
 	/**
 	 * Contains key, value pair of events and listeners that subscribe to those events.
 	 */
+	
 	private final HashMap<Class, ArrayList> events = new HashMap<Class, ArrayList>();
 	
 	/**

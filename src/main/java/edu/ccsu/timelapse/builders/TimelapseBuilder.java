@@ -1,10 +1,12 @@
 package edu.ccsu.timelapse.builders;
 
-import edu.ccsu.timelapse.models.Image;
 import edu.ccsu.timelapse.models.Timelapse;
+import edu.ccsu.timelapse.imagecollections.ImageComponent;
 
 /**
  * Implementation of a concrete Timelapse builder.
+ * 
+ * @author Deepankar Malhan, Edmir Alagic, Lukasz Brodowski, Sabahudin Mujcinovic, Nilay Bhatt
  *
  */
 public class TimelapseBuilder implements TimelapseBuilderInterface {
@@ -21,7 +23,7 @@ public class TimelapseBuilder implements TimelapseBuilderInterface {
 		this.timelapse = new Timelapse();
 	}
 
-	public TimelapseBuilderInterface addFrame(Image image) {
+	public TimelapseBuilderInterface addFrame(ImageComponent image) {
 		this.timelapse.addFrame(image);
 		
 		return this;
