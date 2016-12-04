@@ -35,11 +35,11 @@ public class ImageHueDecorator extends ImageDecorator {
     @Override
 	public void processComponent() {
 		MarvinPluginCollection marvinPluginCollection =  new MarvinPluginCollection();
+		int temperature = toBeDecorated.getImage().getTemperature();
 		MarvinImage marvinImage = MarvinImageIO.loadImage(toBeDecorated.getImage().getPath());
 
-		if(hue == 1) marvinPluginCollection.colorChannel(marvinImage,30, -100, -100);
-		if(hue == 2) marvinPluginCollection.colorChannel(marvinImage, -100, 30, -100);
-		if(hue == 3) marvinPluginCollection.colorChannel(marvinImage, -100, -100, 30);
+		if(temperature >= 70) marvinPluginCollection.colorChannel(marvinImage,30, -100, -100);
+		if(temperature <=65) marvinPluginCollection.colorChannel(marvinImage, -100, -100, 30);
 
 
 		MarvinImageIO.saveImage(marvinImage, toBeDecorated.getImage().getPath());
