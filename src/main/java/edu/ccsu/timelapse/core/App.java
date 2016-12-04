@@ -47,7 +47,7 @@ public class App {
 
 		Logger logger = app("logger");
 
-		logger.printInfo("HEY THERE");
+		logger.info("HEY THERE");
 	}
 
 }

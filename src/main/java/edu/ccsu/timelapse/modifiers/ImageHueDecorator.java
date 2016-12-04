@@ -1,5 +1,9 @@
 package edu.ccsu.timelapse.modifiers;
 
+import marvin.MarvinPluginCollection;
+import marvin.image.MarvinImage;
+import marvin.io.MarvinImageIO;
+
 /**
  * This is a concrete implementation of ImageDecorator
  * abstract class which specializes in setting and adding
@@ -17,7 +21,8 @@ public class ImageHueDecorator extends ImageDecorator {
 	/**
 	 * Create a new instance of a ImageHueDecorator.
 	 * 
-	 * @param toBeDecorated
+	 * @param decorator
+	 * @param hue
 	 */
     public ImageHueDecorator(ImageDecorator decorator, int hue) {
 		super(decorator);
@@ -29,7 +34,15 @@ public class ImageHueDecorator extends ImageDecorator {
      */
     @Override
 	public void processComponent() {
-		// TODO: MARVIN CODE HERE
+		MarvinPluginCollection marvinPluginCollection =  new MarvinPluginCollection();
+		MarvinImage marvinImage = MarvinImageIO.loadImage(toBeDecorated.getImage().getPath());
+
+		if(hue == 1) marvinPluginCollection.colorChannel(marvinImage,30, -100, -100);
+		if(hue == 2) marvinPluginCollection.colorChannel(marvinImage, -100, 30, -100);
+		if(hue == 3) marvinPluginCollection.colorChannel(marvinImage, -100, -100, 30);
+
+
+		MarvinImageIO.saveImage(marvinImage, toBeDecorated.getImage().getPath());
 	}
     
     /**
