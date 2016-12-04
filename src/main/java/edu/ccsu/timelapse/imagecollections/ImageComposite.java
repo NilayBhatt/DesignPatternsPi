@@ -5,7 +5,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 
-import edu.ccsu.timelapse.components.DateFormatted;
 import edu.ccsu.timelapse.models.Image;
 import edu.ccsu.timelapse.modifiers.ImageDecorator;
 

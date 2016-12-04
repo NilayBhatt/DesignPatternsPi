@@ -14,19 +14,13 @@ import marvin.io.MarvinImageIO;
 public class ImageHueDecorator extends ImageDecorator {
 	
 	/**
-	 * Hue value to be added over image.
-	 */
-	private int hue;
-	
-	/**
 	 * Create a new instance of a ImageHueDecorator.
 	 * 
 	 * @param decorator
 	 * @param hue
 	 */
-    public ImageHueDecorator(ImageDecorator decorator, int hue) {
+    public ImageHueDecorator(ImageDecorator decorator) {
 		super(decorator);
-		this.hue = hue;
 	}
 
     /**
