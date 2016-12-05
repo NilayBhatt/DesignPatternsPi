@@ -27,6 +27,8 @@ public class ImageHueDecorator extends ImageDecorator {
      */
     @Override
 	public void processComponent() {
+    	
+    	System.out.println("HUE DECORATED");
 		int temperature = 100;//toBeDecorated.getImage().getTemperature();
 		MarvinImage marvinImage = MarvinImageIO.loadImage(toBeDecorated.getImage().getPath());
 
@@ -37,7 +39,7 @@ public class ImageHueDecorator extends ImageDecorator {
 			MarvinPluginCollection.colorChannel(marvinImage, -100, -100, 30);
 		}
 
-
+		
 		MarvinImageIO.saveImage(marvinImage, toBeDecorated.getImage().getPath());
 	}
     

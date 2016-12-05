@@ -78,7 +78,7 @@ public class App {
 		
 		logger.info("Decorating the images.");
 		
-		toDecorate = new ImageTimeDecorator(new ImageHueDecorator(toDecorate));
+		toDecorate = new ImageHueDecorator(toDecorate);
 		
 		toDecorate.decorateComponent((ImageDecorator) toDecorate);
 		
@@ -90,10 +90,10 @@ public class App {
 			builder.addFrame(iterator.next());
 		}
 		
-		builder.setWidth(1080);
-		builder.setHeight(1920);
+		builder.setWidth(1920);
+		builder.setHeight(1080);
 		builder.setRepeat(true);
-		builder.setTimeBetween(2);
+		builder.setTimeBetween(1000);
 		
 		Timelapse timelapse = builder.getResult();
 		
