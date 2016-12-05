@@ -1,7 +1,10 @@
 package edu.ccsu.timelapse.models;
 
+import static edu.ccsu.timelapse.core.Helper.app;
+
 import java.util.Objects;
 
+import edu.ccsu.timelapse.builders.GIF;
 import edu.ccsu.timelapse.imagecollections.ImageComponent;
 import edu.ccsu.timelapse.imagecollections.ImageComposite;
 
@@ -55,7 +58,7 @@ public class Timelapse {
 	 * 
 	 * @return ImageComponent which is a composite of frames
 	 */
-	public ImageComponent getFrames() {
+	public ImageComposite getFrames() {
 		
 		return this.frames;
 	}
@@ -134,6 +137,15 @@ public class Timelapse {
 	 */
 	public void setHeight(int height) {
 		this.height = height;
+	}
+	
+	/**
+	 * Create a GIF from the timelapse.
+	 */
+	public void toGIF() {
+		GIF gif = app("gif");
+		
+		gif.withDelay(1000).from(this.getFrames()).to("timelapse.gif").repeat(true).make();
 	}
 	
 

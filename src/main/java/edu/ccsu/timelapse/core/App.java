@@ -17,6 +17,7 @@ import edu.ccsu.timelapse.events.AppHasStarted;
 import edu.ccsu.timelapse.factories.ImageCollectionFactoryInterface;
 import edu.ccsu.timelapse.imagecollections.ImageComponent;
 import edu.ccsu.timelapse.imagecollections.ImageComposite;
+import edu.ccsu.timelapse.models.Timelapse;
 import edu.ccsu.timelapse.modifiers.ImageHueDecorator;
 import edu.ccsu.timelapse.modifiers.ImageTimeDecorator;
 import edu.ccsu.timelapse.providers.ServiceProvider;
@@ -65,24 +66,23 @@ public class App {
 		
 		ImageCollectionFactoryInterface factory = app("imageCollectionFactory");
 		
-		ImageComponent collection = factory.make(20, 10);
+		ImageComposite collection = factory.make(20, 10);
 		
-		collection = new ImageTimeDecorator(new ImageHueDecorator(collection));
+		ImageComponent toDecorate = (ImageComponent) collection;
+		
+		toDecorate = new ImageTimeDecorator(new ImageHueDecorator(toDecorate));
 		
 		TimelapseBuilderInterface builder = app("timelapseBuilder");
 		
-		Iterator<ImageComponent> iterator = ((ImageComposite)collection).iterator();
+		Iterator<ImageComponent> iterator = collection.iterator();
 		
 		while(iterator.hasNext()) {
 			builder.addFrame(iterator.next());
 		}
 		
-		builder.getResult();
+		Timelapse timelapse = builder.getResult();
 		
-		GIF gif = app("gif");
-		
-		// TODO: EDMIR
-		gif.withDelay(1000).from(collection).to("timelapse.gif").repeat(true).make();
+		timelapse.toGIF();
 	}
 
 }
