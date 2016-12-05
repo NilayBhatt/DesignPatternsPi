@@ -82,7 +82,7 @@ public class App {
 		GIF gif = app("gif");
 		
 		// TODO: EDMIR
-		//gif.withDelay(1000).from("./images/").to("timelapse.gif").make();
+		gif.withDelay(1000).from(collection).to("timelapse.gif").repeat(true).make();
 	}
 
 }
