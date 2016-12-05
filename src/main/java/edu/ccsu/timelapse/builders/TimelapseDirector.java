@@ -41,7 +41,7 @@ public class TimelapseDirector {
 	 * @param images
 	 * @return the timelapse
 	 */
-	public Timelapse construct(ImageComponent images) {
+	public Timelapse construct(ImageComposite images) {
 		this.builder.setHeight(600).setWidth(800).setRepeat(true).setTimeBetween(100);
 		
 		Iterator<ImageComponent> iteratorImages = images.iterator();
@@ -53,7 +53,7 @@ public class TimelapseDirector {
 				this.builder.addFrame(currentComponent);
 			}
 			else if (currentComponent instanceof ImageComposite) {
-				this.construct(currentComponent);
+				this.construct((ImageComposite) currentComponent);
 			}
 		}
 			

@@ -19,7 +19,7 @@ public class ImageComponentTest {
 
         ImageComponent testImage = new ConcreteImageComponent();
         testImage.getImage().setPath("testImage.png");
-        ImageComponent imageCollection = new ImageComposite("TestingImageComponentAddElementComposite");
+        ImageComposite imageCollection = new ImageComposite();
         try {
             imageCollection.addComponent(testImage);
         } catch (Exception e) {
@@ -33,7 +33,7 @@ public class ImageComponentTest {
     public void removeElement() throws Exception {
         ImageComponent testImage = new ConcreteImageComponent();
         testImage.getImage().setPath("testImage.png");
-        ImageComponent imageCollection = new ImageComposite("TestingImageComponentRemoveElementComposite");
+        ImageComposite imageCollection = new ImageComposite();
         try {
             imageCollection.addComponent(testImage);
             imageCollection.removeComponent(testImage);
@@ -49,7 +49,7 @@ public class ImageComponentTest {
     public void toSString() throws Exception {
         ImageComponent testImage = new ConcreteImageComponent();
         testImage.getImage().setPath("testImage.png");
-        ImageComponent imageCollection = new ImageComposite("TestingImageComponentToStringComposite");
+        ImageComposite imageCollection = new ImageComposite();
         imageCollection.addComponent(testImage);
 
         assertTrue(imageCollection.toString().equals(testImage.toString() + " "));
@@ -59,9 +59,9 @@ public class ImageComponentTest {
     public void equalsTrue() throws Exception {
         ImageComponent testImage = new ConcreteImageComponent();
         testImage.getImage().setPath("testImage.png");
-        ImageComponent imageCollection = new ImageComposite("TestingImageComponentEqualsTrueComposite");
+        ImageComposite imageCollection = new ImageComposite();
         imageCollection.addComponent(testImage);
-        ImageComponent imageCollection1 = new ImageComposite("TestingImageComponentEqualsTrueComposite02");
+        ImageComposite imageCollection1 = new ImageComposite();
         imageCollection1.addComponent(testImage);
 
         // TODO: This can never be true because imageCollection1 is the parent of (and thus contains) imageCollection
@@ -72,11 +72,11 @@ public class ImageComponentTest {
     public void equalsFalse() throws Exception {
         ImageComponent testImage = new ConcreteImageComponent();
         testImage.getImage().setPath("testImage.png");
-        ImageComponent imageCollection = new ImageComposite("TestingImageComponentEqualsFalseComposite");
+        ImageComposite imageCollection = new ImageComposite();
         imageCollection.addComponent(testImage);
         ImageComponent testImage1 = new ConcreteImageComponent();
         testImage1.getImage().setPath("testImage.png");
-        ImageComponent imageCollection1 = new ImageComposite("TestingImageComponentEqualsFalseComposite2");
+        ImageComposite imageCollection1 = new ImageComposite();
         imageCollection1.addComponent(testImage1);
 
         assertFalse(imageCollection.equals(imageCollection1));
@@ -86,9 +86,9 @@ public class ImageComponentTest {
     public void hashCCode() throws Exception {
         ImageComponent testImage = new ConcreteImageComponent();
         testImage.getImage().setPath("testImage.png");
-        ImageComponent imageCollection = new ImageComposite("TestingImageComponentHashCodeComposite");
+        ImageComposite imageCollection = new ImageComposite();
         imageCollection.addComponent(testImage);
-        ImageComponent imageCollection1 = new ImageComposite("TestingImageComponentHashCodeComposite02");
+        ImageComposite imageCollection1 = new ImageComposite();
         imageCollection1.addComponent(testImage);
 
         assertEquals(imageCollection.hashCode(),imageCollection1.hashCode());

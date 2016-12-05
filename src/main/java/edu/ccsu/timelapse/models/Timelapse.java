@@ -14,7 +14,7 @@ public class Timelapse {
 	/**
 	 * Collection of frames of timelapse.
 	 */
-	private ImageComponent frames = new ImageComposite("TimelapseVideo");
+	private ImageComposite frames = new ImageComposite();
 	
 	/**
 	 * Time in between frames for in MS.

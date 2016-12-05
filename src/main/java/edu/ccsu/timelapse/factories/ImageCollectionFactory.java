@@ -1,6 +1,7 @@
 package edu.ccsu.timelapse.factories;
 
 import edu.ccsu.timelapse.imagecollections.*;
+import edu.ccsu.timelapse.components.DateFormatted;
 import edu.ccsu.timelapse.components.contracts.*;
 import static edu.ccsu.timelapse.core.Helper.*;
 
@@ -20,9 +21,9 @@ public class ImageCollectionFactory implements ImageCollectionFactoryInterface {
 	 * @param captureInterval (how often the camera takes a picture)(in seconds)
 	 * @return an ImageCollection object with all of the images taken in the elapsed time and decorated
 	 */
-	public ImageComponent make(int numPictures, int captureInterval) {
+	public ImageComposite make(int numPictures, int captureInterval) {
 		
-		ImageComponent collection = new ImageComposite("ImageCollectionFactoryComposite");
+		ImageComposite collection = new ImageComposite();
 		ImageComponent temp = new ConcreteImageComponent();
 		String path;
 		
@@ -47,9 +48,9 @@ public class ImageCollectionFactory implements ImageCollectionFactoryInterface {
 		return collection;
 	}
 	
-	public String getTimeFromPath(String path){
-		String[] temp = path.split("/");
+	public DateFormatted getTimeFromPath(String path){
+		DateFormatted temp = DateFormatted.fromString(path);
 		
-		return temp[temp.length - 1].split(".")[0];
+		return temp;
 	}
 }

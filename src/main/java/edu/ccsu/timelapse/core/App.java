@@ -8,7 +8,7 @@ package edu.ccsu.timelapse.core;
 import edu.ccsu.timelapse.events.AppBootstrapped;
 import edu.ccsu.timelapse.factories.ImageCollectionFactoryInterface;
 import edu.ccsu.timelapse.imagecollections.ImageComponent;
-import edu.ccsu.timelapse.modifiers.ImageDecorator;
+import edu.ccsu.timelapse.imagecollections.ImageComposite;
 import edu.ccsu.timelapse.modifiers.ImageHueDecorator;
 import edu.ccsu.timelapse.modifiers.ImageTimeDecorator;
 import edu.ccsu.timelapse.providers.ServiceProvider;
@@ -66,7 +66,7 @@ public class App {
 		
 		TimelapseBuilderInterface builder = app("timelapseBuilder");
 		
-		Iterator<ImageComponent> iterator = collection.iterator();
+		Iterator<ImageComponent> iterator = ((ImageComposite)collection).iterator();
 		
 		while(iterator.hasNext()) {
 			builder.addFrame(iterator.next());

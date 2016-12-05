@@ -19,28 +19,14 @@ public class ImageComposite implements ImageComponent {
 	 * A collection of elements of itself and other concrete classes implementing ImageComponent
 	 */
 	private List<ImageComponent> elements;
-	/**
-	 * A name for this composite component to differentiate it from it's children.
-	 */
-	private String name;
 
 	/**
 	 * Creates a new instance of ImageComposite, creating an empty list of children.
 	 * 
 	 * @param name The name of the compositeComponent.
 	 */
-	public ImageComposite(String name) {
+	public ImageComposite() {
 		elements = new ArrayList<ImageComponent>();
-		this.name = name;
-	}
-
-	/**
-	 * Gets the name for this compositeComponent.
-	 * 
-	 * @return name of the component.
-	 */
-	public String getName() {
-		return this.name;
 	}
 
 	/**
@@ -63,11 +49,6 @@ public class ImageComposite implements ImageComponent {
 	
 	public Iterator<ImageComponent> iterator() {
 		return this.elements.iterator();
-	}
-	
-	public Image getImage() {
-		// Return null because it is a collection of images
-		return null;
 	}
 
 	public void decorateComponent(ImageDecorator decorator) {
@@ -147,6 +128,11 @@ public class ImageComposite implements ImageComponent {
 	 */
 	@Override
 	public int hashCode() {
-		return Objects.hash(this.getName(), this.getElements());
+		return Objects.hashCode(this.getElements());
+	}
+
+	public Image getImage() {
+		// Doesn't return anything because it contains a collection of images.
+		return null;
 	}
 }

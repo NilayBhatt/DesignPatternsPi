@@ -5,9 +5,6 @@
  */
 package edu.ccsu.timelapse.modifiers;
 
-import org.junit.Test;
-import static org.junit.Assert.*;
-
 public class ImageHueDecoratorTest {
 	
 	

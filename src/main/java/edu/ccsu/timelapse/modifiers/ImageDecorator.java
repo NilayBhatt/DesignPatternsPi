@@ -1,6 +1,5 @@
 package edu.ccsu.timelapse.modifiers;
 
-import java.util.Iterator;
 import java.util.Objects;
 
 import edu.ccsu.timelapse.imagecollections.*;
@@ -30,41 +29,8 @@ public abstract class ImageDecorator implements ImageComponent {
 	public ImageDecorator(ImageComponent toBeDecorated) {
 		this.toBeDecorated = toBeDecorated;
 	}
-	    
-	/**
-	 * Composite pattern method which passes on the work to the ImageComponent itself (which utilizes the composite pattern).
-	 * 
-	 * @param component that should be added as a child. Might not be added at all.
-	 */
-	public void addComponent(ImageComponent component) {
-		// Delegate the adding component to the composite pattern
-		this.toBeDecorated.addComponent(component);
-	}
 	
-	/**
-	 * Composite pattern method which passes on the work to the ImageComponent itself (which utilizes the composite pattern).
-	 * 
-	 * @param component that should be removed as a child. Might not be removed at all.
-	 */
-	public void removeComponent(ImageComponent component) {
-		// Delegate the removing of component to the composite pattern.
-		this.toBeDecorated.removeComponent(component);
-	}
-	
-	/**
-	 * Composite pattern method which passes on the work to the ImageComponent itself (which utilizes the composite pattern).
-
-	 */
-	public Iterator<ImageComponent> iterator() {
-		// Not applicable in the decorator pattern
-		return null;
-	}
-	
-	/**
-	 * Composite pattern method which passes on the work to the ImageComponent itself (which utilizes the composite pattern).
-	 */
 	public Image getImage() {
-		// Delegate returning an image to the composite pattern
 		return this.toBeDecorated.getImage();
 	}
 	

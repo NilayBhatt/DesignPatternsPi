@@ -1,6 +1,6 @@
 package edu.ccsu.timelapse.factories;
 
-import edu.ccsu.timelapse.imagecollections.ImageComponent;
+import edu.ccsu.timelapse.imagecollections.ImageComposite;
 
 /**
  * An interface factory used to create a composite (or collection)
@@ -17,8 +17,8 @@ public interface ImageCollectionFactoryInterface {
 	 * 
 	 * @param int numPics
 	 * @param int interval
-	 * @return ImageComponent -> ImageComposite object containing all of the Image objects taken.
+	 * @return ImageComposite object containing all of the Image objects taken.
 	 */
-	public ImageComponent make(int numPics, int interval);
+	public ImageComposite make(int numPics, int interval);
 	
 }

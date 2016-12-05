@@ -16,9 +16,9 @@ public class TimelapseDirectorTest {
 		
 		TimelapseDirector director = new TimelapseDirector(builder);
 		
-		ImageComponent emptyList = new ImageComposite("TestTimelaspeDirectorComposite");
+		ImageComponent emptyList = new ImageComposite();
 		
-		Timelapse a = director.construct(emptyList);
+		Timelapse a = director.construct((ImageComposite) emptyList);
 		Timelapse b = this.createTimelapse();
 		
 		assertEquals(a.toString(), b.toString());

@@ -1,11 +1,10 @@
 package edu.ccsu.timelapse.components;
 
-import java.util.Objects;
-
 /**
  * A custom logger that will print out the various levels of logs in different colors.
  * 
  */
+@SuppressWarnings("unused")
 public class ConsoleUnixLogger implements Logger {
 	
 	/**
@@ -16,7 +15,8 @@ public class ConsoleUnixLogger implements Logger {
     /**
 	 * Different color and command properties stored as String.
 	 */
-    private static final String ANSI_BLACK = "\u001B[30m";
+
+	private static final String ANSI_BLACK = "\u001B[30m";
     
     /**
 	 * Different color and command properties stored as String.

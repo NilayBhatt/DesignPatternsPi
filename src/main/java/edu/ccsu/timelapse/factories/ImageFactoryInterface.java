@@ -1,5 +1,6 @@
 package edu.ccsu.timelapse.factories;
 
+import edu.ccsu.timelapse.components.DateFormatted;
 import edu.ccsu.timelapse.imagecollections.ImageComponent;
 
 /**
@@ -17,6 +18,6 @@ public interface ImageFactoryInterface {
 	 * @param String timestamp
 	 * @return ImageComponent -> Image object with the specified properties
 	 */
-	public ImageComponent make(String path, int temperature, String timestamp);
+	public ImageComponent make(String path, int temperature, DateFormatted timestamp);
 	
 }

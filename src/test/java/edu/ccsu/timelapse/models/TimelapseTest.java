@@ -31,7 +31,7 @@ public class TimelapseTest {
 
 		timelapse.addFrame(image);
 
-		assertTrue(timelapse.getFrames().iterator().hasNext());
+		assertTrue(((ImageComposite)timelapse.getFrames()).iterator().hasNext());
 	}
 
 	@Test

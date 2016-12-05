@@ -3,7 +3,6 @@ package edu.ccsu.timelapse.factories;
 import edu.ccsu.timelapse.components.DateFormatted;
 import edu.ccsu.timelapse.imagecollections.ConcreteImageComponent;
 import edu.ccsu.timelapse.imagecollections.ImageComponent;
-import edu.ccsu.timelapse.models.Image;
 
 /**
  * Factory pattern used to create an individual Image object.
@@ -19,12 +18,12 @@ public class ImageFactory implements ImageFactoryInterface {
 	 * @param String timestamp
 	 * @return an Image object with the following properties
 	 */
-	public ImageComponent make(String path, int temperature, String timestamp){
+	public ImageComponent make(String path, int temperature, DateFormatted timestamp){
 		
-		ImageComponent imageComp = new ConcreteImageComponent();
+		ConcreteImageComponent imageComp = new ConcreteImageComponent();
 		imageComp.getImage().setPath(path);
 		imageComp.getImage().setTemperature(temperature);
-		imageComp.getImage().setTimestamp(DateFormatted.fromString(timestamp));
+		imageComp.getImage().setTimestamp(timestamp);
 		
 		return imageComp;
 		

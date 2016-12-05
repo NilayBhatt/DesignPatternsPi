@@ -1,6 +1,5 @@
 package edu.ccsu.timelapse.imagecollections;
 
-import java.util.Iterator;
 import java.util.Objects;
 
 import edu.ccsu.timelapse.models.Image;
@@ -17,19 +16,6 @@ public class ConcreteImageComponent implements ImageComponent{
 	
 	public ConcreteImageComponent() {
 		this.image = new Image();
-	}
-
-	public void addComponent(ImageComponent component) {
-		// Concrete implementation doesn't need this method.
-	}
-
-	public void removeComponent(ImageComponent component) {
-		// Concrete implementation doesn't need this method.
-	}
-
-	public Iterator<ImageComponent> iterator() {
-		// Concrete implementation doesn't need this method.
-		return null;
 	}
 
 	public Image getImage() {
