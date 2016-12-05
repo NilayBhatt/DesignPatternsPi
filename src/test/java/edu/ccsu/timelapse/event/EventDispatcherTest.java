@@ -9,7 +9,7 @@ import java.util.List;
 import org.junit.Test;
 
 import edu.ccsu.timelapse.events.AppBootstrapped;
-import edu.ccsu.timelapse.listeners.SayHello;
+import edu.ccsu.timelapse.listeners.NotifyItBootstrapped;
 import edu.ccsu.timelapse.listeners.contracts.GenericListener;
 
 
@@ -21,7 +21,7 @@ public class EventDispatcherTest {
 		
 		EventDispatcher dispatcher = EventDispatcher.getInstance();
 
-		dispatcher.subscribe(AppBootstrapped.class, new SayHello());
+		dispatcher.subscribe(AppBootstrapped.class, new NotifyItBootstrapped());
 		
 		List<?> listeners = dispatcher.getListeners(AppBootstrapped.class);
 		

@@ -9,11 +9,11 @@ import static edu.ccsu.timelapse.core.Helper.app;
 import static edu.ccsu.timelapse.core.Helper.event;
 
 import java.util.Iterator;
-import java.util.Properties;
 
 import edu.ccsu.timelapse.builders.GIF;
 import edu.ccsu.timelapse.builders.TimelapseBuilderInterface;
 import edu.ccsu.timelapse.events.AppBootstrapped;
+import edu.ccsu.timelapse.events.AppHasStarted;
 import edu.ccsu.timelapse.factories.ImageCollectionFactoryInterface;
 import edu.ccsu.timelapse.imagecollections.ImageComponent;
 import edu.ccsu.timelapse.imagecollections.ImageComposite;
@@ -60,7 +60,8 @@ public class App {
 	 * Start the application.
 	 */
 	public void start() {
-		System.out.println("The application has started.");
+		
+		event(new AppHasStarted());
 		
 		ImageCollectionFactoryInterface factory = app("imageCollectionFactory");
 		
@@ -80,7 +81,8 @@ public class App {
 		
 		GIF gif = app("gif");
 		
-		gif.withDelay(1000).from("./images/").to("timelapse.gif").make();
+		// TODO: EDMIR
+		//gif.withDelay(1000).from("./images/").to("timelapse.gif").make();
 	}
 
 }
