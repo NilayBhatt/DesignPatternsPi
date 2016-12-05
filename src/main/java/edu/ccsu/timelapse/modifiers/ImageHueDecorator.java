@@ -17,7 +17,6 @@ public class ImageHueDecorator extends ImageDecorator {
 	 * Create a new instance of a ImageHueDecorator.
 	 * 
 	 * @param decorator
-	 * @param hue
 	 */
     public ImageHueDecorator(ImageComponent decorator) {
 		super(decorator);

@@ -54,7 +54,12 @@ public class ImageCollectionFactory implements ImageCollectionFactoryInterface {
 		
 		return collection;
 	}
-	
+
+	/**
+	 * Returns a formatted date.
+	 * @param path
+	 * @return DateFormatted
+	 */
 	public DateFormatted getTimeFromPath(String path){
 		DateFormatted temp = DateFormatted.fromString(path);
 		

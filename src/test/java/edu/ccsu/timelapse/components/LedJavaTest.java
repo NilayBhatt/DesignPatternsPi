@@ -56,8 +56,8 @@ public class LedJavaTest {
         if (!System.getProperty("os.name").equals("Linux")) {
             Assert.assertEquals(true, true);
         } else {
-            LedJava ledJava = new LedJava();
-            LedJava ledJava1 = new LedJava();
+            LedJava ledJava = new LedJava(4);
+            LedJava ledJava1 = new LedJava(4);
 
             assertTrue(ledJava.equals(ledJava1));
         }
@@ -68,8 +68,8 @@ public class LedJavaTest {
         if (!System.getProperty("os.name").equals("Linux")) {
             Assert.assertEquals(true, true);
         } else {
-            LedJava ledJava = new LedJava();
-            LedJava ledJava1 = new LedJava();
+            LedJava ledJava = new LedJava(2);
+            LedJava ledJava1 = new LedJava(2);
 
             assertEquals(ledJava.hashCode(), ledJava1.hashCode());
         }

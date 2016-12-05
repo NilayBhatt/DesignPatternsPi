@@ -9,7 +9,15 @@ import edu.ccsu.timelapse.exceptions.WrongOSException;
  */
 public interface LedOnOffStrategy {
 
+	/**
+	 * Truns on the LED on a specified port.
+	 * @throws WrongOSException
+	 */
 	void turnOn() throws WrongOSException;
 
+	/**
+	 * Turns off the LED on a specified port.
+	 * @throws WrongOSException
+	 */
 	void turnOff() throws WrongOSException;
 }

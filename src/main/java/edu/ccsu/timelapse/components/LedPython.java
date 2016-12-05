@@ -9,6 +9,13 @@ import edu.ccsu.timelapse.exceptions.WrongOSException;
  */
 public class LedPython extends CommandLineAdapter implements LedOnOffStrategy {
 
+	/**
+	 * Public constructor, inputs a led port.
+	 * @param ledPort
+	 */
+	public LedPython(int ledPort) {
+		this.ledPort = ledPort;
+	}
     /**
      * Port number where the led is attached.
      * Defaulted to 4
@@ -29,7 +36,11 @@ public class LedPython extends CommandLineAdapter implements LedOnOffStrategy {
         this.ledPort = portNum;
     }
 
-    private int getLedPort() {
+    /**
+     * Gets the led port number.
+     * @return led port number
+     */
+    public int getLedPort() {
         return this.ledPort;
     }
 
@@ -38,7 +49,7 @@ public class LedPython extends CommandLineAdapter implements LedOnOffStrategy {
      * @return command to be executed in terminal
      */
     @Override
-    protected String command() {
+    public String command() {
         return "python ./scripts/ledblink.py " + this.getLedPort() + " " + this.flip;
     }
 

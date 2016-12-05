@@ -16,7 +16,7 @@ public class PiCamera extends CommandLineAdapter implements Camera {
 	private String fileName;
 
 	@Override
-	protected String command() {
+	public String command() {
 
 		return "python ./scripts/camera.py ./images/" + this.fileName;
 	}

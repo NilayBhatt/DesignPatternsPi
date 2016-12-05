@@ -6,7 +6,6 @@ import edu.ccsu.timelapse.imagecollections.ImageComponent;
 /**
  * Implementation of a concrete Timelapse builder.
  *
- *
  */
 public class TimelapseBuilder implements TimelapseBuilderInterface {
 	
@@ -27,6 +26,7 @@ public class TimelapseBuilder implements TimelapseBuilderInterface {
 		
 		return this;
 	}
+
 
 	public TimelapseBuilderInterface setTimeBetween(int time) {
 		this.timelapse.setTimeBetween(time);

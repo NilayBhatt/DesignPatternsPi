@@ -1,26 +1,23 @@
 package edu.ccsu.timelapse.builders;
 
+import edu.ccsu.gifmaker.AnimatedGifEncoder;
+
+import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
 
-import javax.imageio.ImageIO;
-
-import edu.ccsu.gifmaker.AnimatedGifEncoder;
-import edu.ccsu.timelapse.imagecollections.ImageComponent;
-import edu.ccsu.timelapse.imagecollections.ImageComposite;
-
+/**
+ * GIFMaker implements GIF interface that creates a GIF
+ * by using images in a given directory
+ */
 public class GIFMaker implements GIF {
 	
-	private ImageComposite collection = null;
+	private String input = null;
 	private String output = null;
 	private int delay = 0;
-	private int height = 1080;
-	private int width = 1920;
-	private boolean repeat = false;
 	
-	
-	public GIFMaker from(ImageComposite collection) {
-		this.collection = collection;
+	public GIFMaker from(String path) {
+		this.input = path;
 		
 		return this;
 	}
@@ -37,24 +34,6 @@ public class GIFMaker implements GIF {
 		return this;
 	}
 	
-	public GIFMaker repeat(boolean repeat){
-		this.repeat = repeat;
-		
-		return this;
-	}
-	
-	public GIFMaker width(int width){
-		this.width = width;
-		
-		return this;
-	}
-	
-	public GIFMaker height(int height){
-		this.height = height;
-		
-		return this;
-	}
-	
 	public void make() {
 		this.createGIF();
 	}
@@ -63,25 +42,23 @@ public class GIFMaker implements GIF {
 		
 		AnimatedGifEncoder gif = new AnimatedGifEncoder();
 		gif.start(this.output);
-		
-		if(this.repeat){
-			gif.setRepeat(0);
-		} else {
-			gif.setRepeat(1);
-		}
+		gif.setRepeat(0);
 		gif.setDelay(this.delay);
-		gif.setSize(this.width, this.height);
+		gif.setSize(1920, 1080);
 		
-		for (ImageComponent image : collection.getElements()) {
+		File dir = new File(this.input);
+		
+		for (File file : dir.listFiles()) {
             try {
-				gif.addFrame(ImageIO.read(new File(image.getImage().getPath())));
+				gif.addFrame(ImageIO.read(new File(this.input + "/" + file.getName())));
 			} catch (IOException e) {
-				System.err.println("Unable to add image -> " + image.toString());
+				System.err.println("Unable to add image -> " + file.getName());
 			}
 	    }
 		
 		gif.finish();
 		
 	}
+	
 	
 }

@@ -1,9 +1,9 @@
 package edu.ccsu.timelapse.imagecollections;
 
-import java.util.Objects;
-
 import edu.ccsu.timelapse.models.Image;
 import edu.ccsu.timelapse.modifiers.ImageDecorator;
+
+import java.util.Objects;
 
 /**
  * A wrapper for the Image. The reason for this class is to implement all the composite and decorator methods.
@@ -12,7 +12,7 @@ import edu.ccsu.timelapse.modifiers.ImageDecorator;
  */
 public class ConcreteImageComponent implements ImageComponent{
 	
-	Image image;
+	private Image image;
 	
 	public ConcreteImageComponent() {
 		this.image = new Image();
