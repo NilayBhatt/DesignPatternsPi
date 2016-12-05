@@ -1,6 +1,8 @@
 package edu.ccsu.timelapse.builders;
 
 import edu.ccsu.gifmaker.AnimatedGifEncoder;
+import edu.ccsu.timelapse.imagecollections.ImageComponent;
+import edu.ccsu.timelapse.imagecollections.ImageComposite;
 
 import javax.imageio.ImageIO;
 import java.io.File;
@@ -12,12 +14,15 @@ import java.io.IOException;
  */
 public class GIFMaker implements GIF {
 	
-	private String input = null;
+	private ImageComposite input = null;
 	private String output = null;
 	private int delay = 0;
+	private int height = 0;
+	private int width = 0;
+	private boolean repeat = false;
 	
-	public GIFMaker from(String path) {
-		this.input = path;
+	public GIFMaker from(ImageComposite input) {
+		this.input = input;
 		
 		return this;
 	}
@@ -34,6 +39,39 @@ public class GIFMaker implements GIF {
 		return this;
 	}
 	
+	/**
+	 * 
+	 * @param repeat
+	 * @return
+	 */
+	public GIFMaker repeat(boolean repeat){
+		this.repeat = repeat;
+		
+		return this;
+	}
+	
+	/**
+	 * 
+	 * @param width
+	 * @return
+	 */
+	public GIFMaker width(int width){
+		this.width = width;
+		
+		return this;
+	}
+	
+	/**
+	 * 
+	 * @param height
+	 * @return
+	 */
+	public GIFMaker height(int height){
+		this.height = height;
+		
+		return this;
+	}
+	
 	public void make() {
 		this.createGIF();
 	}
@@ -42,17 +80,20 @@ public class GIFMaker implements GIF {
 		
 		AnimatedGifEncoder gif = new AnimatedGifEncoder();
 		gif.start(this.output);
-		gif.setRepeat(0);
+		
+		if(this.repeat){
+			gif.setRepeat(0);
+		} else {
+			gif.setRepeat(1);
+		}
 		gif.setDelay(this.delay);
-		gif.setSize(1920, 1080);
+		gif.setSize(this.width, this.height);
 		
-		File dir = new File(this.input);
-		
-		for (File file : dir.listFiles()) {
+		for (ImageComponent image : this.input.getElements()) {
             try {
-				gif.addFrame(ImageIO.read(new File(this.input + "/" + file.getName())));
+				gif.addFrame(ImageIO.read(new File(image.getImage().getPath())));
 			} catch (IOException e) {
-				System.err.println("Unable to add image -> " + file.getName());
+				System.err.println("Unable to add image -> " + image.getImage().getPath());
 			}
 	    }
 		

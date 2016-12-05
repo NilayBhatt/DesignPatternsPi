@@ -1,5 +1,7 @@
 package edu.ccsu.timelapse.builders;
 
+import edu.ccsu.timelapse.imagecollections.ImageComposite;
+
 /**
  *
  * GIF Interface that helps create a GIF Image
@@ -12,7 +14,7 @@ public interface GIF {
 	 * @param path path of the directory image resides in.
 	 * @return GIFMaker
 	 */
-	public GIFMaker from(String path);
+	public GIFMaker from(ImageComposite collection);
 
 	/**
 	 * The destination directory where the final gif will reside.
@@ -27,6 +29,27 @@ public interface GIF {
 	 * @return GIFMAKER
 	 */
 	public GIFMaker withDelay(int delay);
+	
+	/**
+	 * 
+	 * @param repeat
+	 * @return
+	 */
+	public GIFMaker repeat(boolean repeat);
+	
+	/**
+	 * 
+	 * @param width
+	 * @return
+	 */
+	public GIFMaker width(int width);
+	
+	/**
+	 * 
+	 * @param height
+	 * @return
+	 */
+	public GIFMaker height(int height);
 
 	/**
 	 * Makes the final GIF Image for the the application.
