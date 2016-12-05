@@ -1,5 +1,6 @@
 package edu.ccsu.timelapse.modifiers;
 
+import edu.ccsu.timelapse.imagecollections.ImageComponent;
 import marvin.MarvinPluginCollection;
 import marvin.image.MarvinImage;
 import marvin.io.MarvinImageIO;
@@ -18,7 +19,7 @@ public class ImageHueDecorator extends ImageDecorator {
 	 * @param decorator
 	 * @param hue
 	 */
-    public ImageHueDecorator(ImageDecorator decorator) {
+    public ImageHueDecorator(ImageComponent decorator) {
 		super(decorator);
 	}
 

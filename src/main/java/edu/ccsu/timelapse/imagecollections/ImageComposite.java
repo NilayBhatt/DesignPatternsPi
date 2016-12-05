@@ -13,7 +13,7 @@ import edu.ccsu.timelapse.modifiers.ImageDecorator;
  *	and its concrete classes (currently ConcreteImageComponent).
  *
  */
-public class ImageComposite implements ImageComponent{
+public class ImageComposite implements ImageComponent {
 	
 	/**
 	 * A collection of elements of itself and other concrete classes implementing ImageComponent

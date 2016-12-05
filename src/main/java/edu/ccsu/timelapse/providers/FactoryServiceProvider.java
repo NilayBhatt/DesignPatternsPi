@@ -12,7 +12,7 @@ public class FactoryServiceProvider extends ServiceProvider {
 		
 		this.app().bind("imageFactory", ImageFactoryInterface.class, new ImageFactory());
 
-		this.app().bind("imageCollectionFacotry", ImageCollectionFactoryInterface.class, new ImageCollectionFactory());
+		this.app().bind("imageCollectionFactory", ImageCollectionFactoryInterface.class, new ImageCollectionFactory());
 		
 	}
 	

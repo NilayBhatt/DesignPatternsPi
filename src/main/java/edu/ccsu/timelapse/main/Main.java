@@ -24,7 +24,7 @@ public class Main {
 
 		app.bootstrap();
 		
-		app.start();
+		app.start(Integer.parseInt(args[0]), Integer.parseInt(args[1]));
 
 	}
 

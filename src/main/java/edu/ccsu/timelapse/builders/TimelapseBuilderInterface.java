@@ -7,7 +7,7 @@ import edu.ccsu.timelapse.imagecollections.ImageComponent;
  * Interface for a Timelapse builder.
  * 
  */
-interface TimelapseBuilderInterface {
+public interface TimelapseBuilderInterface {
 
 	/**
 	 * Add frame to timelapse.
