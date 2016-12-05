@@ -145,7 +145,14 @@ public class Timelapse {
 	public void toGIF() {
 		GIF gif = app("gif");
 		
-		gif.withDelay(1000).from(this.getFrames()).to("timelapse.gif").repeat(true).make();
+		gif
+			.withDelay(this.getTimeBetween())
+			.height(this.getHeight())
+			.width(this.getHeight())
+			.from(this.getFrames())
+			.to("timelapse.gif")
+			.repeat(this.getRepeat())
+			.make();
 	}
 	
 

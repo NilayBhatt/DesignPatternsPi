@@ -42,7 +42,6 @@ public class ImageCollectionFactory implements ImageCollectionFactoryInterface {
 		for(int i = 0; i < numPictures; i++) {
 			try {
 				path = camera.snap();
-				System.out.println(path + ": snapped picture. (" + i + ")");
 				event(new PictureTaken());
 				temp = factory.make(path, thermometer.temperature(), camera.getTimestamp());
 				collection.addComponent(temp);

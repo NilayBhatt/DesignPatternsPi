@@ -23,7 +23,7 @@ public class NotifyPictureTaken implements GenericListener {
 	 * Handle the event.
 	 */
 	public void handle() {
-		this.logger.success("A picture was taken.");
+		this.logger.success("A picture was taken. SAY CHEESE!");
 	}
 	
 }

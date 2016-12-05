@@ -9,8 +9,8 @@ import static edu.ccsu.timelapse.core.Helper.app;
 import static edu.ccsu.timelapse.core.Helper.event;
 
 import java.util.Iterator;
+import java.util.Properties;
 
-import edu.ccsu.timelapse.builders.GIF;
 import edu.ccsu.timelapse.builders.TimelapseBuilderInterface;
 import edu.ccsu.timelapse.events.AppBootstrapped;
 import edu.ccsu.timelapse.events.AppHasStarted;
@@ -18,6 +18,7 @@ import edu.ccsu.timelapse.factories.ImageCollectionFactoryInterface;
 import edu.ccsu.timelapse.imagecollections.ImageComponent;
 import edu.ccsu.timelapse.imagecollections.ImageComposite;
 import edu.ccsu.timelapse.models.Timelapse;
+import edu.ccsu.timelapse.modifiers.ImageDecorator;
 import edu.ccsu.timelapse.modifiers.ImageHueDecorator;
 import edu.ccsu.timelapse.modifiers.ImageTimeDecorator;
 import edu.ccsu.timelapse.providers.ServiceProvider;
@@ -66,11 +67,15 @@ public class App {
 		
 		ImageCollectionFactoryInterface factory = app("imageCollectionFactory");
 		
-		ImageComposite collection = factory.make(20, 10);
+		Properties props = app("config");
+		
+		ImageComposite collection = factory.make(Integer.parseInt(props.getProperty("NUM_PIC")), Integer.parseInt(props.getProperty("INTERVAL")));
 		
 		ImageComponent toDecorate = (ImageComponent) collection;
 		
 		toDecorate = new ImageTimeDecorator(new ImageHueDecorator(toDecorate));
+		
+		toDecorate.decorateComponent((ImageDecorator) toDecorate);
 		
 		TimelapseBuilderInterface builder = app("timelapseBuilder");
 		
@@ -79,6 +84,11 @@ public class App {
 		while(iterator.hasNext()) {
 			builder.addFrame(iterator.next());
 		}
+		
+		builder.setWidth(1080);
+		builder.setHeight(1920);
+		builder.setRepeat(true);
+		builder.setTimeBetween(2);
 		
 		Timelapse timelapse = builder.getResult();
 		
