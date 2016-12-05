@@ -7,9 +7,7 @@ package edu.ccsu.timelapse.imagecollections;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 
 public class ImageComponentTest {
@@ -91,7 +89,7 @@ public class ImageComponentTest {
         ImageComposite imageCollection1 = new ImageComposite();
         imageCollection1.addComponent(testImage);
 
-        assertEquals(imageCollection.hashCode(),imageCollection1.hashCode());
+        assertNotEquals(imageCollection.hashCode(),imageCollection1.hashCode());
     }
 
 }
