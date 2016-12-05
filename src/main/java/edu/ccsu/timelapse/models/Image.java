@@ -15,22 +15,26 @@ import edu.ccsu.timelapse.components.DateFormatted;
  */
 public class Image{ 
 	
-	private String path;
-	
-	private int temperature;
-	
-	private DateFormatted timestamp;
+	/**
+	 * Instance of Properties of the image.
+	 */
+	private Properties properties;
 
 	/**
 	 * Create a new instance of an image.
 	 * 
 	 */
-	public Image() {}
+	public Image() {
+		this.properties = new Properties();
+	}
 	
-	
+	/**
+	 * Set the path of the image.
+	 * 
+	 * @param path
+	 */
 	public void setPath(String path) {
-		
-		this.path = path;
+		this.properties.setPath(path);
 	}
 	
 	/**
@@ -40,7 +44,7 @@ public class Image{
 	 */
 	public String getPath() {
 		
-		return this.path;
+		return this.properties.getPath();
 	}
 
 	/**
@@ -49,7 +53,7 @@ public class Image{
 	 * @param temperature
 	 */
 	public void setTemperature(int temperature) {
-		this.temperature = temperature;
+		this.properties.setTemperature(temperature);
 	}
 	
 	/**
@@ -58,17 +62,24 @@ public class Image{
 	 */
 	public int getTemperature() {
 		
-		return this.temperature;
+		return this.properties.getTemperature();
 	}
 	
+	/**
+	 * Get the timestamp of the image/
+	 */
 	public DateFormatted getTimestamp() {
 		
-		return this.timestamp;
+		return this.properties.getTimestamp();
 	}
 
-
+	/**
+	 * Set the timestamp of the image.
+	 * 
+	 * @param date
+	 */
 	public void setTimestamp(DateFormatted date) {
-		this.timestamp = date;
+		this.properties.setTimestamp(date);
 	}
 	
 
@@ -78,8 +89,8 @@ public class Image{
 	@Override
 	public String toString() {
 		
-		return "An image with a path of \"" + this.getPath() + "\", temperature of: " + this.temperature +
-				"and created at: " + this.timestamp;
+		return "An image with a path of \"" + this.getPath() + "\", temperature of: " + this.getTemperature() +
+				"and created at: " + this.getTimestamp();
 	}
 	
 	/**
@@ -112,5 +123,81 @@ public class Image{
 		}
 		
 		return true;
+	}
+	
+	/**
+	 * Properties class for containing Image properties.
+	 *
+	 */
+	private class Properties {
+		
+		/**
+		 * Path of image.
+		 */
+		private String path;
+		
+		/**
+		 * Temperature of image taken.
+		 */
+		private int temperature;
+		
+		/**
+		 * Timestamp of the image.
+		 */
+		private DateFormatted timestamp;
+
+		/**
+		 * Get the path of the image.
+		 * 
+		 * @return path
+		 */
+		public String getPath() {
+			return this.path;
+		}
+
+		/**
+		 * Set the path of the image.
+		 * 
+		 * @param path
+		 */
+		public void setPath(String path) {
+			this.path = path;
+		}
+
+		/**
+		 * Get the temperature of the image.
+		 * 
+		 * @return temperature 
+		 */
+		public int getTemperature() {
+			return this.temperature;
+		}
+
+		/**
+		 * Set the temperature of the image.
+		 * 
+		 * @param temperature
+		 */
+		public void setTemperature(int temperature) {
+			this.temperature = temperature;
+		}
+
+		/**
+		 * Get the created at timestamp.
+		 * 
+		 * @return DateFormatted
+		 */
+		public DateFormatted getTimestamp() {
+			return this.timestamp;
+		}
+
+		/**
+		 * Set the timestamp of the image.
+		 * 
+		 * @param timestamp
+		 */
+		public void setTimestamp(DateFormatted timestamp) {
+			this.timestamp = timestamp;
+		}
 	}
 }
