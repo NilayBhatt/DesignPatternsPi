@@ -15,7 +15,7 @@ public abstract class CommandLineAdapter {
 	 * 
 	 * @return the command
 	 */
-	protected String command() {
+	public String command() {
 		return null;
 	}
 	

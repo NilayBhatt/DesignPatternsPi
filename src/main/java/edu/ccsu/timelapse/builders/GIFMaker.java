@@ -1,12 +1,15 @@
 package edu.ccsu.timelapse.builders;
 
+import edu.ccsu.gifmaker.AnimatedGifEncoder;
+
+import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
 
-import javax.imageio.ImageIO;
-
-import edu.ccsu.gifmaker.AnimatedGifEncoder;
-
+/**
+ * GIFMaker implements GIF interface that creates a GIF
+ * by using images in a given directory
+ */
 public class GIFMaker implements GIF {
 	
 	private String input = null;

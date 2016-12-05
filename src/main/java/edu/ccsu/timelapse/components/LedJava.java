@@ -13,7 +13,8 @@ import com.pi4j.io.gpio.RaspiPin;
 public class LedJava implements LedOnOffStrategy {
 
 	/**
-	 * 
+	 * Public setter that takes in port number as argument.
+	 * @param ledPort
 	 */
 	public LedJava(int ledPort){
 		switch(ledPort){
@@ -47,7 +48,8 @@ public class LedJava implements LedOnOffStrategy {
 	}
     private final GpioController gpio = GpioFactory.getInstance();
 
-    private GpioPinDigitalOutput led; 
+    private GpioPinDigitalOutput led;
+
     /**
      * Turns on the led.
      *

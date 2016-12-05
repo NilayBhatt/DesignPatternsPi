@@ -15,7 +15,6 @@ public class ConsoleUnixLogger implements Logger {
     /**
 	 * Different color and command properties stored as String.
 	 */
-
 	private static final String ANSI_BLACK = "\u001B[30m";
     
     /**
@@ -56,7 +55,7 @@ public class ConsoleUnixLogger implements Logger {
     /**
      * Log method for the custom logger.
      * 
-     * @param String to logged at info level.
+     * @param String s to logged at info level.
      */
     public void info(String s) {
     System.out.println(ANSI_PURPLE +"$timelapse: "+ ANSI_RESET + ANSI_CYAN + s + ANSI_RESET);

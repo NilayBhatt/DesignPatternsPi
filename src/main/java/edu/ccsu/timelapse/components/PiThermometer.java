@@ -16,8 +16,8 @@ public class PiThermometer extends CommandLineAdapter implements Thermometer {
 	 * @return String
 	 */
 	@Override
-	protected String command() {
-		
+	public String command() {
+
 		return "python ./scripts/temperature.py";
 	}
 
