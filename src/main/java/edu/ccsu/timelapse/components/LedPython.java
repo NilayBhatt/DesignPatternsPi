@@ -9,6 +9,13 @@ import edu.ccsu.timelapse.exceptions.WrongOSException;
  */
 public class LedPython extends CommandLineAdapter implements LedOnOffStrategy {
 
+	/**
+	 * Public constructor, inputs a led port.
+	 * @param ledPort
+	 */
+	public LedPython(int ledPort) {
+		this.ledPort = ledPort;
+	}
     /**
      * Port number where the led is attached.
      * Defaulted to 4

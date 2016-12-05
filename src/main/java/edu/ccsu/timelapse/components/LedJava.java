@@ -12,10 +12,42 @@ import com.pi4j.io.gpio.RaspiPin;
  */
 public class LedJava implements LedOnOffStrategy {
 
+	/**
+	 * 
+	 */
+	public LedJava(int ledPort){
+		switch(ledPort){
+			case 1:
+				led = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_01, "MyLED", PinState.LOW);
+				break;
+			case 2:
+				led = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_02, "MyLED", PinState.LOW);
+				break;
+			case 3:
+				led = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_03, "MyLED", PinState.LOW);
+				break;
+			case 4:
+				led = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_04, "MyLED", PinState.LOW);
+				break;
+			case 5:
+				led = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_05, "MyLED", PinState.LOW);
+				break;
+			case 6:
+				led = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_06, "MyLED", PinState.LOW);
+				break;
+			case 7:
+				led = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_07, "MyLED", PinState.LOW);
+			case 8:
+				led = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_08, "MyLED", PinState.LOW);
+				break;
+			default:
+				led = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_01, "MyLED", PinState.LOW);
+				break;
+		}
+	}
     private final GpioController gpio = GpioFactory.getInstance();
 
-    private final GpioPinDigitalOutput led = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_04, "MyLED", PinState.LOW);
-
+    private GpioPinDigitalOutput led; 
     /**
      * Turns on the led.
      *
