@@ -1,13 +1,12 @@
 package edu.ccsu.timelapse.modifiers;
 
-import java.awt.Font;
-import java.awt.Graphics2D;
+import edu.ccsu.timelapse.imagecollections.ImageComponent;
+
+import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import javax.imageio.ImageIO;
-
-import edu.ccsu.timelapse.imagecollections.ImageComponent;
 
 /**
  * This is a concrete implementation of ImageDecorator
@@ -20,7 +19,7 @@ public class ImageTimeDecorator extends ImageDecorator {
 	/**
 	 * Create a new instance of an ImageTimeDecorator.
 	 * 
-	 * @param toBeDecorated
+	 * @param image
 	 */
     public ImageTimeDecorator(ImageComponent image) {
 		super(image);

@@ -10,14 +10,21 @@ import java.util.Objects;
  * This keeps our data structure of Image untouched and let's us implement all the logic in here.
  *
  */
-public class ConcreteImageComponent implements ImageComponent{
+public class ConcreteImageComponent implements ImageComponent {
 	
-	private Image image;
-	
+	Image image;
+
+	/**
+	 * Public constructor
+	 */
 	public ConcreteImageComponent() {
 		this.image = new Image();
 	}
 
+	/**
+	 * public getter for image
+	 * @return Image
+	 */
 	public Image getImage() {
 		return this.image;
 	}
@@ -25,17 +32,30 @@ public class ConcreteImageComponent implements ImageComponent{
 	public void decorateComponent(ImageDecorator decorator) {
 		// Concrete implementation doesn't need this method.
 	}
-	
+
+	/**
+	 * toString method for the ConcreteImageComponent.
+	 * @return String
+	 */
 	@Override
 	public String toString() {
 		return this.image.toString();
 	}
-	
+
+	/**
+	 * Hash Code for the ConcreteImageComponent object
+	 * @return int
+	 */
 	@Override
 	public int hashCode() {
 		return Objects.hashCode(this.getImage());
 	}
-	
+
+	/**
+	 * Equals method for the ConcreteImageComponent.
+	 * @param concreteComponent
+	 * @return bollean
+	 */
 	@Override
 	public boolean equals(Object concreteComponent) {
 		if(!(concreteComponent instanceof ConcreteImageComponent)) {
