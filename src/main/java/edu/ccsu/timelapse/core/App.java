@@ -78,7 +78,7 @@ public class App {
 		
 		logger.info("Decorating the images.");
 		
-		toDecorate = new ImageHueDecorator(toDecorate);
+		toDecorate = new ImageTimeDecorator(toDecorate);
 		
 		collection.decorateComponent((ImageDecorator) toDecorate);
 		
