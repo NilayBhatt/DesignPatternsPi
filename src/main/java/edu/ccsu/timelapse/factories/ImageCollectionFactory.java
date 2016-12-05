@@ -30,7 +30,7 @@ public class ImageCollectionFactory {
 		
 		int captureMilli = captureInterval * 1000;
 		
-		for(int i = 0; i < numPictures; i++){
+		for(int i = 0; i < numPictures; i++) {
 			try {
 				temp.getImage().setPath(camera.snap());
 				System.out.print(temp.getImage().getPath());

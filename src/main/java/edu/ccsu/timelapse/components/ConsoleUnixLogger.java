@@ -7,38 +7,47 @@ import java.util.Objects;
  * 
  */
 public class ConsoleUnixLogger implements Logger {
+	
 	/**
 	 * Different color and command properties stored as String.
 	 */
     private static final String ANSI_RESET = "\u001B[0m";
+    
     /**
 	 * Different color and command properties stored as String.
 	 */
     private static final String ANSI_BLACK = "\u001B[30m";
+    
     /**
 	 * Different color and command properties stored as String.
 	 */
     private static final String ANSI_RED = "\u001B[31m";
+    
     /**
 	 * Different color and command properties stored as String.
 	 */
     private static final String ANSI_GREEN = "\u001B[32m";
+    
     /**
 	 * Different color and command properties stored as String.
 	 */
     private static final String ANSI_YELLOW = "\u001B[33m";
+    
     /**
 	 * Different color and command properties stored as String.
 	 */
     private static final String ANSI_BLUE = "\u001B[34m";
+    
     /**
 	 * Different color and command properties stored as String.
 	 */
     private static final String ANSI_PURPLE = "\u001B[35m";
+    
     /**
 	 * Different color and command properties stored as String.
 	 */
     private static final String ANSI_CYAN = "\u001B[36m";
+    
     /**
 	 * Different color and command properties stored as String.
 	 */
@@ -89,24 +98,6 @@ public class ConsoleUnixLogger implements Logger {
         System.out.println(ANSI_PURPLE + "$timelapse: " + ANSI_RESET + ANSI_GREEN + s + ANSI_RESET);
     }
     
-    /**
-     * Hash code of this object. Will always be the same.
-     * 
-     * @return int hash code
-     */
-    @Override
-    public int hashCode() {
-    	return Objects.hash(
-    			ConsoleUnixLogger.ANSI_RESET, 
-    			ConsoleUnixLogger.ANSI_BLACK,
-    			ConsoleUnixLogger.ANSI_BLUE,
-    			ConsoleUnixLogger.ANSI_CYAN,
-    			ConsoleUnixLogger.ANSI_GREEN,
-    			ConsoleUnixLogger.ANSI_PURPLE,
-    			ConsoleUnixLogger.ANSI_RED,
-    			ConsoleUnixLogger.ANSI_WHITE,
-    			ConsoleUnixLogger.ANSI_YELLOW);
-    }
     
     /**
      * String representation of the logger.
@@ -118,17 +109,4 @@ public class ConsoleUnixLogger implements Logger {
     	return "This is a custom unix logger for our application.";
     }
     
-    /**
-     * Checks if the two objects are equal or not.
-     * 
-     * @param other object that is being compared
-     */
-    @Override
-    public boolean equals(Object obj) {
-    	if(!(obj instanceof ConsoleUnixLogger)) {
-    		return false;
-    	}
-    	
-    	return true;
-    }
 }
