@@ -13,12 +13,12 @@ public class PiCamera extends CommandLineAdapter implements Camera {
 	/**
 	 * Cached string used for taking picture.
 	 */
-	private String fileName;
+	public DateFormatted timestamp;
 
 	@Override
 	public String command() {
 
-		return "python ./scripts/camera.py ./images/" + this.fileName;
+		return "python ./scripts/camera.py ./images/" + this.fileName();
 	}
 
 	/**
@@ -37,11 +37,11 @@ public class PiCamera extends CommandLineAdapter implements Camera {
 			}
 		}
 		
-		this.fileName();
+		this.timestamp = new DateFormatted();
 		
 		this.execute();
 		
-		return "./images/" + this.fileName;
+		return "./images/" + this.fileName();
 	}
 	
 	/**
@@ -50,7 +50,11 @@ public class PiCamera extends CommandLineAdapter implements Camera {
 	 * @return the name 
 	 */
 	private String fileName() {
-		return this.fileName = new DateFormatted() + ".jpeg";
+		return this.timestamp.toString() + ".jpeg";
+	}
+
+	public DateFormatted getTimestamp() {
+		return this.timestamp;
 	}
 	
 	/**

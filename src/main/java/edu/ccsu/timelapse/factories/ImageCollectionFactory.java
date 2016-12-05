@@ -44,7 +44,7 @@ public class ImageCollectionFactory implements ImageCollectionFactoryInterface {
 				path = camera.snap();
 				System.out.println(path + ": snapped picture. (" + i + ")");
 				event(new PictureTaken());
-				temp = factory.make(path, thermometer.temperature(), getTimeFromPath(path));
+				temp = factory.make(path, thermometer.temperature(), camera.getTimestamp());
 				collection.addComponent(temp);
 				Thread.sleep(captureMilli);
 			} catch (InterruptedException e) {
@@ -55,14 +55,4 @@ public class ImageCollectionFactory implements ImageCollectionFactoryInterface {
 		return collection;
 	}
 
-	/**
-	 * Returns a formatted date.
-	 * @param path
-	 * @return DateFormatted
-	 */
-	public DateFormatted getTimeFromPath(String path){
-		DateFormatted temp = DateFormatted.fromString(path);
-		
-		return temp;
-	}
 }
