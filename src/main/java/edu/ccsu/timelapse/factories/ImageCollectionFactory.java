@@ -9,7 +9,7 @@ import static edu.ccsu.timelapse.core.Helper.*;
  * specify in the type of collection you want and outputs the completed collection.
  * 
  */
-public class ImageCollectionFactory {
+public class ImageCollectionFactory implements ImageCollectionFactoryInterface {
 	
 	/**
 	 * This static method construct can be used to create a custom collection that collects
@@ -20,21 +20,23 @@ public class ImageCollectionFactory {
 	 * @param captureInterval (how often the camera takes a picture)(in seconds)
 	 * @return an ImageCollection object with all of the images taken in the elapsed time and decorated
 	 */
-	public static ImageComponent make(int numPictures, int captureInterval) {
+	public ImageComponent make(int numPictures, int captureInterval) {
 		
 		ImageComponent collection = new ImageComposite("ImageCollectionFactoryComposite");
 		ImageComponent temp = new ConcreteImageComponent();
+		String path;
 		
 		Camera camera = app("camera");
 		Thermometer thermometer = app("thermometer");
+		ImageFactory factory = app("imageFactory");
 		
 		int captureMilli = captureInterval * 1000;
 		
 		for(int i = 0; i < numPictures; i++){
 			try {
-				temp.getImage().setPath(camera.snap());
-				System.out.print(temp.getImage().getPath());
-				System.out.println(i + ": snapped picture.");
+				path = camera.snap();
+				System.out.println(path + ": snapped picture. (" + i + ")");
+				temp = factory.make(path, thermometer.temperature(), getTimeFromPath(path));
 				collection.addComponent(temp);
 				Thread.sleep(captureMilli);
 			} catch (InterruptedException e) {
@@ -43,5 +45,11 @@ public class ImageCollectionFactory {
 		}
 		
 		return collection;
+	}
+	
+	public String getTimeFromPath(String path){
+		String[] temp = path.split("/");
+		
+		return temp[temp.length - 1].split(".")[0];
 	}
 }

@@ -3,6 +3,7 @@ package edu.ccsu.timelapse.main;
 import edu.ccsu.timelapse.core.App;
 import edu.ccsu.timelapse.providers.AppServiceProvider;
 import edu.ccsu.timelapse.providers.EventServiceProvider;
+import edu.ccsu.timelapse.providers.FactoryServiceProvider;
 import edu.ccsu.timelapse.providers.SensorServiceProvider;
 import edu.ccsu.timelapse.providers.ServiceProvider;
 
@@ -17,7 +18,8 @@ public class Main {
 		App app = new App(new ServiceProvider[]{
 			new AppServiceProvider(),
 			new SensorServiceProvider(),
-			new EventServiceProvider()
+			new EventServiceProvider(),
+			new FactoryServiceProvider()
 		});
 
 		app.bootstrap();

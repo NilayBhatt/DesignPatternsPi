@@ -1,0 +1,19 @@
+package edu.ccsu.timelapse.providers;
+
+import edu.ccsu.timelapse.factories.ImageCollectionFactory;
+import edu.ccsu.timelapse.factories.ImageCollectionFactoryInterface;
+import edu.ccsu.timelapse.factories.ImageFactory;
+import edu.ccsu.timelapse.factories.ImageFactoryInterface;
+
+public class FactoryServiceProvider extends ServiceProvider {
+
+	@Override
+	public void register() {
+		
+		this.app().bind("imageFactory", ImageFactoryInterface.class, new ImageFactory());
+
+		this.app().bind("imageCollectionFacotry", ImageCollectionFactoryInterface.class, new ImageCollectionFactory());
+		
+	}
+	
+}
