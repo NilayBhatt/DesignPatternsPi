@@ -5,6 +5,14 @@
 package edu.ccsu.timelapse.core;
 
 
+import static edu.ccsu.timelapse.core.Helper.app;
+import static edu.ccsu.timelapse.core.Helper.event;
+
+import java.util.Iterator;
+import java.util.Properties;
+
+import edu.ccsu.timelapse.builders.GIF;
+import edu.ccsu.timelapse.builders.TimelapseBuilderInterface;
 import edu.ccsu.timelapse.events.AppBootstrapped;
 import edu.ccsu.timelapse.factories.ImageCollectionFactoryInterface;
 import edu.ccsu.timelapse.imagecollections.ImageComponent;
@@ -12,11 +20,6 @@ import edu.ccsu.timelapse.imagecollections.ImageComposite;
 import edu.ccsu.timelapse.modifiers.ImageHueDecorator;
 import edu.ccsu.timelapse.modifiers.ImageTimeDecorator;
 import edu.ccsu.timelapse.providers.ServiceProvider;
-import edu.ccsu.timelapse.builders.GIF;
-import edu.ccsu.timelapse.builders.TimelapseBuilderInterface;
-import static edu.ccsu.timelapse.core.Helper.*;
-
-import java.util.Iterator;
 
 
 /**
@@ -51,16 +54,17 @@ public class App {
 		event(new AppBootstrapped());
 		
 	}
+
 	
 	/**
 	 * Start the application.
 	 */
-	public void start(int numPics, int interval) {
+	public void start() {
 		System.out.println("The application has started.");
 		
 		ImageCollectionFactoryInterface factory = app("imageCollectionFactory");
 		
-		ImageComponent collection = factory.make(numPics, interval);
+		ImageComponent collection = factory.make(20, 10);
 		
 		collection = new ImageTimeDecorator(new ImageHueDecorator(collection));
 		

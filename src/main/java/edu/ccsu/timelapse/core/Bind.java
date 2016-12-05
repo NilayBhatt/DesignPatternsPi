@@ -5,7 +5,7 @@ package edu.ccsu.timelapse.core;
  *
  * @param <E>
  */
-interface Bind<E> {
+public interface Bind<E> {
 	
 	/**
 	 * Container calls this to bind the instance object.
