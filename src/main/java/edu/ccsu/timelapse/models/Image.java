@@ -13,7 +13,7 @@ import edu.ccsu.timelapse.components.DateFormatted;
  * Image is a model to contain data about images that are taken.
  * 
  */
-public class Image { 
+public class Image{ 
 	
 	private String path;
 	

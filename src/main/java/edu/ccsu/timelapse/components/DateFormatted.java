@@ -1,5 +1,6 @@
 package edu.ccsu.timelapse.components;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
@@ -62,4 +63,26 @@ public class DateFormatted {
 		
 		return true;
 	}
+	
+	public void setDate(String date){
+		
+		try {
+			this.date = new SimpleDateFormat("M-d-y-k-m-s-S").parse(date);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+
+	public static DateFormatted fromString(String timestamp) {
+		
+		String[] temp = timestamp.split("/");
+		DateFormatted time = new DateFormatted();
+		time.setDate(temp[temp.length - 1].split(".")[0]);
+		
+		return time;
+		
+	}
+	
 }
