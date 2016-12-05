@@ -9,7 +9,6 @@ import marvin.io.MarvinImageIO;
  * abstract class which specializes in setting and adding
  * an image hue to an image object
  * 
- * @author Deepankar Malhan, Edmir Alagic, Lukasz Brodowski, Sabahudin Mujcinovic, Nilay Bhatt
  */
 public class ImageHueDecorator extends ImageDecorator {
 	

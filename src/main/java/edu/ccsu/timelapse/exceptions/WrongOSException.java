@@ -7,12 +7,24 @@ package edu.ccsu.timelapse.exceptions;
 
 import java.io.IOException;
 
+/**
+ * Exception use when you run the program on the wrong kernel.
+ *
+ */
 public class WrongOSException extends IOException {
 
+	/**
+	 * Create a new instance of an exception.
+	 * 
+	 * @param string
+	 */
 	public WrongOSException(String string) {
 		super(string);
 	}
 
+	/**
+	 * The serial version unique identifier. 
+	 */
 	private static final long serialVersionUID = 1L;
 
 }

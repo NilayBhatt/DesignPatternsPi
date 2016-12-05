@@ -7,7 +7,6 @@ import java.util.Objects;
 /**
  * A custom Date wrapper which allows us to display the date across the application in a similar way.
  * 
- * @author Deepankar Malhan, Edmir Alagic, Lukasz Brodowski, Sabahudin Mujcinovic, Nilay Bhatt
  */
 public class DateFormatted {
 	

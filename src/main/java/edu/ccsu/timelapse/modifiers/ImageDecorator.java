@@ -11,8 +11,7 @@ import edu.ccsu.timelapse.models.Image;
  * Many of the methods used in composite pattern have been implemented here so that subclasses don't have to
  * deal with them. By default, these methods delegate the work back to the composite pattern classes for composite
  * methods in this class.
- * 
- * @author Deepankar Malhan, Edmir Alagic, Lukasz Brodowski, Sabahudin Mujcinovic, Nilay Bhatt
+ *
  */
 public abstract class ImageDecorator implements ImageComponent {
 	

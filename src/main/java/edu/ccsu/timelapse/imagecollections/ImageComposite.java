@@ -12,7 +12,6 @@ import edu.ccsu.timelapse.modifiers.ImageDecorator;
  *	ImageCollection implements the composite pattern. Contains a list of ImageComponent 
  *	and its concrete classes (currently ConcreteImageComponent).
  *
- * 	@author Deepankar Malhan, Edmir Alagic, Lukasz Brodowski, Sabahudin Mujcinovic, Nilay Bhatt
  */
 public class ImageComposite implements ImageComponent{
 	

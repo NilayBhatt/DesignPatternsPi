@@ -8,7 +8,6 @@ import edu.ccsu.timelapse.modifiers.ImageDecorator;
 /**
  * Interface defining methods for the composite and the decorator pattern.
  * 
- * @author Deepankar Malhan, Edmir Alagic, Lukasz Brodowski, Sabahudin Mujcinovic, Nilay Bhatt
  */
 public interface ImageComponent {
 	

@@ -9,8 +9,6 @@ import edu.ccsu.timelapse.modifiers.ImageDecorator;
 /**
  * A wrapper for the Image. The reason for this class is to implement all the composite and decorator methods.
  * This keeps our data structure of Image untouched and let's us implement all the logic in here.
- * 
- * @author Deepankar Malhan, Edmir Alagic, Lukasz Brodowski, Sabahudin Mujcinovic, Nilay Bhatt
  *
  */
 public class ConcreteImageComponent implements ImageComponent{

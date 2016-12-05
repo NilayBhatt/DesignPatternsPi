@@ -5,8 +5,7 @@ import edu.ccsu.timelapse.imagecollections.ImageComponent;
 
 /**
  * Implementation of a concrete Timelapse builder.
- * 
- * @author Deepankar Malhan, Edmir Alagic, Lukasz Brodowski, Sabahudin Mujcinovic, Nilay Bhatt
+ *
  *
  */
 public class TimelapseBuilder implements TimelapseBuilderInterface {

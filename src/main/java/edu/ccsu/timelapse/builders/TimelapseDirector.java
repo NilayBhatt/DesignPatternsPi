@@ -7,7 +7,6 @@ import edu.ccsu.timelapse.imagecollections.*;
 /**
  * Timelapse director for building timelapses.
  *
- * @author Deepankar Malhan, Edmir Alagic, Lukasz Brodowski, Sabahudin Mujcinovic, Nilay Bhatt
  */
 public class TimelapseDirector {
 	

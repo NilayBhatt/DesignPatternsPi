@@ -1,7 +1,8 @@
 package edu.ccsu.timelapse.components;
 
 /**
- * x
+ * Interface for a logger.
+ *
  */
 public interface Logger {
 
