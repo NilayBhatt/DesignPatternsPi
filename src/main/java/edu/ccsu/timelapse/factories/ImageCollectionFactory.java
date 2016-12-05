@@ -1,8 +1,8 @@
 package edu.ccsu.timelapse.factories;
 
-import edu.ccsu.timelapse.components.PiCamera;
 import edu.ccsu.timelapse.imagecollections.*;
 import edu.ccsu.timelapse.components.contracts.*;
+import static edu.ccsu.timelapse.core.Helper.*;
 
 /**
  * Creates a new ImageCollectionFactory object that takes parameters that
@@ -24,13 +24,15 @@ public class ImageCollectionFactory {
 		
 		ImageComponent collection = new ImageComposite("ImageCollectionFactoryComposite");
 		ImageComponent temp = new ConcreteImageComponent();
-		Camera cam = new PiCamera();
+		
+		Camera camera = app("camera");
+		Thermometer thermometer = app("thermometer");
 		
 		int captureMilli = captureInterval * 1000;
 		
 		for(int i = 0; i < numPictures; i++){
 			try {
-				temp.getImage().setPath(cam.snap());
+				temp.getImage().setPath(camera.snap());
 				System.out.print(temp.getImage().getPath());
 				System.out.println(i + ": snapped picture.");
 				collection.addComponent(temp);
@@ -41,6 +43,5 @@ public class ImageCollectionFactory {
 		}
 		
 		return collection;
-		
 	}
 }

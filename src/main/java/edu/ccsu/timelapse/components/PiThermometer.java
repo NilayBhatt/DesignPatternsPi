@@ -1,6 +1,7 @@
 package edu.ccsu.timelapse.components;
 
 import edu.ccsu.timelapse.adapters.CommandLineAdapter;
+import edu.ccsu.timelapse.components.contracts.Thermometer;
 
 import java.io.IOException;
 
@@ -8,7 +9,7 @@ import java.io.IOException;
  * TemperatureSensor class that adapts to the python code
  * The python code will be native and running on pi.
  */
-public class TemperatureSensor extends CommandLineAdapter {
+public class PiThermometer extends CommandLineAdapter implements Thermometer {
 
 	/**
 	 * Overrides the command() method to build the command.
@@ -25,7 +26,7 @@ public class TemperatureSensor extends CommandLineAdapter {
 	 * temperature sensor of the GrovePi
 	 * @return double temperature in fahrenheit.
 	 */
-	public int getTemperature() {
+	public int temperature() {
 
 		int tempInFahrenheit = 0;
 		try {
