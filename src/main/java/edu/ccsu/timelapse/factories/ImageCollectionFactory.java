@@ -1,9 +1,15 @@
 package edu.ccsu.timelapse.factories;
 
-import edu.ccsu.timelapse.imagecollections.*;
+import static edu.ccsu.timelapse.core.Helper.app;
+import static edu.ccsu.timelapse.core.Helper.event;
+
 import edu.ccsu.timelapse.components.DateFormatted;
-import edu.ccsu.timelapse.components.contracts.*;
-import static edu.ccsu.timelapse.core.Helper.*;
+import edu.ccsu.timelapse.components.contracts.Camera;
+import edu.ccsu.timelapse.components.contracts.Thermometer;
+import edu.ccsu.timelapse.events.PictureTaken;
+import edu.ccsu.timelapse.imagecollections.ConcreteImageComponent;
+import edu.ccsu.timelapse.imagecollections.ImageComponent;
+import edu.ccsu.timelapse.imagecollections.ImageComposite;
 
 /**
  * Creates a new ImageCollectionFactory object that takes parameters that
@@ -25,7 +31,7 @@ public class ImageCollectionFactory implements ImageCollectionFactoryInterface {
 		
 		ImageComposite collection = new ImageComposite();
 		ImageComponent temp = new ConcreteImageComponent();
-		String path;
+		String path = null;
 		
 		Camera camera = app("camera");
 		Thermometer thermometer = app("thermometer");
@@ -37,6 +43,7 @@ public class ImageCollectionFactory implements ImageCollectionFactoryInterface {
 			try {
 				path = camera.snap();
 				System.out.println(path + ": snapped picture. (" + i + ")");
+				event(new PictureTaken());
 				temp = factory.make(path, thermometer.temperature(), getTimeFromPath(path));
 				collection.addComponent(temp);
 				Thread.sleep(captureMilli);
