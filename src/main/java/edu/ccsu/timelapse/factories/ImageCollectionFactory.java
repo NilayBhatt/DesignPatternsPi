@@ -32,7 +32,7 @@ public class ImageCollectionFactory implements ImageCollectionFactoryInterface {
 		
 		int captureMilli = captureInterval * 1000;
 		
-		for(int i = 0; i < numPictures; i++){
+		for(int i = 0; i < numPictures; i++) {
 			try {
 				path = camera.snap();
 				System.out.println(path + ": snapped picture. (" + i + ")");
