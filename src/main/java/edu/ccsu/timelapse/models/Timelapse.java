@@ -148,7 +148,7 @@ public class Timelapse {
 		gif
 			.withDelay(this.getTimeBetween())
 			.height(this.getHeight())
-			.width(this.getHeight())
+			.width(this.getWidth())
 			.from(this.getFrames())
 			.to("timelapse.gif")
 			.repeat(this.getRepeat())

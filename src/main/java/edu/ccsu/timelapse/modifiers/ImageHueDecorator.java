@@ -27,7 +27,7 @@ public class ImageHueDecorator extends ImageDecorator {
      */
     @Override
 	public void processComponent() {
-		int temperature = toBeDecorated.getImage().getTemperature();
+		int temperature = 100;//toBeDecorated.getImage().getTemperature();
 		MarvinImage marvinImage = MarvinImageIO.loadImage(toBeDecorated.getImage().getPath());
 
 		if(temperature >= 70) {

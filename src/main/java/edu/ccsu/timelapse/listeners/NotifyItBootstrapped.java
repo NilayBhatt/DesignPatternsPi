@@ -27,7 +27,7 @@ public class NotifyItBootstrapped implements GenericListener {
 	 * Handle the event.
 	 */
 	public void handle() {
-		this.logger.info("The applicatoin has successfully bootstrapped.");
+		this.logger.info("The application has successfully bootstrapped.");
 	}
 	
 }

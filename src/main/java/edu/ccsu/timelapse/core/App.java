@@ -12,6 +12,7 @@ import java.util.Iterator;
 import java.util.Properties;
 
 import edu.ccsu.timelapse.builders.TimelapseBuilderInterface;
+import edu.ccsu.timelapse.components.Logger;
 import edu.ccsu.timelapse.events.AppBootstrapped;
 import edu.ccsu.timelapse.events.AppHasStarted;
 import edu.ccsu.timelapse.factories.ImageCollectionFactoryInterface;
@@ -64,14 +65,18 @@ public class App {
 	public void start() {
 		
 		event(new AppHasStarted());
+		Properties props = app("config");
+		Logger logger = app("logger");
 		
 		ImageCollectionFactoryInterface factory = app("imageCollectionFactory");
 		
-		Properties props = app("config");
+
 		
 		ImageComposite collection = factory.make(Integer.parseInt(props.getProperty("NUM_PIC")), Integer.parseInt(props.getProperty("INTERVAL")));
 		
 		ImageComponent toDecorate = (ImageComponent) collection;
+		
+		logger.info("Decorating the images.");
 		
 		toDecorate = new ImageTimeDecorator(new ImageHueDecorator(toDecorate));
 		
@@ -92,7 +97,10 @@ public class App {
 		
 		Timelapse timelapse = builder.getResult();
 		
+		logger.info("Creating the timelapse GIF now!");
 		timelapse.toGIF();
+		
+		logger.success("ALL DONE, ENJOY!");
 	}
 
 }
