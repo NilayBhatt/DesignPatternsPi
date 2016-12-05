@@ -78,7 +78,7 @@ public class App {
 		
 		logger.info("Decorating the images.");
 		
-		toDecorate = new ImageHueDecorator(toDecorate);
+		toDecorate = new ImageTimeDecorator(toDecorate);
 		
 		toDecorate.decorateComponent((ImageDecorator) toDecorate);
 		
@@ -90,8 +90,8 @@ public class App {
 			builder.addFrame(iterator.next());
 		}
 		
-		builder.setWidth(1920);
-		builder.setHeight(1080);
+		builder.setWidth(1080);
+		builder.setHeight(1920);
 		builder.setRepeat(true);
 		builder.setTimeBetween(1000);
 		

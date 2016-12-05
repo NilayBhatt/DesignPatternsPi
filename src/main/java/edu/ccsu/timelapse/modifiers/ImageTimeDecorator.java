@@ -37,7 +37,7 @@ public class ImageTimeDecorator extends ImageDecorator {
 			bi = ImageIO.read(file);
 
 			Graphics2D graphics = bi.createGraphics();
-			Font font = new Font("ARIAL", Font.PLAIN, 20);
+			Font font = new Font("ARIAL", Font.PLAIN, 40);
 			graphics.setFont(font);
 			graphics.drawString(this.toBeDecorated.getImage().getTimestamp().toString(), 50, 50);
 			graphics.dispose();

@@ -51,10 +51,12 @@ public abstract class ImageDecorator implements ImageComponent {
 	public void decorateComponent(ImageDecorator decorator) {
 		
 		if(this.toBeDecorated instanceof ImageComposite) {
+			System.out.println("SENT IT BACK");
 			this.toBeDecorated.decorateComponent(this);
 		}
 		else if(this.toBeDecorated instanceof ConcreteImageComponent){
 			decorator.processComponent();
+			System.out.println("CALL PROCESS");
 		}
 	}
 	
