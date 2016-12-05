@@ -1,5 +1,7 @@
 package edu.ccsu.timelapse.providers;
 
+import edu.ccsu.timelapse.builders.GIF;
+import edu.ccsu.timelapse.builders.GIFMaker;
 import edu.ccsu.timelapse.components.ConsoleUnixLogger;
 import edu.ccsu.timelapse.components.Logger;
 
@@ -12,7 +14,7 @@ public class AppServiceProvider extends ServiceProvider {
 	@Override
 	public void register() {
 		
-		//this.app().bind("gif", new GIFMaker());
+		this.app().bind("gif", GIF.class, new GIFMaker());
 
 		this.app().bind("logger", Logger.class, new ConsoleUnixLogger());
 		
