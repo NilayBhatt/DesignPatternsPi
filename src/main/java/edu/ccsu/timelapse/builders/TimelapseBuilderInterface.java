@@ -6,7 +6,6 @@ import edu.ccsu.timelapse.imagecollections.ImageComponent;
 /**
  * Interface for a Timelapse builder.
  * 
- * @author Deepankar Malhan, Edmir Alagic, Lukasz Brodowski, Sabahudin Mujcinovic, Nilay Bhatt
  */
 interface TimelapseBuilderInterface {
 

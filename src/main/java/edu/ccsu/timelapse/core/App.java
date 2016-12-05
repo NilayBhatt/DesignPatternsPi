@@ -5,10 +5,15 @@
 package edu.ccsu.timelapse.core;
 
 import edu.ccsu.timelapse.components.Logger;
+import edu.ccsu.timelapse.events.AppBootstrapped;
 import edu.ccsu.timelapse.providers.ServiceProvider;
 
-import static edu.ccsu.timelapse.core.Helper.app;
+import static edu.ccsu.timelapse.core.Helper.*;
 
+/**
+ * Application entry point for timelapse.
+ *
+ */
 public class App {
 	
 	/**
@@ -34,7 +39,7 @@ public class App {
 			provider.register();
 		}
 		
-		//event(new AppBootstrapped());
+		event(new AppBootstrapped());
 		
 	}
 	

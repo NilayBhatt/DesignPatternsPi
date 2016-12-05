@@ -9,6 +9,9 @@ import edu.ccsu.timelapse.listeners.contracts.GenericListener;
  */
 public class SayHello implements GenericListener {
 
+	/**
+	 * Handle the event.
+	 */
 	public void handle() {
 	
 		System.out.println("Saying hello!");

@@ -14,7 +14,6 @@ import edu.ccsu.timelapse.imagecollections.ImageComponent;
  * abstract class which specializes adding a time stamp
  * to the image object passed through it
  * 
- * @author Deepankar Malhan, Edmir Alagic, Lukasz Brodowski, Sabahudin Mujcinovic, Nilay Bhatt
  */
 public class ImageTimeDecorator extends ImageDecorator {
 		

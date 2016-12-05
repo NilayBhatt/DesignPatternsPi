@@ -7,8 +7,7 @@ import edu.ccsu.timelapse.imagecollections.ImageComposite;
 
 /**
  * Timelapse class which represents a Timelapse video.
- * 
- * @author Deepankar Malhan, Edmir Alagic, Lukasz Brodowski, Sabahudin Mujcinovic, Nilay Bhatt
+ *
  */
 public class Timelapse {
 	

@@ -12,7 +12,6 @@ import edu.ccsu.timelapse.components.DateFormatted;
 /**
  * Image is a model to contain data about images that are taken.
  * 
- * @author Deepankar Malhan, Edmir Alagic, Lukasz Brodowski, Sabahudin Mujcinovic, Nilay Bhatt
  */
 public class Image{ 
 	

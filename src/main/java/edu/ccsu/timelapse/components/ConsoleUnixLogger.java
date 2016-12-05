@@ -5,7 +5,6 @@ import java.util.Objects;
 /**
  * A custom logger that will print out the various levels of logs in different colors.
  * 
- * @author Deepankar Malhan, Edmir Alagic, Lukasz Brodowski, Sabahudin Mujcinovic, Nilay Bhatt
  */
 public class ConsoleUnixLogger implements Logger {
 	/**
