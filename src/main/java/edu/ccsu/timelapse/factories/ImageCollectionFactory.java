@@ -1,15 +1,14 @@
 package edu.ccsu.timelapse.factories;
 
-import static edu.ccsu.timelapse.core.Helper.app;
-import static edu.ccsu.timelapse.core.Helper.event;
-
-import edu.ccsu.timelapse.components.DateFormatted;
 import edu.ccsu.timelapse.components.contracts.Camera;
 import edu.ccsu.timelapse.components.contracts.Thermometer;
 import edu.ccsu.timelapse.events.PictureTaken;
 import edu.ccsu.timelapse.imagecollections.ConcreteImageComponent;
 import edu.ccsu.timelapse.imagecollections.ImageComponent;
 import edu.ccsu.timelapse.imagecollections.ImageComposite;
+
+import static edu.ccsu.timelapse.core.Helper.app;
+import static edu.ccsu.timelapse.core.Helper.event;
 
 /**
  * Creates a new ImageCollectionFactory object that takes parameters that
@@ -22,8 +21,7 @@ public class ImageCollectionFactory implements ImageCollectionFactoryInterface {
 	 * This static method construct can be used to create a custom collection that collects
 	 * images for a certain amount of hours (elapsedTime) at an interval of a certain amount
 	 * of seconds per image (captureInterval).
-	 * 
-	 * @param elapsedTime (how long would the user like the camera to capture images)(in hours)
+	 *
 	 * @param captureInterval (how often the camera takes a picture)(in seconds)
 	 * @return an ImageCollection object with all of the images taken in the elapsed time and decorated
 	 */
@@ -38,7 +36,7 @@ public class ImageCollectionFactory implements ImageCollectionFactoryInterface {
 		ImageFactory factory = app("imageFactory");
 		
 		int captureMilli = captureInterval * 1000;
-		
+
 		for(int i = 0; i < numPictures; i++) {
 			try {
 				path = camera.snap();

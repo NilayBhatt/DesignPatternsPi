@@ -5,12 +5,6 @@
 package edu.ccsu.timelapse.core;
 
 
-import static edu.ccsu.timelapse.core.Helper.app;
-import static edu.ccsu.timelapse.core.Helper.event;
-
-import java.util.Iterator;
-import java.util.Properties;
-
 import edu.ccsu.timelapse.builders.TimelapseBuilderInterface;
 import edu.ccsu.timelapse.components.Logger;
 import edu.ccsu.timelapse.events.AppBootstrapped;
@@ -23,6 +17,12 @@ import edu.ccsu.timelapse.modifiers.ImageDecorator;
 import edu.ccsu.timelapse.modifiers.ImageHueDecorator;
 import edu.ccsu.timelapse.modifiers.ImageTimeDecorator;
 import edu.ccsu.timelapse.providers.ServiceProvider;
+
+import java.util.Iterator;
+import java.util.Properties;
+
+import static edu.ccsu.timelapse.core.Helper.app;
+import static edu.ccsu.timelapse.core.Helper.event;
 
 
 /**
@@ -78,7 +78,7 @@ public class App {
 		
 		logger.info("Decorating the images.");
 		
-		toDecorate = new ImageTimeDecorator(toDecorate);
+		toDecorate = new ImageTimeDecorator(new ImageHueDecorator(toDecorate));
 		
 		collection.decorateComponent((ImageDecorator) toDecorate);
 		
