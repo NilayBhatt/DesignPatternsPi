@@ -2,6 +2,11 @@ package edu.ccsu.timelapse.components.contracts;
 
 import edu.ccsu.timelapse.components.DateFormatted;
 
+/**
+ * 
+ * Camera Interface
+ *
+ */
 public interface Camera {
 
 	/**

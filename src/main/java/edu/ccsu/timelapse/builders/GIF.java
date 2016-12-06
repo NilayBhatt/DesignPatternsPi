@@ -26,28 +26,28 @@ public interface GIF {
 	/**
 	 * Adds the delay between two images.
 	 * @param delay int
-	 * @return GIFMAKER
+	 * @return GIFMaker
 	 */
 	public GIFMaker withDelay(int delay);
 	
 	/**
-	 * 
+	 * Repeats GIF
 	 * @param repeat
-	 * @return
+	 * @return GIFMaker
 	 */
 	public GIFMaker repeat(boolean repeat);
 	
 	/**
-	 * 
+	 * Sets the width
 	 * @param width
-	 * @return
+	 * @return GIFMaker
 	 */
 	public GIFMaker width(int width);
 	
 	/**
-	 * 
+	 * Sets the height
 	 * @param height
-	 * @return
+	 * @return GIFMaker
 	 */
 	public GIFMaker height(int height);
 
