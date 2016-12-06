@@ -79,7 +79,7 @@ public class App {
 		logger.info("Decorating the images.");
 		
 		toDecorate = new ImageTimeDecorator(new ImageHueDecorator(toDecorate));
-		
+
 		collection.decorateComponent((ImageDecorator) toDecorate);
 		
 		TimelapseBuilderInterface builder = app("timelapseBuilder");

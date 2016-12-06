@@ -1,5 +1,7 @@
 package edu.ccsu.timelapse.providers;
 
+import edu.ccsu.timelapse.components.LedOnOffStrategy;
+import edu.ccsu.timelapse.components.LedPython;
 import edu.ccsu.timelapse.components.PiCamera;
 import edu.ccsu.timelapse.components.PiThermometer;
 import edu.ccsu.timelapse.components.contracts.Camera;
@@ -17,6 +19,7 @@ public class SensorServiceProvider extends ServiceProvider {
 		
 		bind("camera", Camera.class, new PiCamera());
 		bind("thermometer", Thermometer.class, new PiThermometer());
+		bind("led", LedOnOffStrategy.class, new LedPython(4));
 		
 	}
 	

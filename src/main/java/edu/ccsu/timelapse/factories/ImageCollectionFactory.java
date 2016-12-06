@@ -1,8 +1,10 @@
 package edu.ccsu.timelapse.factories;
 
+import edu.ccsu.timelapse.components.LedPython;
 import edu.ccsu.timelapse.components.contracts.Camera;
 import edu.ccsu.timelapse.components.contracts.Thermometer;
 import edu.ccsu.timelapse.events.PictureTaken;
+import edu.ccsu.timelapse.exceptions.WrongOSException;
 import edu.ccsu.timelapse.imagecollections.ConcreteImageComponent;
 import edu.ccsu.timelapse.imagecollections.ImageComponent;
 import edu.ccsu.timelapse.imagecollections.ImageComposite;
@@ -34,17 +36,22 @@ public class ImageCollectionFactory implements ImageCollectionFactoryInterface {
 		Camera camera = app("camera");
 		Thermometer thermometer = app("thermometer");
 		ImageFactory factory = app("imageFactory");
-		
+		LedPython led = app("led");
 		int captureMilli = captureInterval * 1000;
 
 		for(int i = 0; i < numPictures; i++) {
 			try {
+				led.turnOn();
 				path = camera.snap();
+				led.turnOff();
 				event(new PictureTaken());
 				temp = factory.make(path, thermometer.temperature(), camera.getTimestamp());
 				collection.addComponent(temp);
 				Thread.sleep(captureMilli);
 			} catch (InterruptedException e) {
+				e.printStackTrace();
+			} catch (WrongOSException e) {
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}	
 		}
