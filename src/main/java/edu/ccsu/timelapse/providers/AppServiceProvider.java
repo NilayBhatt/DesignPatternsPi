@@ -13,6 +13,9 @@ import edu.ccsu.timelapse.components.Logger;
  */
 public class AppServiceProvider extends ServiceProvider {
 
+	/**
+	 * Register all the services for this application.
+	 */
 	@Override
 	public void register() {
 		
@@ -22,6 +25,16 @@ public class AppServiceProvider extends ServiceProvider {
 		
 		this.app().bind("timelapseBuilder", TimelapseBuilderInterface.class, new TimelapseBuilder());
 		
+	}
+	
+	/**
+	 * String representation of this object.
+	 * 
+	 * @return String
+	 */
+	@Override
+	public String toString() {
+		return "This is AppServiceProvider.";
 	}
 	
 }

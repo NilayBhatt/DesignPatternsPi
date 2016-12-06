@@ -39,14 +39,29 @@ public class ImageComposite implements ImageComponent {
 		return this.elements;
 	}
 
+	/**
+	 * Add a component to the list of children for this composite.
+	 * 
+	 * @param element child to be added
+	 */
 	public void addComponent(ImageComponent element) {
 		this.elements.add(element);
 	}
 	
+	/**
+	 * Remove a component from the list of children for this composite.
+	 * 
+	 * @param element child to be removed
+	 */
 	public void removeComponent(ImageComponent element) {
 		this.elements.remove(element);
 	}
 	
+	/**
+	 * Iterator for the children for this composite.
+	 * 
+	 * @return iterator
+	 */
 	public Iterator<ImageComponent> iterator() {
 		return this.elements.iterator();
 	}

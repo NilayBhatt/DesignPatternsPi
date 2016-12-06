@@ -1,5 +1,9 @@
 package edu.ccsu.timelapse.components;
 
+import java.util.Objects;
+
+import edu.ccsu.timelapse.builders.GIFMaker;
+
 /**
  * A custom logger that will print out the various levels of logs in different colors.
  * 
@@ -107,5 +111,29 @@ public class ConsoleUnixLogger implements Logger {
     public String toString() {
     	return "This is a custom unix logger for our application.";
     }
+	
+    /**
+     * Hash code of this object
+     * 
+     * @return int hashCode
+     */
+	@Override
+	public int hashCode() {
+		return Objects.hashCode(this);
+	}
+	
+	/**
+	 * Checks if the two objects are equal
+	 * 
+	 * @return true if equal
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if(!(obj instanceof ConsoleUnixLogger) && (this.hashCode() != ((ConsoleUnixLogger)obj).hashCode())) {
+			return false;
+		}
+		
+		return true;
+	}
     
 }

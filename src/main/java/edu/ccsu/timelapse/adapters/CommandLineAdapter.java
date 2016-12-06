@@ -12,31 +12,31 @@ public abstract class CommandLineAdapter {
 
 	/**
 	 * Command to be executed.
-	 * 
+	 *
 	 * @return the command
 	 */
 	public String command() {
 		return null;
 	}
-	
+
 	/**
 	 * Executes the <code>str</code> terminal command and returns the InputStream for this command.
-	 * 
+	 *
 	 * @throws IOException Thrown when InputStream is not created successfully
 	 */
 	public final BufferedReader execute() {
 		Runtime rt = Runtime.getRuntime();
 		Process pr = null;
-		
+
 		try {
 			pr = rt.exec(this.command());
 		} catch (IOException e) {
 			e.printStackTrace();
 			System.err.println("The command line adapter failed.");
 		}
-			
+
 		return new BufferedReader(new InputStreamReader(pr.getInputStream()));
-			
+
 	}
 
 	/**
@@ -51,4 +51,12 @@ public abstract class CommandLineAdapter {
 		return s;
 	}
 
+	/**
+	* String representation of this object
+	*
+	* @return String
+	*/
+	public String toString() {
+		return "This is a CommandLineAdapter.";
+	}
 }

@@ -58,5 +58,15 @@ public class ImageCollectionFactory implements ImageCollectionFactoryInterface {
 		
 		return collection;
 	}
+	
+	/**
+	 * String representation of this object.
+	 * 
+	 * @return String
+	 */
+	@Override
+	public String toString() {
+		return "This is an ImageCollectionFactory.";
+	}
 
 }

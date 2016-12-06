@@ -90,6 +90,7 @@ public abstract class ImageDecorator implements ImageComponent {
 	 * Checks if the decorator passed in is the same as this one.
 	 * 
 	 * @return true if equal objects
+	 * @param decorator to compare this object to
 	 */
 	@Override
 	public boolean equals(Object decorator) {

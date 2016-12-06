@@ -13,6 +13,9 @@ import edu.ccsu.timelapse.listeners.NotifyPictureTaken;
  */
 public class EventServiceProvider extends ServiceProvider {
 
+	/**
+	 * Register events.
+	 */
 	public void register() {
 		
 		this.dispatcher().subscribe(AppBootstrapped.class, new NotifyItBootstrapped());
@@ -21,4 +24,13 @@ public class EventServiceProvider extends ServiceProvider {
 		
 	}
 	
+	/**
+	 * String representation of this object.
+	 * 
+	 * @return String
+	 */
+	@Override
+	public String toString() {
+		return "This is EventServiceProvider.";
+	}
 }

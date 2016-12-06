@@ -107,4 +107,14 @@ public class LedJava implements LedOnOffStrategy {
         result = 31 * result + (led != null ? led.hashCode() : 0);
         return result;
     }
+    
+    /**
+     * String representation of this object.
+     * 
+     * @return string
+     */
+    @Override
+	public String toString() {
+		return "This is the LedJava.";
+	}
 }

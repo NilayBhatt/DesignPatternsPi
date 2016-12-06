@@ -1,5 +1,7 @@
 package edu.ccsu.timelapse.components;
 
+import java.util.Objects;
+
 import edu.ccsu.timelapse.adapters.CommandLineAdapter;
 import edu.ccsu.timelapse.exceptions.WrongOSException;
 
@@ -73,4 +75,38 @@ public class LedPython extends CommandLineAdapter implements LedOnOffStrategy {
 
         this.execute();
     }
+    
+    /**
+     * String representation of this object.
+     * 
+     * @return String
+     */
+    @Override
+	public String toString() {
+		return "This is the LedPython.";
+	}
+	
+    /**
+     * Hash code of this object.
+     * 
+     * @return int hashCode
+     */
+	@Override
+	public int hashCode() {
+		return Objects.hashCode(this);
+	}
+	
+	/**
+	 * Checks if the two objects are equal.
+	 * 
+	 * @return true if equal
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if(!(obj instanceof LedPython) && (this.hashCode() != ((LedPython)obj).hashCode())) {
+			return false;
+		}
+		
+		return true;
+	}
 }

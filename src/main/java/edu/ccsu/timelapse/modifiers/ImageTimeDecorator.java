@@ -48,19 +48,12 @@ public class ImageTimeDecorator extends ImageDecorator {
 			e.printStackTrace();
 		}
     }
-    
-    /**
-     * String representation of the object to be decorated.
-     */
-    @Override
-	public String toString() {
-		return this.toBeDecorated.toString();
-	}
 	
     /**
      * Checks if this object and the one passed in are equal or not.
      * 
      * @return true if both are equal
+     * @param obj to compare to
      */
 	@Override
 	public boolean equals(Object decorator) {

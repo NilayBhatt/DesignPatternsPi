@@ -21,11 +21,6 @@ public class PiThermometer extends CommandLineAdapter implements Thermometer {
 		return "python ./scripts/temperature.py";
 	}
 
-	/**
-	 * Gets the temperature from the
-	 * temperature sensor of the GrovePi
-	 * @return double temperature in fahrenheit.
-	 */
 	public int temperature() {
 
 		int tempInFahrenheit = 0;
@@ -36,5 +31,15 @@ public class PiThermometer extends CommandLineAdapter implements Thermometer {
 		}
 
 		return  tempInFahrenheit;
+	}
+	
+	/**
+	 * String representation of this object.
+	 * 
+	 * @return String
+	 */
+	@Override
+	public String toString() {
+		return "This is the PiThermometer.";
 	}
 }

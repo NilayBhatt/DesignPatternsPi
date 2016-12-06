@@ -28,9 +28,7 @@ public class ImageHueDecorator extends ImageDecorator {
     @Override
 	public void processComponent() {
     	
-    	System.out.println("HUE DECORATED");
-		//int temperature = toBeDecorated.getImage().getTemperature();
-		int temperature = 100;
+		int temperature = toBeDecorated.getImage().getTemperature();
     	MarvinImage marvinImage = MarvinImageIO.loadImage(toBeDecorated.getImage().getPath());
 
 		if(temperature >= 70) {
@@ -44,19 +42,12 @@ public class ImageHueDecorator extends ImageDecorator {
 		
 		MarvinImageIO.saveImage(marvinImage, toBeDecorated.getImage().getPath());
 	}
-    
-    /**
-     * String representation of the ImageComponent to be decorated.
-     */
-    @Override
-	public String toString() {
-		return this.toBeDecorated.toString();
-	}
-	
+
     /**
      * Checks if the object passed in is equal to this one.
      * 
      * @return true if both objects are equal
+     * @param obj to compare to
      */
 	@Override
 	public boolean equals(Object decorator) {

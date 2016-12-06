@@ -102,4 +102,13 @@ public final class Helper {
 		Helper.event(event);
 	}
 	
+	/**
+	 * String representation of this object.
+	 * 
+	 * @return String
+	 */
+	@Override
+	public String toString() {
+		return "This is the GIFMaker.";
+	}
 }

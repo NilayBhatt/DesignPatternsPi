@@ -30,6 +30,8 @@ public abstract class ServiceProvider {
 	
 	/**
 	 * Get a string representation of the service provider.
+	 * 
+	 * @return String
 	 */
 	@Override
 	public String toString() {

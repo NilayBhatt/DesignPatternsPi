@@ -29,4 +29,14 @@ public class ImageFactory implements ImageFactoryInterface {
 		
 	}
 	
+	/**
+	 * String representation of this object.
+	 * 
+	 * @return String
+	 */
+	@Override
+	public String toString() {
+		return "This is an ImageFactory";
+	}
+	
 }

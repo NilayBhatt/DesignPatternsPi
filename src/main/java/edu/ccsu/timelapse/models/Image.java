@@ -58,6 +58,7 @@ public class Image{
 	
 	/**
 	 * Getter for the temperature property.
+	 * 
 	 * @return temperature
 	 */
 	public int getTemperature() {
@@ -66,7 +67,9 @@ public class Image{
 	}
 	
 	/**
-	 * Get the timestamp of the image/
+	 * Get the timestamp of the image
+	 * 
+	 * @return DateFormatted timestamp
 	 */
 	public DateFormatted getTimestamp() {
 		
@@ -85,6 +88,8 @@ public class Image{
 
 	/**
 	 * Returns a string representation of the class.
+	 * 
+	 * @return string
 	 */
 	@Override
 	public String toString() {
@@ -95,6 +100,8 @@ public class Image{
 	
 	/**
 	 * Returns a hash code of the instance of the class.
+	 * 
+	 * @return int hashCode
 	 */
 	@Override
 	public int hashCode() {
@@ -106,6 +113,7 @@ public class Image{
 	 * Returns true if the Image names match.
 	 * 
 	 * @param image The image to be compared to this instance of Image.
+	 * @return true if equal
 	 */
 	@Override
 	public boolean equals(Object image) {

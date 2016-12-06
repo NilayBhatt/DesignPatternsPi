@@ -10,6 +10,9 @@ import edu.ccsu.timelapse.factories.ImageFactoryInterface;
  */
 public class FactoryServiceProvider extends ServiceProvider {
 
+	/**
+	 * Register factories.
+	 */
 	@Override
 	public void register() {
 		
@@ -19,4 +22,13 @@ public class FactoryServiceProvider extends ServiceProvider {
 		
 	}
 	
+	/**
+	 * String representation of this object.
+	 * 
+	 * @return String
+	 */
+	@Override
+	public String toString() {
+		return "This is FactoryServiceProvider.";
+	}
 }

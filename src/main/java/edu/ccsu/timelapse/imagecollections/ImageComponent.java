@@ -20,5 +20,12 @@ public interface ImageComponent {
 	 */
 	public void decorateComponent(ImageDecorator decorator);
 	
+	/**
+	 * Gets the image from this component. <code>null</code> for ImageComposite as it contains
+	 * a collection of images. This method is present in this interface to make it easier for
+	 * the Decorators to access the image that they will decorate.
+	 * 
+	 * @return image
+	 */
 	public Image getImage();
 }

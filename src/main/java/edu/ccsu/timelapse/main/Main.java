@@ -9,7 +9,7 @@ import edu.ccsu.timelapse.providers.SensorServiceProvider;
 import edu.ccsu.timelapse.providers.ServiceProvider;
 
 /**
- * Runs the application to take a picture 10 times before ending.
+ * Runs the application.
  *
  */
 public class Main {

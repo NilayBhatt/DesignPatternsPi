@@ -7,6 +7,7 @@ import edu.ccsu.timelapse.imagecollections.ImageComposite;
 import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
+import java.util.Objects;
 
 /**
  * GIFMaker implements GIF interface that creates a GIF
@@ -20,6 +21,40 @@ public class GIFMaker implements GIF {
 	private int height = 0;
 	private int width = 0;
 	private boolean repeat = false;
+	
+	/**
+	* String representation of this object
+	*
+	* @return String
+	*/
+	@Override
+	public String toString() {
+		return "This is the GIFMaker.";
+	}
+	
+	/**
+	 * Hash code of this object
+	 * 
+	 * @return int hashCode
+	 */
+	@Override
+	public int hashCode() {
+		return Objects.hashCode(this);
+	}
+	
+	/**
+	 * Checks if the two objects are equal
+	 * 
+	 * @return true if equal
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if(!(obj instanceof GIFMaker) && (this.hashCode() != ((GIFMaker)obj).hashCode())) {
+			return false;
+		}
+		
+		return true;
+	}
 	
 	public GIFMaker from(ImageComposite input) {
 		this.input = input;
@@ -76,6 +111,9 @@ public class GIFMaker implements GIF {
 		this.createGIF();
 	}
 	
+	/**
+	 * Helper method for <code>make()</code>
+	 */
 	protected void createGIF(){
 		
 		AnimatedGifEncoder gif = new AnimatedGifEncoder();

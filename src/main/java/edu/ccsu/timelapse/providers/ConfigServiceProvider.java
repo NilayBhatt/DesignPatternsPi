@@ -10,6 +10,9 @@ import static edu.ccsu.timelapse.core.Helper.bind;
  */
 public class ConfigServiceProvider extends ServiceProvider {
 
+	/**
+	 * Register the configuration file and properties
+	 */
 	public void register() {
 		
 		bind("config", Properties.class, () -> {
@@ -24,6 +27,16 @@ public class ConfigServiceProvider extends ServiceProvider {
 			return props;
 		});
 		
+	}
+	
+	/**
+	 * String representation of this object.
+	 * 
+	 * @return String
+	 */
+	@Override
+	public String toString() {
+		return "This is ConfigServiceProvider.";
 	}
 	
 }

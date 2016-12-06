@@ -93,8 +93,9 @@ public class Timelapse {
 	
 	/**
 	 * Get the repeat property on the timelapse.
+	 * 
 	 * @param repeat
-	 * @return
+	 * @return true if repeat is true
 	 */
 	public boolean getRepeat() {
 		
@@ -158,6 +159,8 @@ public class Timelapse {
 
 	/**
 	 * String representation of a timelapse.
+	 * 
+	 * @return String
 	 */
 	@Override
 	public String toString() {
@@ -182,6 +185,7 @@ public class Timelapse {
 	/**
 	 * Checks if two Timelapse objects are equal
 	 * 
+	 * @param obj to compare
 	 * @return boolean true when properties and frames for both <code>TimeLapse</code> objects are same.
 	 */
 	@Override

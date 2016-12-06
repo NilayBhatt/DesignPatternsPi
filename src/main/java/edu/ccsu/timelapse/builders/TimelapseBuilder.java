@@ -1,6 +1,9 @@
 package edu.ccsu.timelapse.builders;
 
 import edu.ccsu.timelapse.models.Timelapse;
+
+import java.util.Objects;
+
 import edu.ccsu.timelapse.imagecollections.ImageComponent;
 
 /**
@@ -55,6 +58,40 @@ public class TimelapseBuilder implements TimelapseBuilderInterface {
 	public Timelapse getResult() {
 
 		return this.timelapse;
+	}
+	
+	/**
+	 * String representation of this object.
+	 * 
+	 * @return string
+	 */
+	@Override
+	public String toString() {
+		return "This is the TimelapseBuilder.";
+	}
+	
+	/**
+	 * Hash code of this object.
+	 * 
+	 * @return int hashCode
+	 */
+	@Override
+	public int hashCode() {
+		return Objects.hashCode(this);
+	}
+	
+	/**
+	 * Checks if the two objects are equal.
+	 * 
+	 * @return true if equal
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if(!(obj instanceof TimelapseBuilder) && (this.hashCode() != ((TimelapseBuilder)obj).hashCode())) {
+			return false;
+		}
+		
+		return true;
 	}
 	
 }

@@ -64,6 +64,11 @@ public class DateFormatted {
 		return true;
 	}
 	
+	/**
+	 * Set this wrapper's instance date by parsing the new Date sent in.
+	 * 
+	 * @param date new Date for the instance variable of this class
+	 */
 	public void setDate(String date){
 		
 		try {
@@ -74,7 +79,12 @@ public class DateFormatted {
 		
 	}
 	
-
+	/**
+	 * Takes in a String, parses it, and returns back the Date.
+	 * 
+	 * @param timestamp A String path of a physical image
+	 * @return The Date parsed out of the format in the form of <code>DateFormatted</code>
+	 */
 	public static DateFormatted fromString(String timestamp) {
 		
 		String[] temp = timestamp.split("/");

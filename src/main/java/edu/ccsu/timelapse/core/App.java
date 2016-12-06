@@ -19,6 +19,7 @@ import edu.ccsu.timelapse.modifiers.ImageTimeDecorator;
 import edu.ccsu.timelapse.providers.ServiceProvider;
 
 import java.util.Iterator;
+import java.util.Objects;
 import java.util.Properties;
 
 import static edu.ccsu.timelapse.core.Helper.app;
@@ -102,5 +103,33 @@ public class App {
 		
 		logger.success("ALL DONE, ENJOY!");
 	}
-
+	
+	/**
+	 * String representation of this object.
+	 * 
+	 * @return String
+	 */
+	@Override
+	public String toString() {
+		return "This is the App.";
+	}
+	
+	/**
+	 * Hash code of this obejct.
+	 * 
+	 * @return int hashCode
+	 */
+	@Override
+	public int hashCode() {
+		return Objects.hashCode(this);
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if(!(obj instanceof App) && (this.hashCode() != ((App)obj).hashCode())) {
+			return false;
+		}
+		
+		return true;
+	}
 }
