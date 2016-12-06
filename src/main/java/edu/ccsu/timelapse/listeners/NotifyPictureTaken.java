@@ -1,14 +1,13 @@
 package edu.ccsu.timelapse.listeners;
 
-import static edu.ccsu.timelapse.core.Helper.app;
-
-import java.io.IOException;
-
-import com.dexterind.grovepi.sensors.Led;
-
 import edu.ccsu.timelapse.components.Logger;
 import edu.ccsu.timelapse.listeners.contracts.GenericListener;
 
+import static edu.ccsu.timelapse.core.Helper.app;
+
+/**
+ * This class notifies the user on stdout about the piture being taken
+ */
 public class NotifyPictureTaken implements GenericListener {
 
 	/**

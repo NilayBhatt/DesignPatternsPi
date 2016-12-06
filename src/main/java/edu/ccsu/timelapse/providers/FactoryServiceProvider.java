@@ -5,6 +5,9 @@ import edu.ccsu.timelapse.factories.ImageCollectionFactoryInterface;
 import edu.ccsu.timelapse.factories.ImageFactory;
 import edu.ccsu.timelapse.factories.ImageFactoryInterface;
 
+/**
+ * Factory Provider, provides service for creating Factory.
+ */
 public class FactoryServiceProvider extends ServiceProvider {
 
 	@Override

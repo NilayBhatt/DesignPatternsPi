@@ -35,6 +35,7 @@ public class ImageHueDecorator extends ImageDecorator {
 		if(temperature >= 70) {
 			MarvinPluginCollection.colorChannel(marvinImage,30, -100, -100);
 		}
+
 		if(temperature <=65) {
 			MarvinPluginCollection.colorChannel(marvinImage, -100, -100, 30);
 		}

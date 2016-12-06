@@ -1,10 +1,13 @@
 package edu.ccsu.timelapse.providers;
 
-import static edu.ccsu.timelapse.core.Helper.bind;
-
 import java.io.FileInputStream;
 import java.util.Properties;
 
+import static edu.ccsu.timelapse.core.Helper.bind;
+
+/**
+ * Config service provider.
+ */
 public class ConfigServiceProvider extends ServiceProvider {
 
 	public void register() {

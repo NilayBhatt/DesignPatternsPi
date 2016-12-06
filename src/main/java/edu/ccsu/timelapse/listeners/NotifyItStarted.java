@@ -1,10 +1,13 @@
 package edu.ccsu.timelapse.listeners;
 
-import static edu.ccsu.timelapse.core.Helper.app;
-
 import edu.ccsu.timelapse.components.Logger;
 import edu.ccsu.timelapse.listeners.contracts.GenericListener;
 
+import static edu.ccsu.timelapse.core.Helper.app;
+
+/**
+ * Method notifier for start of the app.
+ */
 public class NotifyItStarted implements GenericListener {
 
 	/**
