@@ -50,22 +50,12 @@ public class GIFMaker implements GIF {
 		return this;
 	}
 	
-	/**
-	 * 
-	 * @param width
-	 * @return
-	 */
 	public GIFMaker width(int width){
 		this.width = width;
 		
 		return this;
 	}
-	
-	/**
-	 * 
-	 * @param height
-	 * @return
-	 */
+
 	public GIFMaker height(int height){
 		this.height = height;
 		
@@ -76,6 +66,9 @@ public class GIFMaker implements GIF {
 		this.createGIF();
 	}
 	
+	/**
+	 * Creates the GIF.
+	 */
 	protected void createGIF(){
 		
 		AnimatedGifEncoder gif = new AnimatedGifEncoder();
