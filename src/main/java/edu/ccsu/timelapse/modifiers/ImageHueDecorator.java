@@ -29,8 +29,9 @@ public class ImageHueDecorator extends ImageDecorator {
 	public void processComponent() {
     	
     	System.out.println("HUE DECORATED");
-		int temperature = toBeDecorated.getImage().getTemperature();
-		MarvinImage marvinImage = MarvinImageIO.loadImage(toBeDecorated.getImage().getPath());
+		//int temperature = toBeDecorated.getImage().getTemperature();
+		int temperature = 100;
+    	MarvinImage marvinImage = MarvinImageIO.loadImage(toBeDecorated.getImage().getPath());
 
 		if(temperature >= 70) {
 			MarvinPluginCollection.colorChannel(marvinImage,30, -100, -100);
