@@ -55,7 +55,4 @@ public class ImageCompositeTest {
 
         assertEquals(imageComposite.hashCode(), imageComposite1.hashCode());
     }
-
-    @Test
-
 }
