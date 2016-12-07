@@ -107,6 +107,56 @@ public class GIFMaker implements GIF {
 		return this;
 	}
 	
+	/**
+	 * Returns wether the gif will repeat or not.
+	 * @return
+	 */
+	public boolean isRepeat(){
+		
+		return this.repeat;
+	}
+	
+	/**
+	 * Returns the width of the intended gif.
+	 * @return
+	 */
+	public int getWidth(){
+		
+		return this.width;
+	}
+	
+	/**
+	 * Returns the height of the intended gif.
+	 * @return
+	 */
+	public int getHeight(){
+		
+		return this.height;
+	}
+	
+	/**
+	 * Returns the image composite used to create the gif
+	 * @return
+	 */
+	public ImageComposite getFrom(){
+		
+		return this.input;
+	}
+	
+	/**
+	 * Returns the output path
+	 * 
+	 * @return output
+	 */
+	public String getTo(){
+		
+		return this.output;
+	}
+	
+	
+	/**
+	 * Simple method to start the creation of a gif.
+	 */
 	public void make() {
 		this.createGIF();
 	}
@@ -138,6 +188,5 @@ public class GIFMaker implements GIF {
 		gif.finish();
 		
 	}
-	
 	
 }

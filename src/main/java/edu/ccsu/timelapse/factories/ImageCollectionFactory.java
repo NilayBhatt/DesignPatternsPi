@@ -48,12 +48,9 @@ public class ImageCollectionFactory implements ImageCollectionFactoryInterface {
 				temp = factory.make(path, thermometer.temperature(), camera.getTimestamp());
 				collection.addComponent(temp);
 				Thread.sleep(captureMilli);
-			} catch (InterruptedException e) {
+			} catch (InterruptedException | WrongOSException e) {
 				e.printStackTrace();
-			} catch (WrongOSException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}	
+			}
 		}
 		
 		return collection;
