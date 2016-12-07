@@ -3,6 +3,7 @@ package edu.ccsu.timelapse.imagecollections;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -23,7 +24,7 @@ public class ImageCompositeTest {
         ImageComposite imageComposite = new ImageComposite();
         List<ImageComponent> elements = new ArrayList<ImageComponent>();
 
-        assertEquals(imageComposite.iterator(), elements.iterator());
+        assertTrue(imageComposite.iterator() instanceof Iterator);
     }
 
     @Test

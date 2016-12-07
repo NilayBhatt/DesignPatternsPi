@@ -73,7 +73,7 @@ public class ImageComponentTest {
         ImageComposite imageCollection = new ImageComposite();
         imageCollection.addComponent(testImage);
         ImageComponent testImage1 = new ConcreteImageComponent();
-        testImage1.getImage().setPath("testImage.png");
+        testImage1.getImage().setPath("testImage1.png");
         ImageComposite imageCollection1 = new ImageComposite();
         imageCollection1.addComponent(testImage1);
 
@@ -83,13 +83,12 @@ public class ImageComponentTest {
     @Test
     public void hashCCode() throws Exception {
         ImageComponent testImage = new ConcreteImageComponent();
-        testImage.getImage().setPath("testImage.png");
         ImageComposite imageCollection = new ImageComposite();
         imageCollection.addComponent(testImage);
         ImageComposite imageCollection1 = new ImageComposite();
         imageCollection1.addComponent(testImage);
 
-        assertNotEquals(imageCollection.hashCode(),imageCollection1.hashCode());
+        assertEquals(imageCollection.hashCode(),imageCollection1.hashCode());
     }
 
 }
