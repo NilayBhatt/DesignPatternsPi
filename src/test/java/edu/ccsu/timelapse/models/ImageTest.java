@@ -1,10 +1,9 @@
 package edu.ccsu.timelapse.models;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 
-import edu.ccsu.timelapse.models.Image;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class ImageTest {
 
@@ -15,7 +14,7 @@ public class ImageTest {
 		Image image2 = (Image) new Image();
 		image2.setPath("a");
 		
-		assertFalse(image1.hashCode() == image2.hashCode());
+		assertTrue(image1.hashCode() == image2.hashCode());
 	}
 	
 	@Test
@@ -33,7 +32,7 @@ public class ImageTest {
 		Image image1 = (Image) new Image();
 		image1.setPath("a");
 		Image image2 = (Image) new Image();
-		image2.setPath("a");
+		image2.setPath("b");
 		
 		assertFalse(image1.equals(image2));
 	}
