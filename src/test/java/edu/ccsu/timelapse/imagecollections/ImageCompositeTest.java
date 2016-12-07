@@ -53,12 +53,9 @@ public class ImageCompositeTest {
         ImageComposite imageComposite = new ImageComposite();
         ImageComposite imageComposite1 = new ImageComposite();
 
-        assertEquals(imageComposite.hashCode(),imageComposite1.hashCode());
+        assertEquals(imageComposite.hashCode(), imageComposite1.hashCode());
     }
 
     @Test
-    public void getImage() throws Exception {
-
-    }
 
 }
