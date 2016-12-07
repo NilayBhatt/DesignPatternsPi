@@ -1,15 +1,14 @@
  package edu.ccsu.timelapse.components;
 
-import static org.junit.Assert.*;
+import org.junit.Test;
 
 import java.io.File;
 import java.nio.file.Paths;
 
-import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
-import edu.ccsu.timelapse.components.PiCamera;
-
-public class CameraTest {
+public class PiCameraTest {
 
 	@Test
 	public void testTakePicture() {

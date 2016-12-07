@@ -6,50 +6,48 @@ import org.junit.Test;
 import static junit.framework.TestCase.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-/**
- * Created by Nilay on 12/1/2016.
- */
+
 public class LedJavaTest {
 
-//    @Test
-//    public void execute() throws Exception {
-//        if (!System.getProperty("os.name").equals("Linux")) {
-//            Assert.assertEquals(true, true);
-//        } else {
-//            LedJava ledJava = new LedJava();
-//            ledJava.execute();
-//
-//            assertTrue(ledJava.isLedSet());
-//
-//            ledJava.unexecute();
-//        }
-//    }
-//
-//    @Test
-//    public void unexecute() throws Exception {
-//        if (!System.getProperty("os.name").equals("Linux")) {
-//            Assert.assertEquals(true, true);
-//        } else {
-//            LedJava ledJava = new LedJava();
-//            ledJava.unexecute();
-//
-//            assertTrue(!ledJava.isLedSet());
-//        }
-//    }
-//
-//    @Test
-//    public void isLedSet() throws Exception {
-//        if (!System.getProperty("os.name").equals("Linux")) {
-//            Assert.assertEquals(true, true);
-//        } else {
-//            LedJava ledJava = new LedJava();
-//            ledJava.execute();
-//
-//            assertTrue(ledJava.isLedSet());
-//
-//            ledJava.unexecute();
-//        }
-//    }
+    @Test
+    public void turnOn() throws Exception {
+        if (!System.getProperty("os.name").equals("Linux")) {
+            Assert.assertEquals(true, true);
+        } else {
+            LedJava ledJava = new LedJava(4);
+            ledJava.turnOn();
+
+            assertTrue(ledJava.isLedSet());
+
+            ledJava.turnOff();
+        }
+    }
+
+    @Test
+    public void turnOff() throws Exception {
+        if (!System.getProperty("os.name").equals("Linux")) {
+            Assert.assertEquals(true, true);
+        } else {
+            LedJava ledJava = new LedJava(4);
+            ledJava.turnOff();
+
+            assertTrue(!ledJava.isLedSet());
+        }
+    }
+
+    @Test
+    public void isLedSet() throws Exception {
+        if (!System.getProperty("os.name").equals("Linux")) {
+            Assert.assertEquals(true, true);
+        } else {
+            LedJava ledJava = new LedJava(4);
+            ledJava.turnOn();
+
+            assertTrue(ledJava.isLedSet());
+
+            ledJava.turnOff();
+        }
+    }
 
     @Test
     public void equals() throws Exception {
@@ -72,6 +70,17 @@ public class LedJavaTest {
             LedJava ledJava1 = new LedJava(2);
 
             assertEquals(ledJava.hashCode(), ledJava1.hashCode());
+        }
+    }
+
+    @Test
+    public void toSString() {
+        if (!System.getProperty("os.name").equals("Linux")) {
+            Assert.assertEquals(true, true);
+        } else {
+            LedJava ledJava = new LedJava(2);
+
+            assertEquals(ledJava.toString(), "This is the LedJava.");
         }
     }
 
