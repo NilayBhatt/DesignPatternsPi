@@ -69,7 +69,7 @@ public class DateFormatted {
 	 * 
 	 * @param date new Date for the instance variable of this class
 	 */
-	public void setDate(String date){
+	public void setDate(String date) {
 		
 		try {
 			this.date = new SimpleDateFormat("M-d-y-k-m-s-S").parse(date);
