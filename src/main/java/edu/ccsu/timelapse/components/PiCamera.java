@@ -1,5 +1,7 @@
 package edu.ccsu.timelapse.components;
 
+import java.util.Objects;
+
 import edu.ccsu.timelapse.adapters.CommandLineAdapter;
 import edu.ccsu.timelapse.components.contracts.Camera;
 import edu.ccsu.timelapse.exceptions.WrongOSException;
@@ -13,19 +15,14 @@ public class PiCamera extends CommandLineAdapter implements Camera {
 	/**
 	 * Cached string used for taking picture.
 	 */
-	private String fileName;
+	public DateFormatted timestamp;
 
 	@Override
-	protected String command() {
+	public String command() {
 
-		return "python ./scripts/camera.py ./images/" + this.fileName;
+		return "python ./scripts/camera.py ./images/" + this.fileName();
 	}
 
-	/**
-	 * This method takes a picture using the camera attached to the Raspberry Pi.
-	 * 
-	 * @returns path to image snapped.
-	 */
 	public String snap() {
 
 		if (! System.getProperty("os.name").equals("Linux")) {
@@ -37,11 +34,11 @@ public class PiCamera extends CommandLineAdapter implements Camera {
 			}
 		}
 		
-		this.fileName();
+		this.timestamp = new DateFormatted();
 		
 		this.execute();
 		
-		return "./images/" + this.fileName;
+		return "./images/" + this.fileName();
 	}
 	
 	/**
@@ -50,7 +47,11 @@ public class PiCamera extends CommandLineAdapter implements Camera {
 	 * @return the name 
 	 */
 	private String fileName() {
-		return this.fileName = new DateFormatted() + ".jpeg";
+		return this.timestamp.toString() + ".jpeg";
+	}
+
+	public DateFormatted getTimestamp() {
+		return this.timestamp;
 	}
 	
 	/**
@@ -62,5 +63,28 @@ public class PiCamera extends CommandLineAdapter implements Camera {
 	public String toString() {
 		return "A camera component.";
 	}
-
+	
+	/**
+	 * Hash code of this object.
+	 * 
+	 * @return int hashCode
+	 */
+	@Override
+	public int hashCode() {
+		return Objects.hashCode(this);
+	}
+	
+	/**
+	 * Checks if the two objects are equal
+	 * 
+	 * @return true if equal
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if(!(obj instanceof PiCamera) && (this.hashCode() != ((PiCamera)obj).hashCode())) {
+			return false;
+		}
+		
+		return true;
+	}
 }

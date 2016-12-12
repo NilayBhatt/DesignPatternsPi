@@ -4,7 +4,7 @@ import edu.ccsu.timelapse.event.Event;
 import edu.ccsu.timelapse.listeners.contracts.GenericListener;
 
 /**
- * An event used to represent the change in temperature.
+ * An event used to represent the application successfully being bootstrapped.
  *
  */
 public class AppBootstrapped implements Event<GenericListener> {
@@ -21,7 +21,7 @@ public class AppBootstrapped implements Event<GenericListener> {
 	}
 	
 	/**
-	 * String representation of a temperature change.
+	 * String representation of the app being bootstrapped.
 	 */
 	@Override
 	public String toString() {

@@ -1,7 +1,17 @@
 package edu.ccsu.timelapse.core;
 
-interface Bind<E> {
+/**
+ * Interface method to be able to bind lambdas to the container.
+ *
+ * @param <E>
+ */
+public interface Bind<E> {
 	
+	/**
+	 * Container calls this to bind the instance object.
+	 * 
+	 * @return object of type E
+	 */
 	public E bind();
 	
 }

@@ -1,19 +1,23 @@
 package edu.ccsu.timelapse.models;
 
-import java.util.ArrayList;
-import java.util.List;
+import static edu.ccsu.timelapse.core.Helper.app;
+
 import java.util.Objects;
+
+import edu.ccsu.timelapse.builders.GIF;
+import edu.ccsu.timelapse.imagecollections.ImageComponent;
+import edu.ccsu.timelapse.imagecollections.ImageComposite;
 
 /**
  * Timelapse class which represents a Timelapse video.
+ *
  */
 public class Timelapse {
 	
 	/**
 	 * Collection of frames of timelapse.
 	 */
-	//TODO: Use ImageComposite instead of List<Image>
-	private List<Image> frames = new ArrayList<Image>();
+	private ImageComposite frames = new ImageComposite();
 	
 	/**
 	 * Time in between frames for in MS.
@@ -45,16 +49,16 @@ public class Timelapse {
 	 * 
 	 * @param image
 	 */
-	public void addFrame(Image image) {
-		frames.add(image);
+	public void addFrame(ImageComponent image) {
+		frames.addComponent(image);
 	}
 	
 	/**
 	 * Get the list of frames for the timelapse.
 	 * 
-	 * @return List of ImageComposites
+	 * @return ImageComponent which is a composite of frames
 	 */
-	public List<Image> getFrames() {
+	public ImageComposite getFrames() {
 		
 		return this.frames;
 	}
@@ -89,8 +93,9 @@ public class Timelapse {
 	
 	/**
 	 * Get the repeat property on the timelapse.
+	 * 
 	 * @param repeat
-	 * @return
+	 * @return true if repeat is true
 	 */
 	public boolean getRepeat() {
 		
@@ -135,9 +140,27 @@ public class Timelapse {
 		this.height = height;
 	}
 	
+	/**
+	 * Create a GIF from the timelapse.
+	 */
+	public void toGIF() {
+		GIF gif = app("gif");
+		
+		gif
+			.withDelay(this.getTimeBetween())
+			.height(this.getHeight())
+			.width(this.getWidth())
+			.from(this.getFrames())
+			.to("timelapse.gif")
+			.repeat(this.getRepeat())
+			.make();
+	}
+	
 
 	/**
 	 * String representation of a timelapse.
+	 * 
+	 * @return String
 	 */
 	@Override
 	public String toString() {
@@ -162,6 +185,7 @@ public class Timelapse {
 	/**
 	 * Checks if two Timelapse objects are equal
 	 * 
+	 * @param obj to compare
 	 * @return boolean true when properties and frames for both <code>TimeLapse</code> objects are same.
 	 */
 	@Override
@@ -196,8 +220,4 @@ public class Timelapse {
 		
 		return true;
 	}
-
-	
-	
-
 }

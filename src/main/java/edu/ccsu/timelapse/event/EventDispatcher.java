@@ -20,6 +20,7 @@ public final class EventDispatcher {
 	/**
 	 * Contains key, value pair of events and listeners that subscribe to those events.
 	 */
+	@SuppressWarnings("rawtypes")
 	private final HashMap<Class, ArrayList> events = new HashMap<Class, ArrayList>();
 	
 	/**
@@ -61,6 +62,7 @@ public final class EventDispatcher {
 	 * 
 	 * @param event
 	 */
+	@SuppressWarnings("unchecked")
 	public <E> void publish(Event<E> event) {
 		Class<Event<E>> eventClass = (Class<Event<E>>) event.getClass();
 		ArrayList<E> subscribers = this.getListeners(eventClass);
@@ -76,6 +78,7 @@ public final class EventDispatcher {
 	 * @param event
 	 * @return a ArrayList of all subscribed listeners
 	 */
+	@SuppressWarnings("unchecked")
 	public <E> ArrayList<E> getListeners(Class<? extends Event<E>> event) {
 		ArrayList<E> subscribers = events.get(event);
 		
@@ -110,6 +113,7 @@ public final class EventDispatcher {
 	 * 
 	 * @return the hashmap
 	 */
+	@SuppressWarnings("rawtypes")
 	public HashMap<Class, ArrayList> getEvents() {
 		
 		return this.events;

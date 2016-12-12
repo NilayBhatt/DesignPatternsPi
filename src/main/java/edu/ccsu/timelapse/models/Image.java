@@ -8,34 +8,33 @@ package edu.ccsu.timelapse.models;
 import java.util.Objects;
 
 import edu.ccsu.timelapse.components.DateFormatted;
-import edu.ccsu.timelapse.imagecollections.ImageComponent;
 
 /**
  * Image is a model to contain data about images that are taken.
- *
+ * 
  */
-public class Image extends ImageComponent { 
+public class Image{ 
 	
-	private String path;
-	
-	private int temperature;
-	
-	private DateFormatted timestamp;
+	/**
+	 * Instance of Properties of the image.
+	 */
+	private Properties properties;
 
 	/**
 	 * Create a new instance of an image.
 	 * 
-	 * @param name Name of the image
 	 */
-	public Image() { }
+	public Image() {
+		this.properties = new Properties();
+	}
 	
-	
-	@Override
-	public ImageComponent setPath(String path) {
-		
-		this.path = path;
-		
-		return this;
+	/**
+	 * Set the path of the image.
+	 * 
+	 * @param path
+	 */
+	public void setPath(String path) {
+		this.properties.setPath(path);
 	}
 	
 	/**
@@ -43,10 +42,9 @@ public class Image extends ImageComponent {
 	 * 
 	 * @return the path
 	 */
-	@Override
 	public String getPath() {
 		
-		return this.path;
+		return this.properties.getPath();
 	}
 
 	/**
@@ -54,60 +52,68 @@ public class Image extends ImageComponent {
 	 * 
 	 * @param temperature
 	 */
-	@Override
-	public ImageComponent setTemperature(int temperature) {
-		this.temperature = temperature;
-		
-		return this;
+	public void setTemperature(int temperature) {
+		this.properties.setTemperature(temperature);
 	}
 	
 	/**
 	 * Getter for the temperature property.
+	 * 
 	 * @return temperature
 	 */
-	@Override
 	public int getTemperature() {
 		
-		return this.temperature;
+		return this.properties.getTemperature();
 	}
 	
-	@Override
+	/**
+	 * Get the timestamp of the image
+	 * 
+	 * @return DateFormatted timestamp
+	 */
 	public DateFormatted getTimestamp() {
 		
-		return this.timestamp;
+		return this.properties.getTimestamp();
 	}
 
-
-	@Override
-	public ImageComponent setTimestamp(DateFormatted date) {
-		this.timestamp = date;
-		
-		return this;
+	/**
+	 * Set the timestamp of the image.
+	 * 
+	 * @param date
+	 */
+	public void setTimestamp(DateFormatted date) {
+		this.properties.setTimestamp(date);
 	}
 	
 
 	/**
 	 * Returns a string representation of the class.
+	 * 
+	 * @return string
 	 */
 	@Override
 	public String toString() {
 		
-		return "An image with a path of " + this.getPath();
+		return "An image with a path of \"" + this.getPath() + "\", temperature of: " + this.getTemperature() +
+				"and created at: " + this.getTimestamp();
 	}
 	
 	/**
 	 * Returns a hash code of the instance of the class.
+	 * 
+	 * @return int hashCode
 	 */
 	@Override
 	public int hashCode() {
 		
-		return Objects.hashCode(this.getPath());
+		return Objects.hash(this.getPath(), this.getTimestamp(), this.getTemperature());
 	}
 	
 	/**
 	 * Returns true if the Image names match.
 	 * 
 	 * @param image The image to be compared to this instance of Image.
+	 * @return true if equal
 	 */
 	@Override
 	public boolean equals(Object image) {
@@ -126,12 +132,80 @@ public class Image extends ImageComponent {
 		
 		return true;
 	}
-
-
-	@Override
-	public void processComponent() {
-		// TODO Auto-generated method stub
-		
-	}
 	
+	/**
+	 * Properties class for containing Image properties.
+	 *
+	 */
+	private class Properties {
+		
+		/**
+		 * Path of image.
+		 */
+		private String path;
+		
+		/**
+		 * Temperature of image taken.
+		 */
+		private int temperature;
+		
+		/**
+		 * Timestamp of the image.
+		 */
+		private DateFormatted timestamp;
+
+		/**
+		 * Get the path of the image.
+		 * 
+		 * @return path
+		 */
+		public String getPath() {
+			return this.path;
+		}
+
+		/**
+		 * Set the path of the image.
+		 * 
+		 * @param path
+		 */
+		public void setPath(String path) {
+			this.path = path;
+		}
+
+		/**
+		 * Get the temperature of the image.
+		 * 
+		 * @return temperature 
+		 */
+		public int getTemperature() {
+			return this.temperature;
+		}
+
+		/**
+		 * Set the temperature of the image.
+		 * 
+		 * @param temperature
+		 */
+		public void setTemperature(int temperature) {
+			this.temperature = temperature;
+		}
+
+		/**
+		 * Get the created at timestamp.
+		 * 
+		 * @return DateFormatted
+		 */
+		public DateFormatted getTimestamp() {
+			return this.timestamp;
+		}
+
+		/**
+		 * Set the timestamp of the image.
+		 * 
+		 * @param timestamp
+		 */
+		public void setTimestamp(DateFormatted timestamp) {
+			this.timestamp = timestamp;
+		}
+	}
 }

@@ -1,19 +1,14 @@
  package edu.ccsu.timelapse.components;
 
-import static org.junit.Assert.*;
-
-import java.io.File;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-
 import org.junit.Test;
 
-import edu.ccsu.timelapse.components.PiCamera;
-import edu.ccsu.timelapse.exceptions.CannotTakePictureException;
-import edu.ccsu.timelapse.exceptions.WrongOSException;
-import edu.ccsu.timelapse.models.Image;
+import java.io.File;
+import java.nio.file.Paths;
 
-public class CameraTest {
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
+
+public class PiCameraTest {
 
 	@Test
 	public void testTakePicture() {

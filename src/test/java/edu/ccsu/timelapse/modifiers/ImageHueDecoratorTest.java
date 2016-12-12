@@ -5,23 +5,21 @@
  */
 package edu.ccsu.timelapse.modifiers;
 
-import edu.ccsu.timelapse.models.Image;
 import org.junit.Test;
 
-import static org.junit.Assert.assertTrue;
+import edu.ccsu.timelapse.imagecollections.ImageComponent;
+import edu.ccsu.timelapse.imagecollections.ImageComposite;
+import org.junit.Assert;
 
-/**
- * Created by Nilay on 11/22/2016.
- */
 public class ImageHueDecoratorTest {
 	
-//    @Test
-//    public void process() throws Exception {
-//        Image testImage = new Image("testImage.jpg");
-//        ImageHueDecorator imageHueDecorator = new ImageHueDecorator(100);
-//        imageHueDecorator.process(testImage);
-//
-//        assertTrue(testImage.getHue() == 100);
-//    }
-
+	@Test
+	public void eequals() {
+		ImageComponent decorator = new ImageComposite();
+		
+		ImageHueDecorator hueDecorator1 = new ImageHueDecorator(decorator);
+		ImageHueDecorator hueDecorator2 = new ImageHueDecorator(decorator);
+		
+		Assert.assertTrue(hueDecorator1.equals(hueDecorator2));
+	}
 }
